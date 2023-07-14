@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html, 
+body, 
+button, 
+input, 
+div, 
+p, 
+span, 
+a {
+  font-family: "Montserrat", sans-serif;
+} */
+
+html {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.15;
+  word-wrap: break-word;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  border: none;
+}
+
+ul {
+  list-style: none;
+} */
+
+/* h1 {
+  font-size: 70px;
+  line-height: 70px;
+  margin: 3px 0 7px;
+  white-space: nowrap;
+} */

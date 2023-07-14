@@ -3,5 +3,7 @@ import TheField from '../components/TheField.vue'
 </script>
 
 <template>
-<TheField />
+<main>
+    <TheField />
+</main>
 </template>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, type ComputedRef, type Ref } from 'vue';
+import BaseMine from './BaseMine.vue';
+import BaseNumber from './BaseNumber.vue';
 
 const cellsCountInHeight: number = 10;
 const cellsCountInWidth: number = 10;
@@ -15,6 +17,7 @@ interface Cell {
   isMine: boolean,
   isOpen: boolean,
   numberOfMinesNearby: null | number,
+  isMineExploded: boolean,
 };
 
 const cellsList:Ref<Cell[]> = ref([]);
@@ -26,6 +29,7 @@ const mineTheFieldWithMines = (): void => {
       isMine: Math.random() < minesCount.value / cellsCount.value,
       isOpen: false,
       numberOfMinesNearby: null,
+      isMineExploded: false,
     };
 
     cellsList.value.push(cell);
@@ -89,18 +93,28 @@ constPlaceCluesOnTheField();
 
 <template>
 <div class="field">
-  <div class="cell" v-for="cell of cellsList" :key="cell.id">{{ cell.isMine ? 'Мина' : cell.numberOfMinesNearby }}</div>
+  <div class="cell" v-for="cell of cellsList" :key="cell.id">
+    <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded"></BaseMine>
+    <BaseNumber v-else :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
+  </div>
 </div>
 </template>
 
 <style scoped>
 .field {
-  width: 100%;
+  height: min(80vh, 80vw);
+  width: min(80vh, 80vw);
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(10, 1fr);
+  border: 0.5px solid #000000;
 }
 
 .cell {
   text-align: center;
+  border: 0.5px solid #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
