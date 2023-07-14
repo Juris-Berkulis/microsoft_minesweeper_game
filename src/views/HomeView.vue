@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TheField from '../components/TheField.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+<TheField />
 </template>
