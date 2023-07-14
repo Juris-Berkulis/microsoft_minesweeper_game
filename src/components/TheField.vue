@@ -111,6 +111,7 @@ constPlaceCluesOnTheField();
 }
 
 .cell {
+  aspect-ratio: 1;
   text-align: center;
   border: 0.5px solid #000000;
   display: flex;
