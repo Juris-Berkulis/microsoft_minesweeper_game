@@ -2,6 +2,7 @@
 import { computed, ref, type ComputedRef, type Ref } from 'vue';
 import BaseMine from './BaseMine.vue';
 import BaseNumber from './BaseNumber.vue';
+import BaseFlag from './BaseFlag.vue';
 
 const cellsCountInHeight: number = 10;
 const cellsCountInWidth: number = 10;
@@ -10,7 +11,7 @@ const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth
 });
 
-const minesCount: Ref<number> = ref(50);
+const minesCount: Ref<number> = ref(25);
 
 interface Cell {
   id: number,
@@ -18,6 +19,7 @@ interface Cell {
   isOpen: boolean,
   numberOfMinesNearby: null | number,
   isMineExploded: boolean,
+  isFlag: boolean,
 };
 
 const cellsList:Ref<Cell[]> = ref([]);
@@ -30,6 +32,7 @@ const mineTheFieldWithMines = (): void => {
       isOpen: false,
       numberOfMinesNearby: null,
       isMineExploded: false,
+      isFlag: false,
     };
 
     cellsList.value.push(cell);
@@ -83,19 +86,38 @@ const constPlaceCluesOnTheField = (): void => {
   for (let index = 0; index < cellsList.value.length; index++) {
     if (!cellsList.value[index].isMine) {
       cellsList.value[index].numberOfMinesNearby = getNumberOfMinesNearby(index);
+      if (cellsList.value[index].numberOfMinesNearby === 0) {
+        cellsList.value[index].isOpen = true;
+      }
     }
   }
 };
 
 mineTheFieldWithMines();
 constPlaceCluesOnTheField();
+
+const openCell = (event: MouseEvent, cellIndex: number): void => {
+  const clickedCell: Cell = cellsList.value[cellIndex];
+
+  if (event.altKey || event.ctrlKey) {
+    if (!clickedCell.isOpen) {
+      clickedCell.isFlag = !clickedCell.isFlag;
+    }
+  } else {
+    clickedCell.isFlag = false;
+    clickedCell.isOpen = true;
+  }
+};
 </script>
 
 <template>
 <div class="field">
-  <div class="cell" v-for="cell of cellsList" :key="cell.id">
-    <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded"></BaseMine>
-    <BaseNumber v-else :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
+  <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)">
+    <div class="cellIcon" v-if="cell.isOpen">
+      <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded"></BaseMine>
+      <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
+    </div>
+    <BaseFlag v-if="cell.isFlag"></BaseFlag>
   </div>
 </div>
 </template>
@@ -111,11 +133,19 @@ constPlaceCluesOnTheField();
 }
 
 .cell {
+  position: relative;
   aspect-ratio: 1;
-  text-align: center;
   border: 0.5px solid #000000;
+  background-color: #cccccc;
+}
+
+.cellIcon {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  background-color: #eeeeee;
 }
 </style>
