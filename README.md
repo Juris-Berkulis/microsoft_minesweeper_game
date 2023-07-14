@@ -1,46 +1,31 @@
-# .
+# Minesweeper
 
-This template should help get you started developing with Vue 3 in Vite.
+- [DESCRIPTION](#description)
+<!-- - [USAGE](#usage) -->
+- [APP FUNCTIONALITY](#app-functionality)
+- [PERMISSIONS](#permissions)
+- [FREE SERVICE](#free-service)
 
-## Recommended IDE Setup
+## DESCRIPTION:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+**Minesweeper** is a good old game like the pre-installed game of the same name on Windows operating systems. In the game Minesweeper, with the help of suggestive hints, you need to neutralize all the mines on the field and not blow yourself up on them. Hints are numbers indicating how many mines are located around a given cell. To make it easier to remember the places with mines you suspect, these places can be marked with a flag.
 
-## Type Support for `.vue` Imports in TS
+<!-- ## USAGE:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+To use the Minesweeper game, simply go to any of the URLs:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- **[Minesweeper](https://weatemp.minesweeper.app/)** on netlify;
+- **[Minesweeper](https://weatemp.minesweeper.app/)** on vercel;
+- **[Minesweeper](https://weatemp.minesweeper.sh/)** on surge.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Clicking on one of the URLs-above will open the web-version of the Minesweeper game, and if your browser supports game installation, you will be prompted to install the Minesweeper game on your device. Also, you can install the game at any time using the button or continue using it by the site. Game size: **<1 MB**. -->
 
-## Customize configuration
+## APP FUNCTIONALITY:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- opening cells;
+- setting and unflagging cells suspected of containing a mine (press ALT + Left mouse button, or CTRL + Left mouse button);
+- hints in the form of numbers indicating the number of mines near this cell (from 0 to 8).
 
-## Project Setup
+## FREE SERVICE:
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+The Minesweeper game is **completely free**, without paid features, without paid subscriptions, and without annoying ads.
