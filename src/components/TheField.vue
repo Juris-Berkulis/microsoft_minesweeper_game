@@ -29,7 +29,7 @@ interface Cell {
   isFlag: boolean,
 };
 
-const cellsList:Ref<Cell[]> = ref([]);
+const cellsList: Ref<Cell[]> = ref([]);
 
 const mineTheFieldWithMines = (): void => {
   for (let i = 0; i < cellsCount.value; i++) {
@@ -70,7 +70,7 @@ const isColumnsAndRowsNearby = (indexCell: number): IsColumnsAndRowsNearby => {
     isColumnRirgt,
     isColumnLeft,
   }
-}
+};
 
 const getNumberOfMinesNearby = (indexCell: number): number => {
   let countMine: number = 0;

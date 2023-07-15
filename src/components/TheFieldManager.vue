@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue';
 
-const isShow: Ref<boolean> = ref(false)
+const isShow: Ref<boolean> = ref(false);
 
 const toggleOptions = (): void => {
     isShow.value = !isShow.value

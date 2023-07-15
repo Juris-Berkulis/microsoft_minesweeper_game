@@ -19,7 +19,7 @@ interface NumberColor {
     8: string,
 };
 
-const numberColor:NumberColor = {
+const numberColor: NumberColor = {
     0: '#cccccc',
     1: '#000099',
     2: '#009900',
@@ -29,7 +29,7 @@ const numberColor:NumberColor = {
     6: '#000055',
     7: '#009999',
     8: '#990099',
-}
+};
 </script>
 
 <template>
