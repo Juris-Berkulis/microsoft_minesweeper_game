@@ -13,8 +13,11 @@ const newGame = ():void => {
 </script>
 
 <template>
-<main>
+<div class="fieldWrapper">
     <TheField ref="theFieldRef" />
     <TheFieldManager @newGame="newGame" />
-</main>
+</div>
 </template>
+
+<style scoped>
+</style>
