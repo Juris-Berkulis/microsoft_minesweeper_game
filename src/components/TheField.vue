@@ -209,13 +209,19 @@ defineExpose({
   startGame,
 });
 
+const toggleFlag = (clickedCell: Cell): void => {
+  if (!clickedCell.isOpen && gameResult.value === 'indefined') {
+    clickedCell.isFlag = !clickedCell.isFlag;
+  }
+};
+
 const openCell = (event: MouseEvent, cellIndex: number): void => {
   if (gameResult.value === 'indefined') {
     const clickedCell: Cell = cellsList.value[cellIndex];
 
     if (!clickedCell.isOpen) {
       if (event.altKey || event.ctrlKey) {
-        clickedCell.isFlag = !clickedCell.isFlag;
+        toggleFlag(clickedCell);
       } else {
         clickedCell.isFlag = false;
         clickedCell.isOpen = true;
@@ -239,7 +245,7 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
 
 <template>
 <div class="field">
-  <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)">
+  <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="">
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
