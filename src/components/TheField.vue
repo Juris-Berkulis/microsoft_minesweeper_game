@@ -5,6 +5,8 @@ import BaseNumber from './BaseNumber.vue';
 import BaseFlag from './BaseFlag.vue';
 import type { GameResult } from '../types/index';
 
+const pressTouchScreenId: Ref<number> = ref(0);
+
 const cellsCountInHeight: number = 10;
 const cellsCountInWidth: number = 10;
 
@@ -241,11 +243,21 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
     }
   }
 };
+
+const resetTimerForPressTouchScreen = (): void => {
+  clearTimeout(pressTouchScreenId.value);
+};
+
+const toggleFlagByTouchScreen = (clickedCell: Cell) => {
+  pressTouchScreenId.value = setTimeout(() => {
+    toggleFlag(clickedCell);
+  }, 1000);
+}
 </script>
 
 <template>
 <div class="field">
-  <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="">
+  <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen">
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
