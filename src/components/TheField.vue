@@ -51,7 +51,14 @@ const mineTheFieldWithMines = (): void => {
   }
 };
 
-const isColumnsAndRowsNearby = (indexCell: number) => {
+interface IsColumnsAndRowsNearby {
+  isRowOver: boolean,
+  isRowUnder: boolean,
+  isColumnRirgt: boolean,
+  isColumnLeft: boolean,
+};
+
+const isColumnsAndRowsNearby = (indexCell: number): IsColumnsAndRowsNearby => {
   const isRowOver: boolean = indexCell >= cellsCountInWidth; //* - Есть строка выше.
   const isRowUnder: boolean = indexCell < cellsCount.value - cellsCountInWidth; //* - Есть строка снизу.
   const isColumnRirgt: boolean = (indexCell + 1) % cellsCountInWidth !== 0; //* - Есть столбец справа.
@@ -73,7 +80,7 @@ const getNumberOfMinesNearby = (indexCell: number): number => {
     isRowUnder,
     isColumnRirgt,
     isColumnLeft,
-  } = isColumnsAndRowsNearby(indexCell);
+  }: IsColumnsAndRowsNearby = isColumnsAndRowsNearby(indexCell);
 
   if (isRowOver && cellsList.value[indexCell - cellsCountInWidth].isMine) { //* - Есть мина наверху.
     countMine++;
@@ -116,7 +123,7 @@ const openCellsNearZero = (indexCell: number): void => {
     isRowUnder,
     isColumnRirgt,
     isColumnLeft,
-  } = isColumnsAndRowsNearby(indexCell);
+  }: IsColumnsAndRowsNearby = isColumnsAndRowsNearby(indexCell);
 
   if (isRowOver && !cellsList.value[indexCell - cellsCountInWidth].isOpen) { //* - Открыть наверху.
     cellsList.value[indexCell - cellsCountInWidth].isClicked = true;
@@ -173,8 +180,8 @@ const placeCluesOnTheField = (): void => {
       cellsList.value[index].numberOfMinesNearby = getNumberOfMinesNearby(index);
       if (cellsList.value[index].numberOfMinesNearby === 0) {
         if (!cellsList.value[index].isOpen) {
-          cellsList.value[index].isOpen = true;
           cellsList.value[index].isClicked = true;
+          cellsList.value[index].isOpen = true;
           correctMovesCount.value++;
         }
         openCellsNearZero(index);
