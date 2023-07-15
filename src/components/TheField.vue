@@ -244,7 +244,7 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
     </div>
-    <BaseFlag v-if="cell.isFlag"></BaseFlag>
+    <BaseFlag v-if="cell.isFlag" :isWrongChoice="gameResult === 'lost' && cell.isFlag && !cell.isMine"></BaseFlag>
   </div>
 </div>
 </template>
