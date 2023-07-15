@@ -3,14 +3,15 @@ import { ref, type Ref } from 'vue';
 
 const isShow: Ref<boolean> = ref(false)
 
+const toggleOptions = (): void => {
+    isShow.value = !isShow.value
+};
+
 const emit = defineEmits();
 
 const newGame = ():void => {
     emit('newGame');
-};
-
-const toggleOptions = (): void => {
-    isShow.value = !isShow.value
+    toggleOptions();
 };
 </script>
 
