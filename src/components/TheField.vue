@@ -107,12 +107,24 @@ const placeCluesOnTheField = (): void => {
   }
 };
 
+const restartGame = ():void => {
+  minesCountReal.value = 0;
+  correctMovesCount.value = 0;
+  gameResult.value = 'indefined';
+  cellsList.value = [];
+};
+
 const startGame = ():void => {
+  restartGame();
   mineTheFieldWithMines();
   placeCluesOnTheField();
 };
 
 startGame();
+
+defineExpose({
+  startGame,
+});
 
 const openCell = (event: MouseEvent, cellIndex: number): void => {
   if (gameResult.value === 'indefined') {
