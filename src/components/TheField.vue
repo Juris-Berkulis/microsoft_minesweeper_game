@@ -94,7 +94,7 @@ const getNumberOfMinesNearby = (indexCell: number): number => {
   return countMine
 };
 
-const constPlaceCluesOnTheField = (): void => {
+const placeCluesOnTheField = (): void => {
   for (let index = 0; index < cellsList.value.length; index++) {
     if (!cellsList.value[index].isMine) {
       cellsList.value[index].numberOfMinesNearby = getNumberOfMinesNearby(index);
@@ -107,8 +107,12 @@ const constPlaceCluesOnTheField = (): void => {
   }
 };
 
-mineTheFieldWithMines();
-constPlaceCluesOnTheField();
+const startGame = ():void => {
+  mineTheFieldWithMines();
+  placeCluesOnTheField();
+};
+
+startGame();
 
 const openCell = (event: MouseEvent, cellIndex: number): void => {
   if (gameResult.value === 'indefined') {
