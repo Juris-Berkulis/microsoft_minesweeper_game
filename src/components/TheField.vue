@@ -51,13 +51,29 @@ const mineTheFieldWithMines = (): void => {
   }
 };
 
-const getNumberOfMinesNearby = (indexCell: number): number => {
-  let countMine: number = 0;
-
+const isColumnsAndRowsNearby = (indexCell: number) => {
   const isRowOver: boolean = indexCell >= cellsCountInWidth; //* - Есть строка выше.
   const isRowUnder: boolean = indexCell < cellsCount.value - cellsCountInWidth; //* - Есть строка снизу.
   const isColumnRirgt: boolean = (indexCell + 1) % cellsCountInWidth !== 0; //* - Есть столбец справа.
   const isColumnLeft: boolean = indexCell % cellsCountInWidth !== 0; //* - Есть столбец слева.
+
+  return {
+    isRowOver,
+    isRowUnder,
+    isColumnRirgt,
+    isColumnLeft,
+  }
+}
+
+const getNumberOfMinesNearby = (indexCell: number): number => {
+  let countMine: number = 0;
+
+  const {
+    isRowOver,
+    isRowUnder,
+    isColumnRirgt,
+    isColumnLeft,
+  } = isColumnsAndRowsNearby(indexCell);
 
   if (isRowOver && cellsList.value[indexCell - cellsCountInWidth].isMine) { //* - Есть мина наверху.
     countMine++;
@@ -75,7 +91,7 @@ const getNumberOfMinesNearby = (indexCell: number): number => {
     countMine++;
   }
 
-  if (isRowUnder && isColumnRirgt && cellsList.value[indexCell + cellsCountInWidth + 1]?.isMine) { //* - Есть мина в правом-нижнем углу.
+  if (isRowUnder && isColumnRirgt && cellsList.value[indexCell + cellsCountInWidth + 1].isMine) { //* - Есть мина в правом-нижнем углу.
     countMine++;
   }
 
@@ -94,14 +110,74 @@ const getNumberOfMinesNearby = (indexCell: number): number => {
   return countMine
 };
 
+const openCellsNearZero = (indexCell: number): void => {
+  const {
+    isRowOver,
+    isRowUnder,
+    isColumnRirgt,
+    isColumnLeft,
+  } = isColumnsAndRowsNearby(indexCell);
+
+  if (isRowOver && !cellsList.value[indexCell - cellsCountInWidth].isOpen) { //* - Открыть наверху.
+    cellsList.value[indexCell - cellsCountInWidth].isClicked = true;
+    cellsList.value[indexCell - cellsCountInWidth].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isRowOver && isColumnRirgt && !cellsList.value[indexCell - cellsCountInWidth + 1].isOpen) { //* - Открыть в правом-верхнем углу.
+    cellsList.value[indexCell - cellsCountInWidth + 1].isClicked = true;
+    cellsList.value[indexCell - cellsCountInWidth + 1].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isRowOver && isColumnLeft && !cellsList.value[indexCell - cellsCountInWidth - 1].isOpen) { //* - Открыть в левом-верхнем углу.
+    cellsList.value[indexCell - cellsCountInWidth - 1].isClicked = true;
+    cellsList.value[indexCell - cellsCountInWidth - 1].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isRowUnder && !cellsList.value[indexCell + cellsCountInWidth].isOpen) { //* - Открыть внизу.
+    cellsList.value[indexCell + cellsCountInWidth].isClicked = true;
+    cellsList.value[indexCell + cellsCountInWidth].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isRowUnder && isColumnRirgt && !cellsList.value[indexCell + cellsCountInWidth + 1].isOpen) { //* - Открыть в правом-нижнем углу.
+    cellsList.value[indexCell + cellsCountInWidth + 1].isClicked = true;
+    cellsList.value[indexCell + cellsCountInWidth + 1].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isRowUnder && isColumnLeft && !cellsList.value[indexCell + cellsCountInWidth - 1].isOpen) { //* - Открыть в левом-нижнем углу.
+    cellsList.value[indexCell + cellsCountInWidth - 1].isClicked = true;
+    cellsList.value[indexCell + cellsCountInWidth - 1].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isColumnRirgt && !cellsList.value[indexCell + 1].isOpen) { //* - Открыть справа.
+    cellsList.value[indexCell + 1].isClicked = true;
+    cellsList.value[indexCell + 1].isOpen = true;
+    correctMovesCount.value++;
+  }
+
+  if (isColumnLeft && !cellsList.value[indexCell - 1].isOpen) { //* - Открыть слева.
+    cellsList.value[indexCell - 1].isClicked = true;
+    cellsList.value[indexCell - 1].isOpen = true;
+    correctMovesCount.value++;
+  }
+};
+
 const placeCluesOnTheField = (): void => {
   for (let index = 0; index < cellsList.value.length; index++) {
     if (!cellsList.value[index].isMine) {
       cellsList.value[index].numberOfMinesNearby = getNumberOfMinesNearby(index);
       if (cellsList.value[index].numberOfMinesNearby === 0) {
-        cellsList.value[index].isOpen = true;
-        cellsList.value[index].isClicked = true;
-        correctMovesCount.value++;
+        if (!cellsList.value[index].isOpen) {
+          cellsList.value[index].isOpen = true;
+          cellsList.value[index].isClicked = true;
+          correctMovesCount.value++;
+        }
+        openCellsNearZero(index);
       }
     }
   }
