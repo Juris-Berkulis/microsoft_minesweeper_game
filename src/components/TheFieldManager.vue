@@ -19,7 +19,12 @@ const toggleOptions = (): void => {
     <div class="lever">
         <button class="leverBtn" @click="toggleOptions">Опции</button>
     </div>
-    <button class="button" @click="newGame">Новая игра</button>
+    <div class="optionsWrapper">
+        <h1 class="title">Minesweeper</h1>
+        <div class="options">
+            <button class="button" @click="newGame">Новая игра</button>
+        </div>
+    </div>
 </div>
 </template>
 
@@ -80,6 +85,30 @@ const toggleOptions = (): void => {
         border-top-right-radius: 5px;
         font-size: 0.5rem;
     }
+}
+
+.optionsWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000000;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
