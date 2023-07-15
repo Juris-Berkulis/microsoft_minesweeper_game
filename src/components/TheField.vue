@@ -11,7 +11,14 @@ const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth
 });
 
-const minesCount: Ref<number> = ref(25);
+const minesCountExpected: Ref<number> = ref(25);
+const minesCountReal: Ref<number> = ref(0);
+
+const correctMovesCount: Ref<number> = ref(0);
+
+type GameResult = 'indefined' | 'won' | 'lost';
+
+const gameResult: Ref<GameResult> = ref('indefined');
 
 interface Cell {
   id: number,
@@ -28,12 +35,16 @@ const mineTheFieldWithMines = (): void => {
   for (let i = 0; i < cellsCount.value; i++) {
     const cell: Cell = {
       id: i,
-      isMine: Math.random() < minesCount.value / cellsCount.value,
+      isMine: Math.random() < minesCountExpected.value / cellsCount.value,
       isOpen: false,
       numberOfMinesNearby: null,
       isMineExploded: false,
       isFlag: false,
     };
+
+    if (cell.isMine) {
+      minesCountReal.value++;
+    }
 
     cellsList.value.push(cell);
   }
@@ -97,15 +108,28 @@ mineTheFieldWithMines();
 constPlaceCluesOnTheField();
 
 const openCell = (event: MouseEvent, cellIndex: number): void => {
-  const clickedCell: Cell = cellsList.value[cellIndex];
+  if (gameResult.value === 'indefined') {
+    const clickedCell: Cell = cellsList.value[cellIndex];
 
-  if (event.altKey || event.ctrlKey) {
-    if (!clickedCell.isOpen) {
-      clickedCell.isFlag = !clickedCell.isFlag;
+    if (event.altKey || event.ctrlKey) {
+      if (!clickedCell.isOpen) {
+        clickedCell.isFlag = !clickedCell.isFlag;
+      }
+    } else {
+      clickedCell.isFlag = false;
+      clickedCell.isOpen = true;
+
+      if (!clickedCell.isMine) {
+        correctMovesCount.value++;
+
+        if (correctMovesCount.value === minesCountReal.value) {
+          gameResult.value = 'won';
+        }
+      } else {
+        gameResult.value = 'lost';
+        clickedCell.isMineExploded = true;
+      }
     }
-  } else {
-    clickedCell.isFlag = false;
-    clickedCell.isOpen = true;
   }
 };
 </script>

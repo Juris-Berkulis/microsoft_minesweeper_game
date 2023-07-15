@@ -1,10 +1,12 @@
 # Minesweeper
 
+**NOTE:** The Minesweeper game is under development.
+
 - [DESCRIPTION](#description)
-<!-- - [USAGE](#usage) -->
 - [APP FUNCTIONALITY](#app-functionality)
 - [PERMISSIONS](#permissions)
 - [FREE SERVICE](#free-service)
+<!-- - [USAGE](#usage) -->
 
 ## DESCRIPTION:
 
