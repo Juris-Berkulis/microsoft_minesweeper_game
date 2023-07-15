@@ -3,6 +3,7 @@ import { computed, ref, type ComputedRef, type Ref } from 'vue';
 import BaseMine from './BaseMine.vue';
 import BaseNumber from './BaseNumber.vue';
 import BaseFlag from './BaseFlag.vue';
+import type { GameResult } from '../types/index';
 
 const cellsCountInHeight: number = 10;
 const cellsCountInWidth: number = 10;
@@ -16,14 +17,13 @@ const minesCountReal: Ref<number> = ref(0);
 
 const correctMovesCount: Ref<number> = ref(0);
 
-type GameResult = 'indefined' | 'won' | 'lost';
-
 const gameResult: Ref<GameResult> = ref('indefined');
 
 interface Cell {
   id: number,
   isMine: boolean,
   isOpen: boolean,
+  isClicked: boolean,
   numberOfMinesNearby: null | number,
   isMineExploded: boolean,
   isFlag: boolean,
@@ -37,6 +37,7 @@ const mineTheFieldWithMines = (): void => {
       id: i,
       isMine: Math.random() < minesCountExpected.value / cellsCount.value,
       isOpen: false,
+      isClicked: false,
       numberOfMinesNearby: null,
       isMineExploded: false,
       isFlag: false,
@@ -99,6 +100,8 @@ const constPlaceCluesOnTheField = (): void => {
       cellsList.value[index].numberOfMinesNearby = getNumberOfMinesNearby(index);
       if (cellsList.value[index].numberOfMinesNearby === 0) {
         cellsList.value[index].isOpen = true;
+        cellsList.value[index].isClicked = true;
+        correctMovesCount.value++;
       }
     }
   }
@@ -111,23 +114,24 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
   if (gameResult.value === 'indefined') {
     const clickedCell: Cell = cellsList.value[cellIndex];
 
-    if (event.altKey || event.ctrlKey) {
-      if (!clickedCell.isOpen) {
+    if (!clickedCell.isOpen) {
+      if (event.altKey || event.ctrlKey) {
         clickedCell.isFlag = !clickedCell.isFlag;
-      }
-    } else {
-      clickedCell.isFlag = false;
-      clickedCell.isOpen = true;
-
-      if (!clickedCell.isMine) {
-        correctMovesCount.value++;
-
-        if (correctMovesCount.value === minesCountReal.value) {
-          gameResult.value = 'won';
-        }
       } else {
-        gameResult.value = 'lost';
-        clickedCell.isMineExploded = true;
+        clickedCell.isFlag = false;
+        clickedCell.isOpen = true;
+        clickedCell.isClicked = true;
+
+        if (!clickedCell.isMine) {
+          correctMovesCount.value++;
+
+          if (cellsCount.value - correctMovesCount.value === minesCountReal.value) {
+            gameResult.value = 'won';
+          }
+        } else {
+          clickedCell.isMineExploded = true;
+          gameResult.value = 'lost';
+        }
       }
     }
   }
@@ -137,8 +141,8 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
 <template>
 <div class="field">
   <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)">
-    <div class="cellIcon" v-if="cell.isOpen">
-      <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded"></BaseMine>
+    <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
+      <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
     </div>
     <BaseFlag v-if="cell.isFlag"></BaseFlag>
@@ -170,6 +174,10 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: transparent;
+}
+
+.cellIcon.cellIcon_clicked {
   background-color: #eeeeee;
 }
 </style>

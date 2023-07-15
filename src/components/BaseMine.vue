@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import type { GameResult } from '../types/index';
+
 interface Props {
     isMineExploded: boolean,
+    gameResult: GameResult,
 };
 
 defineProps<Props>();
 </script>
 
 <template>
-    <div class="mine" :class="[isMineExploded ? 'mine_exploded' : 'mine_notExploded']">
+    <div class="mine" :class="[isMineExploded ? 'mine_exploded' : 'mine_notExploded', gameResult === 'won' ? 'mine_won' : '']">
         <div class="mineCircle"></div>
         <div class="mineLever mineLever_1"></div>
         <div class="mineLever mineLever_2"></div>
@@ -31,6 +34,10 @@ defineProps<Props>();
 
 .mine_exploded {
     color: #ff0000;
+}
+
+.mine_notExploded.mine_won {
+    color: #00dd00;
 }
 
 .mineCircle {
