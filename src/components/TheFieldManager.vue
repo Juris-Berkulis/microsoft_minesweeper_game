@@ -23,6 +23,7 @@ const newGame = ():void => {
     <div class="optionsWrapper">
         <h1 class="title">Minesweeper</h1>
         <div class="options">
+            <RouterLink class="button" to="/settings">Настройки</RouterLink>
             <button class="button" @click="newGame">Новая игра</button>
         </div>
     </div>
@@ -113,6 +114,7 @@ const newGame = ():void => {
 }
 
 .button {
+    margin: 0 5px;
     padding: 8px 15px;
     border-radius: 15px;
     background-color: #449944;
@@ -131,5 +133,13 @@ const newGame = ():void => {
 
 .button:hover {
     background-color: #227722;
+}
+
+.button:first-child {
+    margin-left: 0;
+}
+
+.button:last-child {
+    margin-right: 0;
 }
 </style>
