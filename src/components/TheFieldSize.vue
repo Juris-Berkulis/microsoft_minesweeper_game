@@ -13,18 +13,17 @@ type InputTypes = 'height' | 'width' | 'minePercent';
 
 interface ValidResult {
     isValid: boolean, 
-    value: number | null,
+    value?: number,
 };
 
 const validateInputValue = (inputValue: string, inputType: InputTypes): ValidResult => {
     const result: ValidResult = {
         isValid: false,
-        value: null,
     };
 
-    const inputValueNumber: number | string = +inputValue.trim();
+    const inputValueNumber: number = +inputValue.trim(); //* - inputValueNumber или число:number, или NaN:number.
 
-    if (inputValueNumber && typeof inputValueNumber === 'number') {
+    if (inputValueNumber) {
         result.value = inputValueNumber;
 
         switch (inputType) {
@@ -77,15 +76,15 @@ const saveSettings = (): void => {
 <form action="" @submit.prevent="saveSettings">
     <div class="inputWrapper">
         <label for="cellsCountInWidth">Количество клеток в ширину:</label>
-        <input type="number" :value="cellsCountInWidth" @input="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'width')" name="cellsCountInWidth" min="3" max="100" step="1" required="true">
+        <input type="number" :value="cellsCountInWidth" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'width')" name="cellsCountInWidth" min="3" max="100" step="1" required="true">
     </div>
     <div class="inputWrapper">
         <label for="cellsCountInHeight">Количество клеток в высоту:</label>
-        <input type="number" :value="cellsCountInHeight" @input="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'height')" name="cellsCountInHeight" min="3" max="100" step="1" required="true">
+        <input type="number" :value="cellsCountInHeight" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'height')" name="cellsCountInHeight" min="3" max="100" step="1" required="true">
     </div>
     <div class="inputWrapper">
         <label for="minesCountExpected">Вероятность появления мины в клетке (%):</label>
-        <input type="number" :value="minesCountExpected" @input="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" name="minesCountExpected" min="15" max="85" step="0.1" required="true">
+        <input type="number" :value="minesCountExpected" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" name="minesCountExpected" min="15" max="85" step="0.1" required="true">
     </div>
     <div>
         <button type="submit">Сохранить</button>
