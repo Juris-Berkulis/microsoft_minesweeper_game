@@ -10,8 +10,8 @@ const cellsCountInHeightMin: number = 3;
 const cellsCountInWidthMin: number = 3;
 const minesSpawnPercentageMin: number = 15;
 
-const cellsCountInHeightMax: number = 100;
-const cellsCountInWidthMax: number = 100;
+const cellsCountInHeightMax: number = 30;
+const cellsCountInWidthMax: number = 30;
 const minesSpawnPercentageMax: number = 85;
 
 const cellsCountInHeight: Ref<number> = ref(cellsCountInHeightDefault);
