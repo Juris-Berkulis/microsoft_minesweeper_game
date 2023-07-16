@@ -16,9 +16,11 @@ const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth
 });
 
+const countOfCellsWithZero: Ref<number> = ref(0);
 const minesCountReal: Ref<number> = ref(0);
 
 const correctMovesCount: Ref<number> = ref(0);
+const flagsCount: Ref<number> = ref(0);
 
 const gameResult: Ref<GameResult> = ref('indefined');
 
@@ -188,14 +190,22 @@ const placeCluesOnTheField = (): void => {
           correctMovesCount.value++;
         }
         openCellsNearZero(index);
+
+        countOfCellsWithZero.value++;
+
+        if (countOfCellsWithZero.value === correctMovesCount.value) {
+          gameResult.value = 'won';
+        }
       }
     }
   }
 };
 
-const restartGame = ():void => {
+const restartGame = (): void => {
   minesCountReal.value = 0;
+  countOfCellsWithZero.value = 0;
   correctMovesCount.value = 0;
+  flagsCount.value = 0;
   gameResult.value = 'indefined';
   cellsList.value = [];
 };
@@ -215,6 +225,16 @@ defineExpose({
 const toggleFlag = (clickedCell: Cell): void => {
   if (!clickedCell.isOpen && gameResult.value === 'indefined') {
     clickedCell.isFlag = !clickedCell.isFlag;
+
+    if (clickedCell.isFlag) {
+      flagsCount.value++;
+    } else {
+      flagsCount.value--;
+    }
+
+    if (flagsCount.value === minesCountReal.value && minesCountReal.value + correctMovesCount.value === cellsCount.value) {
+      gameResult.value = 'won';
+    }
   }
 };
 
@@ -242,6 +262,8 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
         }
       }
     }
+  } else {
+    startGame();
   }
 };
 
