@@ -4,17 +4,18 @@ import BaseMine from './BaseMine.vue';
 import BaseNumber from './BaseNumber.vue';
 import BaseFlag from './BaseFlag.vue';
 import type { GameResult } from '../types/index';
+import { type FieldSettings, type Styles } from '../types/index';
 
 const pressTouchScreenId: Ref<number> = ref(0);
 
-const cellsCountInHeight: number = 10;
-const cellsCountInWidth: number = 10;
+const cellsCountInHeight: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInHeight || 10;
+const cellsCountInWidth: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInWidth || 10;
+const minesSpawnPercentage: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).minesCountExpected || 25;
 
 const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth
 });
 
-const minesCountExpected: Ref<number> = ref(25);
 const minesCountReal: Ref<number> = ref(0);
 
 const correctMovesCount: Ref<number> = ref(0);
@@ -37,7 +38,7 @@ const mineTheFieldWithMines = (): void => {
   for (let i = 0; i < cellsCount.value; i++) {
     const cell: Cell = {
       id: i,
-      isMine: Math.random() < minesCountExpected.value / cellsCount.value,
+      isMine: Math.random() < minesSpawnPercentage / 100,
       isOpen: false,
       isClicked: false,
       numberOfMinesNearby: null,
@@ -253,11 +254,20 @@ const toggleFlagByTouchScreen = (clickedCell: Cell) => {
     toggleFlag(clickedCell);
   }, 1000);
 }
+
+const styles: Styles = {
+  field: {
+    'grid-template-columns': `repeat(${cellsCountInWidth}, 1fr)`
+  },
+  cellStyle: {
+    height: `min(calc(80vh / ${cellsCountInHeight}), calc(80vw / ${cellsCountInWidth}))`,
+  }
+};
 </script>
 
 <template>
-<div class="field">
-  <div class="cell" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen">
+<div class="field" :style="styles.field">
+  <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen">
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
@@ -269,11 +279,10 @@ const toggleFlagByTouchScreen = (clickedCell: Cell) => {
 
 <style scoped>
 .field {
-  height: min(80vh, 80vw);
-  width: min(80vh, 80vw);
+  height: fit-content;
+  width: fit-content;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
   border: 0.5px solid #000000;
 }
 
