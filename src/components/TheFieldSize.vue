@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue';
 
-const cellsCountInHeightDefault = 10;
-const cellsCountInWidthDefault = 10;
-const minesCountExpectedDefault = 25;
+const cellsCountInHeightDefault: number = 10;
+const cellsCountInWidthDefault: number = 10;
+const minesCountExpectedDefault: number = 25;
+
+const cellsCountInHeightMin: number = 3;
+const cellsCountInWidthMin: number = 3;
+const minesCountExpectedMin: number = 15;
+
+const cellsCountInHeightMax: number = 100;
+const cellsCountInWidthMax: number = 100;
+const minesCountExpectedMax: number = 85;
 
 const cellsCountInHeight: Ref<number> = ref(cellsCountInHeightDefault);
 const cellsCountInWidth: Ref<number> = ref(cellsCountInWidthDefault);
@@ -27,9 +35,9 @@ const validateInputValue = (inputValue: string, inputType: InputTypes): ValidRes
         result.value = inputValueNumber;
 
         switch (inputType) {
-            case 'height':
-            case 'width': result.isValid = 3 <= inputValueNumber && inputValueNumber <= 100; break;
-            case 'minePercent': result.isValid = 15 <= inputValueNumber && inputValueNumber <= 85; break;
+            case 'height': result.isValid = cellsCountInHeightMin <= inputValueNumber && inputValueNumber <= cellsCountInHeightMax; break;
+            case 'width': result.isValid = cellsCountInWidthMin <= inputValueNumber && inputValueNumber <= cellsCountInWidthMax; break;
+            case 'minePercent': result.isValid = minesCountExpectedMin <= inputValueNumber && inputValueNumber <= minesCountExpectedMax; break;
         }
     }
 
@@ -76,15 +84,15 @@ const saveSettings = (): void => {
 <form action="" @submit.prevent="saveSettings">
     <div class="inputWrapper">
         <label for="cellsCountInWidth">Количество клеток в ширину:</label>
-        <input type="number" :value="cellsCountInWidth" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'width')" name="cellsCountInWidth" min="3" max="100" step="1" required="true">
+        <input type="number" :value="cellsCountInWidth" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'width')" name="cellsCountInWidth" :min="cellsCountInWidthMin" :max="cellsCountInWidthMax" step="1" required="true">
     </div>
     <div class="inputWrapper">
         <label for="cellsCountInHeight">Количество клеток в высоту:</label>
-        <input type="number" :value="cellsCountInHeight" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'height')" name="cellsCountInHeight" min="3" max="100" step="1" required="true">
+        <input type="number" :value="cellsCountInHeight" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'height')" name="cellsCountInHeight" :min="cellsCountInHeightMin" :max="cellsCountInHeightMax" step="1" required="true">
     </div>
     <div class="inputWrapper">
         <label for="minesCountExpected">Вероятность появления мины в клетке (%):</label>
-        <input type="number" :value="minesCountExpected" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" name="minesCountExpected" min="15" max="85" step="0.1" required="true">
+        <input type="number" :value="minesCountExpected" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" name="minesCountExpected" :min="minesCountExpectedMin" :max="minesCountExpectedMax" step="0.1" required="true">
     </div>
     <div>
         <button type="submit">Сохранить</button>
