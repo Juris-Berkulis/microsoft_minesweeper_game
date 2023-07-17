@@ -74,7 +74,7 @@ const newGame = ():void => {
     border: 1px solid #000000;
     background-color: #aaccee;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1;
     color: #000000;
     pointer-events: fill;

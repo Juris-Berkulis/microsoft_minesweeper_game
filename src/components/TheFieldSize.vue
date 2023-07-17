@@ -6,12 +6,12 @@ const cellsCountInHeightDefault: number = (JSON.parse(localStorage.getItem('fiel
 const cellsCountInWidthDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInWidth || 10;
 const minesSpawnPercentageDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).minesCountExpected || 25;
 
-const cellsCountInHeightMin: number = 3;
-const cellsCountInWidthMin: number = 3;
+const cellsCountInHeightMin: number = 5;
+const cellsCountInWidthMin: number = 5;
 const minesSpawnPercentageMin: number = 15;
 
-const cellsCountInHeightMax: number = 30;
-const cellsCountInWidthMax: number = 30;
+const cellsCountInHeightMax: number = 50;
+const cellsCountInWidthMax: number = 50;
 const minesSpawnPercentageMax: number = 85;
 
 const cellsCountInHeight: Ref<number> = ref(cellsCountInHeightDefault);

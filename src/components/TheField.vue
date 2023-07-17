@@ -282,7 +282,7 @@ const styles: Styles = {
     'grid-template-columns': `repeat(${cellsCountInWidth}, 1fr)`
   },
   cellStyle: {
-    height: `min(calc(80vh / ${cellsCountInHeight}), calc(80vw / ${cellsCountInWidth}))`,
+    height: `min(calc(90vh / ${cellsCountInHeight}), calc(90vw / ${cellsCountInWidth}))`,
   }
 };
 </script>
