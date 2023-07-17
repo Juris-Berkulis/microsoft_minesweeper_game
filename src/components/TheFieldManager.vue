@@ -41,7 +41,7 @@ const newGame = ():void => {
     justify-content: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border: 1px solid #000000;
+    border: 3px solid #6688aa;
     border-bottom: none;
     background-color: #aaccee;
     transform: translateY(0);
@@ -71,7 +71,7 @@ const newGame = ():void => {
     padding: 5px 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border: 1px solid #000000;
+    border: 3px solid #6688aa;
     background-color: #aaccee;
     font-size: 1rem;
     font-weight: 700;
@@ -106,15 +106,22 @@ const newGame = ():void => {
     color: #000000;
 }
 
+@media (max-width: 250px) {
+    .title {
+        font-size: 1rem;
+    }
+}
+
 .options {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .button {
-    margin: 0 5px;
     padding: 8px 15px;
     border-radius: 15px;
     background-color: #449944;
@@ -133,13 +140,5 @@ const newGame = ():void => {
 
 .button:hover {
     background-color: #227722;
-}
-
-.button:first-child {
-    margin-left: 0;
-}
-
-.button:last-child {
-    margin-right: 0;
 }
 </style>

@@ -53,17 +53,15 @@ button {
   transition: all 0.2s ease-in-out 0s;
 }
 
-/* img {
-  border: none;
-} */
+input:focus,
+input {
+  outline: none;
+}
 
-/* ul {
+ul {
   list-style: none;
-} */
+}
 
-/* h1 {
-  font-size: 70px;
-  line-height: 70px;
-  margin: 3px 0 7px;
+h1 {
   white-space: nowrap;
-} */
+}
