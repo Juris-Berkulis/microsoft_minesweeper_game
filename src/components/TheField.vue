@@ -8,9 +8,9 @@ import { type FieldSettings, type Styles } from '../types/index';
 
 const pressTouchScreenId: Ref<number> = ref(0);
 
-const cellsCountInHeight: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInHeight || 10;
-const cellsCountInWidth: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInWidth || 10;
-const minesSpawnPercentage: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).minesCountExpected || 25;
+const cellsCountInHeight: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInHeight || 10;
+const cellsCountInWidth: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInWidth || 10;
+const minesSpawnPercentage: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).minesCountExpected || 25;
 
 const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth

@@ -28,3 +28,8 @@ coverage
 *.sw?
 
 info
+
+# Local Netlify folder
+.netlify
+
+.vercel

@@ -2,9 +2,9 @@
 import { ref, type Ref } from 'vue';
 import { type FieldSettings } from '../types/index';
 
-const cellsCountInHeightDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInHeight || 10;
-const cellsCountInWidthDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).cellsCountInWidth || 10;
-const minesSpawnPercentageDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '') as FieldSettings).minesCountExpected || 25;
+const cellsCountInHeightDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInHeight || 10;
+const cellsCountInWidthDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInWidth || 10;
+const minesSpawnPercentageDefault: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).minesCountExpected || 25;
 
 const cellsCountInHeightMin: number = 5;
 const cellsCountInWidthMin: number = 5;
