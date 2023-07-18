@@ -274,7 +274,7 @@ const resetTimerForPressTouchScreen = (): void => {
 const toggleFlagByTouchScreen = (clickedCell: Cell) => {
   pressTouchScreenId.value = setTimeout(() => {
     toggleFlag(clickedCell);
-  }, 500);
+  }, 700);
 };
 
 const styles: Styles = {

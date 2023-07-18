@@ -15,6 +15,5 @@ import { RouterView } from 'vue-router';
   height: 100%;
   width: 100%;
   padding: min(5vh, 5vw) 0;
-  background-color: #cceecc;
 }
 </style>
