@@ -274,8 +274,8 @@ const resetTimerForPressTouchScreen = (): void => {
 const toggleFlagByTouchScreen = (clickedCell: Cell) => {
   pressTouchScreenId.value = setTimeout(() => {
     toggleFlag(clickedCell);
-  }, 1000);
-}
+  }, 500);
+};
 
 const styles: Styles = {
   field: {
@@ -283,7 +283,7 @@ const styles: Styles = {
   },
   cellStyle: {
     height: `min(calc(90vh / ${cellsCountInHeight}), calc(90vw / ${cellsCountInWidth}))`,
-  }
+  },
 };
 </script>
 

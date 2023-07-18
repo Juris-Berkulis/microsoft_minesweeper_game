@@ -25,7 +25,7 @@ To use the Minesweeper game, simply go to any of the URLs:
 ## APP FUNCTIONALITY:
 
 - opening cells (Press Left mouse button);
-- set and remove the flag in cells suspected of containing a mine (Press Right mouse button, ALT + Left mouse button or CTRL + Left mouse button. Touch and hold on the screen for one second for mobile devices);
+- set and remove the flag in cells suspected of containing a mine (Press Right mouse button, ALT + Left mouse button or CTRL + Left mouse button. Touch and hold the screen for half a second for mobile devices);
 - hints in the form of numbers indicating the number of mines near this cell (from 0 to 8).
 
 ## FREE SERVICE:
