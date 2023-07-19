@@ -12,8 +12,7 @@ import {
 } from './VCPlaginHtml';
 
 //* Если переменная среды ровна 'development', то мы находимся в режиме разработки, а иначе - в режиме продакшн:
-const isDev: boolean = process.env.NODE_ENV === 'development';
-const isProd: boolean = !isDev;
+const isProd: boolean = process.env.NODE_ENV === 'production';
 console.log(`\n========== РЕЖИМ: ${process.env.NODE_ENV && typeof(process.env.NODE_ENV) === 'string' ? process.env.NODE_ENV.toUpperCase() : process.env.NODE_ENV} ==========\n`);
 
 interface HtmlPlugin {

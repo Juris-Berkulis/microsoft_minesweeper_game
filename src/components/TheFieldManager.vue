@@ -18,13 +18,13 @@ const newGame = ():void => {
 <template>
 <div class="fieldManager" :class="{fieldManager_closed: !isShow}">
     <div class="lever">
-        <button class="leverBtn" @click="toggleOptions">Опции</button>
+        <button class="leverBtn" id="toggleFieldManager" @click="toggleOptions">Опции</button>
     </div>
     <div class="optionsWrapper">
         <h1 class="title">Minesweeper</h1>
         <div class="options">
-            <RouterLink class="button" to="/settings">Настройки</RouterLink>
-            <button class="button" @click="newGame">Новая игра</button>
+            <RouterLink class="button" id="settingsView" to="/settings">Настройки</RouterLink>
+            <button class="button" id="newGameBtn" @click="newGame">Новая игра</button>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@ import TheFieldSize from '@/components/TheFieldSize.vue';
 
 <template>
     <div class="setting">
-        <RouterLink class="link" to="/">Вернуться в поле</RouterLink>
+        <RouterLink class="link" id="homeView" to="/">Вернуться в поле</RouterLink>
         <TheFieldSize />
     </div>
 </template>

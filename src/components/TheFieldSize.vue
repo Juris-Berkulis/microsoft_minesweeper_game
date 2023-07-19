@@ -90,7 +90,7 @@ const saveSettings = (): void => {
         <input class="input" type="number" :value="minesSpawnPercentage" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" name="minesCountExpected" :min="minesSpawnPercentageMin" :max="minesSpawnPercentageMax" step="1" required="true">
     </div>
     <div class="btnWrapper">
-        <button class="btn" type="submit">
+        <button class="btn" id="saveNewFieldSize" type="submit">
             <span class="btnCurtain btnCurtain_1"></span>
             <span class="btnCurtain btnCurtain_2"></span>
             <span class="btnText">Сохранить</span>
