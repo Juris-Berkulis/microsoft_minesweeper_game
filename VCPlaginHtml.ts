@@ -1,13 +1,13 @@
-import favicons, { FaviconOptions } from "favicons"; //* - Подробнее на сайте "https://github.com/itgalaxy/favicons".
+import favicons, { FaviconFile, FaviconImage, FaviconOptions, FaviconResponse } from "favicons"; //* - Подробнее на сайте "https://github.com/itgalaxy/favicons".
 import path from "path";
 import fsPromises from "fs/promises";
 const fs = require("fs");
 
-const outputDir = './dist';
-export const faviconsOutputDirPath = 'assets/favicons';
-export const faviconsOutputDirFullPath = `${outputDir}/${faviconsOutputDirPath}`; // Output directory path.
-const logoImg = './src/assets/favicon/logo.png'; // Source image(s). `string`, `buffer` or array of `string`
-export const htmlBaseName = 'index.html'; // HTML file basename.
+const outputDir: string = './dist';
+export const faviconsOutputDirPath: string = 'assets/favicons';
+export const faviconsOutputDirFullPath: string = `${outputDir}/${faviconsOutputDirPath}`; // Output directory path.
+const logoImg: string = './src/assets/favicon/logo.png'; // Source image(s). `string`, `buffer` or array of `string`
+export const htmlBaseName: string = 'index.html'; // HTML file basename.
 
 const configuration: FaviconOptions = {
     //? path: "/", // Path for overriding default icons path. `string`
@@ -60,19 +60,19 @@ const configuration: FaviconOptions = {
     // ],
 };
 
-export const addFavicons = async () => {
-    const response = await favicons(logoImg, configuration);
+export const addFavicons = async (): Promise<void> => {
+    const response: FaviconResponse = await favicons(logoImg, configuration);
     await fsPromises.mkdir(faviconsOutputDirFullPath, { recursive: true });
     await Promise.all(
         response.images.map(
-            async (image) => {
+            async (image: FaviconImage) => {
                 await fsPromises.writeFile(path.join(faviconsOutputDirFullPath, image.name), image.contents); //* - Создать в папке "dist/assets/favicons" картинки фавиконов, созданные с помощью плагина "favicons".
             }
         )
     );
     await Promise.all(
         response.files.map(
-            async (file) => {
+            async (file: FaviconFile) => {
                 if (file.name === 'manifest.webmanifest') {
                     await fsPromises.writeFile(path.join(outputDir, file.name), file.contents); //* - Создать в папке "dist" файл 'manifest.webmanifest', созданный с помощью плагина "favicons".
                 } else {
@@ -84,7 +84,7 @@ export const addFavicons = async () => {
     await fsPromises.writeFile(path.join(faviconsOutputDirFullPath, htmlBaseName), response.html.join("\n    ")); //* - Создать в папке "dist/assets/favicons" файл "index.html", созданный с помощью плагина "favicons", который содержит исключительно только пока ещё неверные ссылки на файлы, созданные с помощью плагина "favicons".
 
     //* Прочитать файл "dist/manifest.webmanifest", исправить в нём ссылки на картинки и перезаписать сам файл:
-    let manifestContent = fs.readFileSync(`${outputDir}/manifest.webmanifest`, "utf8")
+    let manifestContent: any = fs.readFileSync(`${outputDir}/manifest.webmanifest`, "utf8")
         .replace(/"src": "\//g, `"src": "${faviconsOutputDirPath}/`);
     await fsPromises.writeFile(path.join(outputDir, 'manifest.webmanifest'), manifestContent);
 };
