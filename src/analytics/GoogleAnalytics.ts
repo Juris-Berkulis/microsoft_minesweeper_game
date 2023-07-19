@@ -31,14 +31,19 @@ export default class GoogleAnalytics {
         'homeView': () => this.listenerFunc('homeViewIsOpened', 'page', 'home_view_is_opened'),
         'settingsView': () => this.listenerFunc('settingsViewIsOpened', 'page', 'settings_view_is_opened'),
         //? 'installPWA': () => this.listenerFunc('installPWA', 'btn', 'install_PWA_btn'),
-        'newGameBtn': () => this.listenerFunc('pressNewGameBtn', 'btn', 'press_new_game_btn'),
+        'newGameBtn': () => this.listenerFunc('newGameByBtn', 'btn', 'new_game_by_btn'),
         'toggleFieldManager': () => this.listenerFunc('toggleFieldManager', 'switch', 'toggle_field_manager'),
         'saveNewFieldSize': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),
-        'field': () => this.listenerFunc('clickToCell', 'field', 'click_to_cell'),
     }
 
     constructor () {
-        this.getScript();
+        if (this.isStartGoogleAnalytics()) {
+            this.getScript();
+        }
+    }
+
+    isStartGoogleAnalytics (): boolean {
+        return !location.hostname.includes('localhost')
     }
 
     getDomen (): string {
@@ -74,7 +79,7 @@ export default class GoogleAnalytics {
         return script
     }
 
-    listenerFunc (eventName: string, element: string, description: string) {
+    listenerFunc (eventName: string, element: string, description: string): void {
         gtag(
             'event', 
             eventName, 
@@ -85,7 +90,20 @@ export default class GoogleAnalytics {
         );
     }
 
-    checkClickedElement (event: MouseEvent) {
+    static listenerFuncStatic (eventName: string, element: string, description: string): void {
+        if (!location.hostname.includes('localhost')) {
+            gtag(
+                'event', 
+                eventName, 
+                {
+                    'element': element,
+                    'description': description,
+                }
+            );
+        }
+    }
+
+    checkClickedElement (event: MouseEvent): void {
         const eventTarget: EventTarget | null = event.target;
 
         if (<string>(eventTarget as HTMLElement).id && typeof this.#analiticListners[(eventTarget as HTMLElement).id as keyof AnaliticListners] === 'function') {
@@ -93,7 +111,7 @@ export default class GoogleAnalytics {
         }
     }
 
-    addAnalyticsListener () {
+    addAnalyticsListener (): void {
         window.addEventListener('click', (event: MouseEvent) => this.checkClickedElement(event), {capture: true});
     }
 
@@ -107,4 +125,8 @@ export default class GoogleAnalytics {
             this.addAnalyticsListener();
         }
     }
+};
+
+export const sendActionIntoGoogleAnalytics = (eventName: string, element: string, description: string): void => {
+    GoogleAnalytics.listenerFuncStatic(eventName, element, description);
 };

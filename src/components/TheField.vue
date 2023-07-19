@@ -5,6 +5,7 @@ import BaseNumber from './BaseNumber.vue';
 import BaseFlag from './BaseFlag.vue';
 import type { GameResult } from '../types/index';
 import { type FieldSettings, type Styles } from '../types/index';
+import { sendActionIntoGoogleAnalytics } from '@/analytics/GoogleAnalytics';
 
 const pressTouchScreenId: Ref<number> = ref(0);
 
@@ -228,8 +229,10 @@ const toggleFlag = (clickedCell: Cell): void => {
 
     if (clickedCell.isFlag) {
       flagsCount.value++;
+      sendActionIntoGoogleAnalytics('setFlag', 'cell', 'set_flag_into_cell');
     } else {
       flagsCount.value--;
+      sendActionIntoGoogleAnalytics('deleteFlag', 'cell', 'delete_flag_from_cell');
     }
 
     if (flagsCount.value === minesCountReal.value && minesCountReal.value + correctMovesCount.value === cellsCount.value) {
@@ -249,6 +252,7 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
         clickedCell.isFlag = false;
         clickedCell.isOpen = true;
         clickedCell.isClicked = true;
+        sendActionIntoGoogleAnalytics('openCell', 'cell', 'open-cell');
 
         if (!clickedCell.isMine) {
           correctMovesCount.value++;
@@ -264,6 +268,7 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
     }
   } else {
     startGame();
+    sendActionIntoGoogleAnalytics('newGameByCell', 'cell', 'new_game_by_cell');
   }
 };
 
@@ -288,7 +293,7 @@ const styles: Styles = {
 </script>
 
 <template>
-<div class="field" :style="styles.field" id="field">
+<div class="field" :style="styles.field">
   <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen">
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
