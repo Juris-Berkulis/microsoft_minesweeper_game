@@ -33,7 +33,7 @@ export default class GoogleAnalytics {
         //? 'installPWA': () => this.listenerFunc('installPWA', 'btn', 'install_PWA_btn'),
         'newGameBtn': () => this.listenerFunc('newGameByBtn', 'btn', 'new_game_by_btn'),
         'toggleFieldManager': () => this.listenerFunc('toggleFieldManager', 'switch', 'toggle_field_manager'),
-        'saveNewFieldSize': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),
+        'saveNewFieldSize_btnText': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),
     }
 
     constructor () {
