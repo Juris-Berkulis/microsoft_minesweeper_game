@@ -2,10 +2,8 @@
 import { RouterView } from 'vue-router';
 import GoogleAnalytics from './analytics/GoogleAnalytics';
 
-if (!location.hostname.includes('localhost')) {
-  //* Подключение Google Analytics:
-  new GoogleAnalytics();
-}
+//* Подключение Google Analytics:
+new GoogleAnalytics();
 </script>
 
 <template>
