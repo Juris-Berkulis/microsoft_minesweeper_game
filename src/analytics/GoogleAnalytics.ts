@@ -30,7 +30,7 @@ export default class GoogleAnalytics {
     #analiticListners: AnaliticListners = {
         'homeView': () => this.listenerFunc('homeViewIsOpened', 'page', 'home_view_is_opened'),
         'settingsView': () => this.listenerFunc('settingsViewIsOpened', 'page', 'settings_view_is_opened'),
-        //? 'installPWA': () => this.listenerFunc('installPWA', 'btn', 'install_PWA_btn'),
+        'btnForAppInstallingAsPWA': () => this.listenerFunc('pressBtnForPWA', 'btn', 'press_btn_for_PWA'),
         'newGameBtn': () => this.listenerFunc('newGameByBtn', 'btn', 'new_game_by_btn'),
         'toggleFieldManager': () => this.listenerFunc('toggleFieldManager', 'switch', 'toggle_field_manager'),
         'saveNewFieldSize_btnText': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),

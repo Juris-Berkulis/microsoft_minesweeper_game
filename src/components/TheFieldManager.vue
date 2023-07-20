@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue';
-import { isShowBtnForInstallPWA, onClickForBtn } from '@/serviceWorker/registrationServiceWorker';
+import { isShowBtnForInstallPWA, installTheAppAsPWA } from '@/serviceWorker/registrationServiceWorker';
 
 const isShow: Ref<boolean> = ref(false);
 
@@ -24,7 +24,7 @@ const newGame = ():void => {
     <div class="optionsWrapper">
         <h1 class="title">Minesweeper</h1>
         <div class="options">
-            <button class="button" v-if="isShowBtnForInstallPWA" @click="onClickForBtn">Установить</button>
+            <button class="button" id="btnForAppInstallingAsPWA" v-if="isShowBtnForInstallPWA" @click="installTheAppAsPWA">Установить</button>
             <RouterLink class="button" id="settingsView" to="/settings">Настройки</RouterLink>
             <button class="button" id="newGameBtn" @click="newGame">Новая игра</button>
         </div>

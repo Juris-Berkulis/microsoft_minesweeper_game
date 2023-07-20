@@ -165,7 +165,7 @@ export const isRegisterServiceWorker = (): void => {
   }
 };
 
-export const onClickForBtn = async () => {
+export const installTheAppAsPWA = async () => {
   // Hide the app provided install promotion
   setIsShowBtnForInstallPWAAction(false);
   // Show the install prompt
