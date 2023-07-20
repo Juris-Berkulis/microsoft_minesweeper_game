@@ -14,6 +14,7 @@
     "deploy_to_vercel": "vercel --prod && vercel list",
     "deploy_to_surge": "npm run copy_index_as_200 && surge --project ./dist --domain https://custom-minesweeper.surge.sh && surge list",
     "deploy": "npm run build && npm run deploy_to_netlify && npm run deploy_to_vercel && npm run deploy_to_surge && npm run get_date",
+    "deploy_preview": "npm run build && npm run deploy_to_surge",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
@@ -38,6 +39,7 @@
     "prettier": "^2.8.8",
     "typescript": "~5.0.4",
     "vite": "^4.3.9",
+    "vite-plugin-pwa": "^0.16.4",
     "vue-tsc": "^1.6.5"
   }
 }

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import GoogleAnalytics from './analytics/GoogleAnalytics';
+import { isRegisterServiceWorker } from '@/serviceWorker/registrationServiceWorker';
 
+//* Подключение ServiceWorker:
+isRegisterServiceWorker();
 //* Подключение Google Analytics:
 new GoogleAnalytics();
 </script>

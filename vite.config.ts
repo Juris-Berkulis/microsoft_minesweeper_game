@@ -10,6 +10,7 @@ import {
   faviconsOutputDirFullPath,
   htmlBaseName,
 } from './VCPlaginHtml';
+import { VitePWA } from 'vite-plugin-pwa';
 
 //* Если переменная среды ровна 'development', то мы находимся в режиме разработки, а иначе - в режиме продакшн:
 const isProd: boolean = process.env.NODE_ENV === 'production';
@@ -50,6 +51,18 @@ export default defineConfig({
     vue(),
     vueJsx(),
     isProd ? htmlPlugin() : null,
+    VitePWA({ //* - Все параметры и описание на сайте "https://github.com/vite-pwa/vite-plugin-pwa/blob/main/src/types.ts".
+      mode: isProd ? 'production' : 'development',
+      outDir: 'dist',
+      filename: 'service-worker.js',
+      manifestFilename: 'manifest.webmanifest',
+      strategies: 'generateSW',
+      injectRegister: null, //* - 'inline' | 'script' | 'auto' | null | false.
+      registerType: 'prompt', //* - 'prompt' | 'autoUpdate'.
+      minify: isProd ? true : false,
+      manifest: false,
+      selfDestroying: false, //* - Отменить регистрацию сервис-воркера?
+    }),
   ],
   resolve: {
     alias: {

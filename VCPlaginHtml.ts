@@ -39,7 +39,7 @@ const configuration: FaviconOptions = {
         //   * true - force use default, e.g. set background for Android icons
         //   * color - set background for the specified icons
         //
-        android: ["#eeeeee"], // Create Android homescreen icon. `boolean` or `{ offset, background }` or an array of sources
+        android: true, // Create Android homescreen icon. `boolean` or `{ offset, background }` or an array of sources
         appleIcon: true, // Create Apple touch icons. `boolean` or `{ offset, background }` or an array of sources
         appleStartup: true, // Create Apple startup images. `boolean` or `{ offset, background }` or an array of sources
         favicons: true, // Create regular favicons. `boolean` or `{ offset, background }` or an array of sources
