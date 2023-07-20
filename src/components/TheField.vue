@@ -231,11 +231,15 @@ const toggleFlag = (clickedCell: Cell): void => {
 
     if (clickedCell.isFlag) {
       flagsCount.value++;
-      wasFirstClick.value && window.navigator.vibrate(200);
+      if (wasFirstClick.value) {
+        window.navigator.vibrate([50, 30, 50]);
+      }
       sendActionIntoGoogleAnalytics('setFlag', 'cell', 'set_flag_into_cell');
     } else {
       flagsCount.value--;
-      wasFirstClick.value && window.navigator.vibrate(250);
+      if (wasFirstClick.value) {
+        window.navigator.vibrate(100);
+      }
       sendActionIntoGoogleAnalytics('deleteFlag', 'cell', 'delete_flag_from_cell');
     }
 
@@ -280,10 +284,12 @@ const resetTimerForPressTouchScreen = (): void => {
   clearTimeout(pressTouchScreenId.value);
 };
 
-const toggleFlagByTouchScreen = (clickedCell: Cell) => {
-  pressTouchScreenId.value = setTimeout(() => {
-    toggleFlag(clickedCell);
-  }, 700);
+const toggleFlagByTouchScreen = (event: TouchEvent, clickedCell: Cell) => {
+  if (event.touches.length === 1) { //* - Исключаем активацию функции при масштабировании экрана несколькими пальцами.
+    pressTouchScreenId.value = setTimeout(() => {
+      toggleFlag(clickedCell);
+    }, 700);
+  }
 };
 
 const styles: Styles = {
@@ -298,7 +304,7 @@ const styles: Styles = {
 
 <template>
 <div class="field" :style="styles.field">
-  <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen" @touchmove="resetTimerForPressTouchScreen">
+  <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="(event: TouchEvent) => toggleFlagByTouchScreen(event, cell)" @touchend="resetTimerForPressTouchScreen" @touchmove="resetTimerForPressTouchScreen">
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
