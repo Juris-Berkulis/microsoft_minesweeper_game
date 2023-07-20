@@ -18,7 +18,7 @@ const configuration: FaviconOptions = {
     developerURL: undefined, // Your (or your developer's) URL. `string`
     dir: "auto", // Primary text direction for name, short_name, and description
     lang: "ru-RU", // Primary language for name and short_name
-    background: "#eeeeee", // Background colour for flattened icons. `string`
+    background: "#cceecc", // Background colour for flattened icons. `string`
     theme_color: "#cceecc", // Theme color user for example in Android's task switcher. `string`
     appleStatusBarStyle: "black-translucent", // Style for Apple status bar: "black-translucent", "default", "black". `string`
     display: "standalone", // Preferred display mode: "fullscreen", "standalone", "minimal-ui" or "browser". `string`
