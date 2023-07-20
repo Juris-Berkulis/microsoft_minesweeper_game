@@ -8,6 +8,8 @@ import { type FieldSettings, type Styles } from '../types/index';
 import { sendActionIntoGoogleAnalytics } from '@/analytics/GoogleAnalytics';
 
 const pressTouchScreenId: Ref<number> = ref(0);
+const wasFirstClick: Ref<boolean> = ref(false);
+window.addEventListener('click', () => wasFirstClick.value = true, {once: true});
 
 const cellsCountInHeight: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInHeight || 10;
 const cellsCountInWidth: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInWidth || 10;
@@ -229,9 +231,11 @@ const toggleFlag = (clickedCell: Cell): void => {
 
     if (clickedCell.isFlag) {
       flagsCount.value++;
+      wasFirstClick.value && window.navigator.vibrate(200);
       sendActionIntoGoogleAnalytics('setFlag', 'cell', 'set_flag_into_cell');
     } else {
       flagsCount.value--;
+      wasFirstClick.value && window.navigator.vibrate(250);
       sendActionIntoGoogleAnalytics('deleteFlag', 'cell', 'delete_flag_from_cell');
     }
 
@@ -294,7 +298,7 @@ const styles: Styles = {
 
 <template>
 <div class="field" :style="styles.field">
-  <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen">
+  <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="() => toggleFlagByTouchScreen(cell)" @touchend="resetTimerForPressTouchScreen" @touchmove="resetTimerForPressTouchScreen">
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
