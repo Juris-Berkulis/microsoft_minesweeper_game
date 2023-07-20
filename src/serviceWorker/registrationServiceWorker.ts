@@ -17,27 +17,23 @@ const isLocalhost: boolean = Boolean(
 );
 
 function registerServiceWorker(config?: any): void {
-  if (!isLocalhost && 'serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      const swUrl = `/service-worker.js`;
+  window.addEventListener('load', () => {
+    const swUrl = `/service-worker.js`;
 
-      if (isLocalhost) {
-        // This is running on localhost. Let's check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl, config);
+    if (isLocalhost) {
+      // This is running on localhost. Let's check if a service worker still exists or not.
+      checkValidServiceWorker(swUrl, config);
 
-        // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
-          console.log('This web app is being served cache-first by a service worker.');
-        });
-      } else {
-        // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config);
-      }
-    });
-  } else {
-    unregisterServiceWorker();
-  }
+      // Add some additional logging to localhost, pointing developers to the
+      // service worker/PWA documentation.
+      navigator.serviceWorker.ready.then(() => {
+        console.log('This web app is being served cache-first by a service worker.');
+      });
+    } else {
+      // Is not localhost. Just register service worker
+      registerValidSW(swUrl, config);
+    }
+  });
 };
 
 function registerValidSW(swUrl: any, config: any): void {
@@ -136,45 +132,33 @@ const setIsShowBtnForInstallPWAAction = (isShowBtn: boolean): void => {
 };
 
 export const isRegisterServiceWorker = (): void => {
-  if (!isLocalhost) {
+  if (!isLocalhost && 'serviceWorker' in navigator) {
     //* Register a service-worker:
     registerServiceWorker();
 
-    const onBeforeInstallPrompt = () => {
-      return (event: Event) => {
-        // Prevent the mini-infobar from appearing on mobile
-        event.preventDefault();
-        // Stash the event so it can be triggered later.
-        setDeferredPromptForPWAAction(event);
-        // Update UI notify the user they can install the PWA
-        setIsShowBtnForInstallPWAAction(true);
-        // Optionally, send analytics event that PWA install promo was shown.
-        console.log('This application can be installed on the home screen.');
-      }
+    const onBeforeInstallPrompt = (event: Event): void => {
+      // Prevent the mini-infobar from appearing on mobile
+      event.preventDefault();
+      // Stash the event so it can be triggered later.
+      setDeferredPromptForPWAAction(event);
+      // Update UI notify the user they can install the PWA
+      setIsShowBtnForInstallPWAAction(true);
+      // Optionally, send analytics event that PWA install promo was shown.
+      console.log('This application can be installed on the home screen.');
     };
 
     const onAppInstalled = () => {
-      return () => {
-        // Hide the app-provided install promotion
-        setIsShowBtnForInstallPWAAction(false);
-        // Clear the deferredPrompt so it can be garbage collected
-        setDeferredPromptForPWAAction(null);
-        // Optionally, send analytics event to indicate successful install
-        console.log('The application has been successfully installed.');
-      }
+      // Hide the app-provided install promotion
+      setIsShowBtnForInstallPWAAction(false);
+      // Clear the deferredPrompt so it can be garbage collected
+      setDeferredPromptForPWAAction(null);
+      // Optionally, send analytics event to indicate successful install
+      console.log('The application has been successfully installed.');
     };
-
-    const lissenBeforeInstallPrompt = () => {
-      window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt());
-    };
-
-    const lissenAppInstalled = () => {
-      window.addEventListener('appinstalled', onAppInstalled());
-    }
 
     //* Подробнее на сайте: "https://web.dev/i18n/ru/customize-install/":
-    lissenBeforeInstallPrompt();
-    lissenAppInstalled();
+    window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+    window.addEventListener('appinstalled', onAppInstalled);
   } else {
     //* Do not register a service-worker:
     unregisterServiceWorker();
