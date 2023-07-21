@@ -13,7 +13,7 @@ window.addEventListener('click', () => wasFirstClick.value = true, {once: true})
 
 const cellsCountInHeight: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInHeight || 10;
 const cellsCountInWidth: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).cellsCountInWidth || 10;
-const minesSpawnPercentage: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).minesCountExpected || 25;
+const minesSpawnPercentage: number = (JSON.parse(localStorage.getItem('fieldSettings') || '{}') as FieldSettings).minesCountExpected || 20;
 
 const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth
