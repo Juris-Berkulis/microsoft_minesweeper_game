@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router';
 import GoogleAnalytics from './analytics/GoogleAnalytics';
 import { isRegisterServiceWorker } from '@/serviceWorker/registrationServiceWorker';
+import TheServiceWorkerMessage from './components/TheServiceWorkerMessage.vue';
 
 //* Подключение ServiceWorker:
 isRegisterServiceWorker();
@@ -14,6 +15,7 @@ new GoogleAnalytics();
   <main>
     <RouterView />
   </main>
+  <TheServiceWorkerMessage />
 </div>
 </template>
 

@@ -6,6 +6,8 @@
 
 import { ref, type Ref } from 'vue';
 
+export const messageFromServiceWorker: Ref<string> = ref('');
+
 const isLocalhost: boolean = Boolean(
   window.location.hostname === 'localhost' 
   ||
@@ -52,6 +54,7 @@ function registerValidSW(swUrl: any, config: any): void {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
               console.log('New content is available and will be used when all tabs for this page are closed.');
+              messageFromServiceWorker.value = 'Обновления установлены! Закройте все активные сеансы, чтобы обновления вступили в силу.';
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -62,6 +65,7 @@ function registerValidSW(swUrl: any, config: any): void {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
+              messageFromServiceWorker.value = 'Сохранено автоматически для использования в offline-режиме!';
 
               // Execute callback
               if (config && config.onSuccess) {
@@ -154,6 +158,7 @@ export const isRegisterServiceWorker = (): void => {
       setDeferredPromptForPWAAction(null);
       // Optionally, send analytics event to indicate successful install
       console.log('The application has been successfully installed.');
+      messageFromServiceWorker.value = 'Приложение "Minesweeper" было успешно установлено!';
     };
 
     //* Подробнее на сайте: "https://web.dev/i18n/ru/customize-install/":
