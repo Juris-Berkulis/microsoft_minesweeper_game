@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/serviceWorker/registrationServiceWorker';
+import BaseDefaultButton from './BaseDefaultButton.vue';
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/servi
         <h2 class="messageTitle">Уведомление</h2>
         <hr class="messageTitleLine">
         <p class="messageText">{{ messageFromServiceWorker }}</p>
-        <button class="button" @click="resetMessageFromServiceWorker">Хорошо</button>
+        <BaseDefaultButton class="messageBtn" @click="resetMessageFromServiceWorker">Хорошо</BaseDefaultButton>
     </div>
 </div>
 </template>
@@ -25,6 +26,7 @@ import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/servi
     align-items: center;
     padding: 15px;
     font-size: 1rem;
+    user-select: none;
 }
 
 @media ((max-width: 450px) or (max-height: 450px)) {
@@ -53,8 +55,9 @@ import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/servi
 .messageTitleLine {
     height: 1px;
     width: 100%;
-    margin: 5px 0 10px;
-    background-color: #6688aa;;
+    margin: 3px 0 12px;
+    background-color: #6688aa;
+    border: none;
 }
 
 .messageText {
@@ -65,19 +68,8 @@ import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/servi
     color: #000000;
 }
 
-.button {
+.messageBtn {
     display: block;
     margin-left: auto;
-    padding: 0.5em 1em;
-    border-radius: 1em;
-    background-color: #449944;
-    font-size: 1em;
-    font-weight: 400;
-    line-height: 1;
-    color: #ffffff;
-}
-
-.button:hover {
-    background-color: #227722;
 }
 </style>

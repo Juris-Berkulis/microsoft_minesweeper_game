@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue';
 import { isShowBtnForInstallPWA, installTheAppAsPWA } from '@/serviceWorker/registrationServiceWorker';
+import BaseDefaultButton from './BaseDefaultButton.vue';
 
 const isShow: Ref<boolean> = ref(false);
 
@@ -24,9 +25,9 @@ const newGame = ():void => {
     <div class="optionsWrapper">
         <h1 class="title">Minesweeper</h1>
         <div class="options">
-            <RouterLink class="button" id="settingsView" to="/settings">Настройки</RouterLink>
-            <button class="button" id="newGameBtn" @click="newGame">Новая игра</button>
-            <button class="button" id="btnForAppInstallingAsPWA" v-if="isShowBtnForInstallPWA" @click="installTheAppAsPWA">Установить</button>
+            <BaseDefaultButton id="settingsView" :to="'/settings'">Настройки</BaseDefaultButton>
+            <BaseDefaultButton id="newGameBtn" @click="newGame">Новая игра</BaseDefaultButton>
+            <BaseDefaultButton id="btnForAppInstallingAsPWA" v-if="isShowBtnForInstallPWA" @click="installTheAppAsPWA">Установить</BaseDefaultButton>
         </div>
     </div>
 </div>
@@ -121,26 +122,5 @@ const newGame = ():void => {
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-
-.button {
-    padding: 8px 15px;
-    border-radius: 15px;
-    background-color: #449944;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    color: #ffffff;
-}
-
-@media ((max-width: 450px) and (max-height: 300px)) {
-    .button {
-        padding: 5px;
-        font-size: 0.5rem;
-    }
-}
-
-.button:hover {
-    background-color: #227722;
 }
 </style>
