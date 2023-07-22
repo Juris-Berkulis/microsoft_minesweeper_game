@@ -34,6 +34,7 @@ export default class GoogleAnalytics {
         'newGameBtn': () => this.listenerFunc('newGameByBtn', 'btn', 'new_game_by_btn'),
         'toggleFieldManager': () => this.listenerFunc('toggleFieldManager', 'switch', 'toggle_field_manager'),
         'saveNewFieldSize_btnText': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),
+        'serviceWorkerMessageClosedBtn': () => this.listenerFunc('SWMessageCloseByBtn', 'btn', 'press_btn_for_service_worker_message_closing'),
     }
 
     constructor () {
