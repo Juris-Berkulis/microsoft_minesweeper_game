@@ -5,6 +5,8 @@ import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/servi
 <template>
 <div class="messageField" v-if="messageFromServiceWorker.length">
     <div class="messageWrapper">
+        <h2 class="messageTitle">Уведомление</h2>
+        <hr class="messageTitleLine">
         <p class="messageText">{{ messageFromServiceWorker }}</p>
         <button class="button" @click="resetMessageFromServiceWorker">Хорошо</button>
     </div>
@@ -38,6 +40,21 @@ import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/servi
     border-radius: 1em;
     border: 3px solid #6688aa;
     background-color: #aaccee;
+}
+
+.messageTitle {
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+}
+
+.messageTitleLine {
+    height: 1px;
+    width: 100%;
+    margin: 5px 0 10px;
+    background-color: #6688aa;;
 }
 
 .messageText {
