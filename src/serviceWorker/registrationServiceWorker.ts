@@ -8,6 +8,10 @@ import { ref, type Ref } from 'vue';
 
 export const messageFromServiceWorker: Ref<string> = ref('');
 
+export const resetMessageFromServiceWorker = (): void => {
+  messageFromServiceWorker.value = '';
+};
+
 const isLocalhost: boolean = Boolean(
   window.location.hostname === 'localhost' 
   ||

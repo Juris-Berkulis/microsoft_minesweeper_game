@@ -1,31 +1,12 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
-import { useServiceWorkerStore } from '@/stores/serviceWorker';
-import { messageFromServiceWorker } from '@/serviceWorker/registrationServiceWorker';
-import { watch } from 'vue';
-
-const serviceWorkerStore = useServiceWorkerStore();
-
-const {
-    toggleIsShowMessage,
-    setServiceWorkerMessage,
-} = useServiceWorkerStore();
-
-const {
-    isShowMessage,
-    serviceWorkerMessage,
-} = storeToRefs(serviceWorkerStore);
-
-watch(messageFromServiceWorker, () => {
-    setServiceWorkerMessage(messageFromServiceWorker.value);
-});
+import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/serviceWorker/registrationServiceWorker';
 </script>
 
 <template>
-<div class="messageField" v-if="isShowMessage">
+<div class="messageField" v-if="messageFromServiceWorker.length">
     <div class="messageWrapper">
-        <p class="messageText">{{ serviceWorkerMessage }}</p>
-        <button class="button" @click="toggleIsShowMessage(false)">Хорошо</button>
+        <p class="messageText">{{ messageFromServiceWorker }}</p>
+        <button class="button" @click="resetMessageFromServiceWorker">Хорошо</button>
     </div>
 </div>
 </template>
