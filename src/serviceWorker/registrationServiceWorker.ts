@@ -22,36 +22,16 @@ const isLocalhost: boolean = Boolean(
   window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-function registerServiceWorker(config?: any): void {
-  window.addEventListener('load', () => {
-    const swUrl = `/service-worker.js`;
-
-    if (isLocalhost) {
-      // This is running on localhost. Let's check if a service worker still exists or not.
-      checkValidServiceWorker(swUrl, config);
-
-      // Add some additional logging to localhost, pointing developers to the
-      // service worker/PWA documentation.
-      navigator.serviceWorker.ready.then(() => {
-        console.log('This web app is being served cache-first by a service worker.');
-      });
-    } else {
-      // Is not localhost. Just register service worker
-      registerValidSW(swUrl, config);
-    }
-  });
-};
-
-function registerValidSW(swUrl: any, config: any): void {
+const registerValidSW = (swUrl: any, config: any): void => {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration: ServiceWorkerRegistration) => {
-      registration.onupdatefound = () => {
+      registration.onupdatefound = (): void => {
         const installingWorker: ServiceWorker | null = registration.installing;
         if (installingWorker === null) {
           return;
         }
-        installingWorker.onstatechange = () => {
+        installingWorker.onstatechange = (): void => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
@@ -85,7 +65,7 @@ function registerValidSW(swUrl: any, config: any): void {
     });
 };
 
-function checkValidServiceWorker(swUrl: any, config: any): void {
+const checkValidServiceWorker = (swUrl: any, config: any): void => {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl, {
     headers: { 'Service-Worker': 'script' },
@@ -113,7 +93,27 @@ function checkValidServiceWorker(swUrl: any, config: any): void {
     });
 };
 
-function unregisterServiceWorker() {
+const registerServiceWorker = (config?: any): void => {
+  window.addEventListener('load', (): void => {
+    const swUrl = `/service-worker.js`;
+
+    if (isLocalhost) {
+      // This is running on localhost. Let's check if a service worker still exists or not.
+      checkValidServiceWorker(swUrl, config);
+
+      // Add some additional logging to localhost, pointing developers to the
+      // service worker/PWA documentation.
+      navigator.serviceWorker.ready.then(() => {
+        console.log('This web app is being served cache-first by a service worker.');
+      });
+    } else {
+      // Is not localhost. Just register service worker
+      registerValidSW(swUrl, config);
+    }
+  });
+};
+
+const unregisterServiceWorker = (): void => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then((registration: ServiceWorkerRegistration) => {
@@ -155,7 +155,7 @@ export const isRegisterServiceWorker = (): void => {
       console.log('This application can be installed on the home screen.');
     };
 
-    const onAppInstalled = () => {
+    const onAppInstalled = (): void => {
       // Hide the app-provided install promotion
       setIsShowBtnForInstallPWAAction(false);
       // Clear the deferredPrompt so it can be garbage collected
