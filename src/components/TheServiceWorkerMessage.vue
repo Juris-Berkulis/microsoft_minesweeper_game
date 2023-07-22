@@ -38,7 +38,7 @@ import BaseDefaultButton from './BaseDefaultButton.vue';
 .messageWrapper {
     width: 100%;
     max-width: 400px;
-    padding: 16px;
+    padding: 1em;
     border-radius: 1em;
     border: 3px solid #6688aa;
     background-color: #aaccee;
