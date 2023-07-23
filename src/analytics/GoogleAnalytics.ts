@@ -1,5 +1,5 @@
 interface Hosting {
-    trackingId: string,
+    trackingId: `G-${string}`,
 };
 
 interface Hostings {
