@@ -7,6 +7,8 @@ import type { GameResult } from '../types/index';
 import { type Styles } from '../types/index';
 import { sendActionIntoGoogleAnalytics } from '@/analytics/GoogleAnalytics';
 import { useFieldSizeStore } from '@/stores/fieldSize';
+import { useSettingsSwitchersStore } from '@/stores/settingsSwitchers';
+import { storeToRefs } from 'pinia';
 
 const pressTouchScreenId: Ref<number> = ref(0);
 const wasFirstClick: Ref<boolean> = ref(false);
@@ -17,6 +19,12 @@ const {
   cellsCountInWidthDefault: cellsCountInWidth,
   minesSpawnPercentageDefault: minesSpawnPercentage,
 } = useFieldSizeStore();
+
+const settingsSwitchersStore = useSettingsSwitchersStore();
+
+const {
+  isVibrationForFlags,
+} = storeToRefs(settingsSwitchersStore);
 
 const cellsCount: ComputedRef<number> = computed(() => {
   return cellsCountInHeight * cellsCountInWidth
@@ -234,13 +242,13 @@ const toggleFlag = (clickedCell: Cell): void => {
 
     if (clickedCell.isFlag) {
       flagsCount.value++;
-      if (wasFirstClick.value) {
+      if (isVibrationForFlags.value && wasFirstClick.value) {
         window.navigator.vibrate([50, 30, 50]);
       }
       sendActionIntoGoogleAnalytics('setFlag', 'cell', 'set_flag_into_cell');
     } else {
       flagsCount.value--;
-      if (wasFirstClick.value) {
+      if (isVibrationForFlags.value && wasFirstClick.value) {
         window.navigator.vibrate(100);
       }
       sendActionIntoGoogleAnalytics('deleteFlag', 'cell', 'delete_flag_from_cell');

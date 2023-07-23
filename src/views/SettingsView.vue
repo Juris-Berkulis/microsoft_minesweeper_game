@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TheFieldSize from '@/components/TheFieldSize.vue';
+import TheSettingsSwitchers from '@/components/TheSettingsSwitchers.vue';
 
 
 </script>
@@ -8,16 +9,19 @@ import TheFieldSize from '@/components/TheFieldSize.vue';
     <div class="setting">
         <RouterLink class="link" id="homeView" to="/">Вернуться в поле</RouterLink>
         <TheFieldSize />
+        <TheSettingsSwitchers />
     </div>
 </template>
 
 <style scoped>
 .setting {
+    height: 100%;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     padding: 0 15px;
     font-size: 1rem;
+    overflow-y: auto;
 }
 
 @media (max-width: 350px) {
