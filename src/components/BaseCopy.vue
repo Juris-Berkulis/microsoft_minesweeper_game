@@ -11,7 +11,7 @@ const copyLink = (): void => {
     copyError.value = false;
 
     if (navigatorClipboard) {
-        navigator.clipboard.writeText(location.hostname)
+        navigator.clipboard.writeText(location.origin)
             .then(() => {
                 copySuccess.value = true;
             })
