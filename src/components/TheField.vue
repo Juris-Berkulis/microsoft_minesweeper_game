@@ -24,6 +24,7 @@ const settingsSwitchersStore = useSettingsSwitchersStore();
 
 const {
   isVibrationForFlags,
+  isFlagProtectsCellFromAccidentalClick,
 } = storeToRefs(settingsSwitchersStore);
 
 const cellsCount: ComputedRef<number> = computed(() => {
@@ -267,7 +268,11 @@ const openCell = (event: MouseEvent, cellIndex: number): void => {
     if (!clickedCell.isOpen) {
       if (event.altKey || event.ctrlKey) {
         toggleFlag(clickedCell);
-      } else {
+      } else if (
+        !isFlagProtectsCellFromAccidentalClick.value 
+        || 
+        (isFlagProtectsCellFromAccidentalClick.value && !clickedCell.isFlag)
+      ) {
         clickedCell.isFlag = false;
         clickedCell.isOpen = true;
         clickedCell.isClicked = true;

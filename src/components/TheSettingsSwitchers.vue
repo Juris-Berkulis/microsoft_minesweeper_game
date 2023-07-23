@@ -7,10 +7,12 @@ const settingsSwitchersStore = useSettingsSwitchersStore();
 
 const {
     setIsVibrateForFlags,
+    setIsFlagProtectsCellFromAccidentalClick,
 } = useSettingsSwitchersStore();
 
 const {
     isVibrationForFlags,
+    isFlagProtectsCellFromAccidentalClick,
 } = storeToRefs(settingsSwitchersStore);
 </script>
 
@@ -21,6 +23,11 @@ const {
         :togglePower="setIsVibrateForFlags" 
         :mainText="'Вибриция при установке и удалении флагов'" 
         :description="'Работает только на устройствах, имеющих вибрацию (вибрация должна быть активирована в настройках устройства).'"
+    ></BaseSettingsSwitcher>
+    <BaseSettingsSwitcher 
+        :isPower="isFlagProtectsCellFromAccidentalClick" 
+        :togglePower="setIsFlagProtectsCellFromAccidentalClick" 
+        :mainText="'Флаг защищает ячейку от случайного нажатия'" 
     ></BaseSettingsSwitcher>
 </div>
 </template>
