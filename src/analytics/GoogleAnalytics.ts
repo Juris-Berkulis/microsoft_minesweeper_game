@@ -105,10 +105,12 @@ export default class GoogleAnalytics {
     }
 
     checkClickedElement (event: MouseEvent): void {
-        const eventTarget: EventTarget | null = event.target;
+        if (navigator.onLine !== false) { //* - undefined тоже подходит (на случай, если "navigator.onLine" не поддерживается).
+            const eventTarget: EventTarget | null = event.target;
 
-        if (<string>(eventTarget as HTMLElement).id && typeof this.#analiticListners[(eventTarget as HTMLElement).id as keyof AnaliticListners] === 'function') {
-            this.#analiticListners[(eventTarget as HTMLElement).id as keyof AnaliticListners]();
+            if (<string>(eventTarget as HTMLElement).id && typeof this.#analiticListners[(eventTarget as HTMLElement).id as keyof AnaliticListners] === 'function') {
+                this.#analiticListners[(eventTarget as HTMLElement).id as keyof AnaliticListners]();
+            }
         }
     }
 
@@ -129,5 +131,7 @@ export default class GoogleAnalytics {
 };
 
 export const sendActionIntoGoogleAnalytics = (eventName: string, element: string, description: string): void => {
-    GoogleAnalytics.listenerFuncStatic(eventName, element, description);
+    if (navigator.onLine !== false) { //* - undefined тоже подходит (на случай, если "navigator.onLine" не поддерживается).
+        GoogleAnalytics.listenerFuncStatic(eventName, element, description);
+    }
 };

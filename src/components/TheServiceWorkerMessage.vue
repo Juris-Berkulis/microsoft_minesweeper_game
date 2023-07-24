@@ -31,14 +31,16 @@ import BaseDefaultButton from './BaseDefaultButton.vue';
 
 @media ((max-width: 450px) or (max-height: 450px)) {
     .messageField {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 }
 
 .messageWrapper {
+    max-height: 80vh;
     width: 100%;
     max-width: 400px;
     padding: 1em;
+    overflow: auto;
     border-radius: 1em;
     border: 3px solid #6688aa;
     background-color: #aaccee;
