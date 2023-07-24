@@ -67,6 +67,10 @@ export const addFavicons = async (): Promise<void> => {
         response.images.map(
             async (image: FaviconImage) => {
                 await fsPromises.writeFile(path.join(faviconsOutputDirFullPath, image.name), image.contents); //* - Создать в папке "dist/assets/favicons" картинки фавиконов, созданные с помощью плагина "favicons".
+
+                if (image.name === 'favicon.ico') {
+                    await fsPromises.writeFile(path.join(outputDir, image.name), image.contents); //* - Создать в папке "dist" картинку фавиконки 'favicon.ico', созданную с помощью плагина "favicons" (на этот экземпляр фавиконки ссылка в файле "index.html" в последующем не добавляется).
+                }
             }
         )
     );
