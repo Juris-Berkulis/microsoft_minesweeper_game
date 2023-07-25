@@ -38,7 +38,7 @@ const registerValidSW = (swUrl: any, config: any): void => {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
               console.log('New content is available and will be used when all tabs for this page are closed.');
-              messageFromServiceWorker.value = 'Обновления установлены! Закройте все активные сеансы, чтобы обновления вступили в силу.';
+              messageFromServiceWorker.value = 'Обновления установлены! Закройте и откройте приложение заново, чтобы применить последние обновления.';
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -49,7 +49,7 @@ const registerValidSW = (swUrl: any, config: any): void => {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-              messageFromServiceWorker.value = 'Сохранено автоматически для использования в offline-режиме!';
+              messageFromServiceWorker.value = 'Приложение было автоматически сохранено для использования в offline-режиме!';
 
               // Execute callback
               if (config && config.onSuccess) {

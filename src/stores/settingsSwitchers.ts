@@ -24,7 +24,7 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
         localStorage.setItem('settingsSwitchers', JSON.stringify({...settingsSwitchers, isVibrationForFlags: isVibrationForFlags.value}));
         sendActionIntoGoogleAnalytics(
             isVibrationForFlags.value ? 'vibrationForFlagsIsEnabled' : 'vibrationForFlagsIsDisabled',
-            'switch',
+            'switcher',
             isVibrationForFlags.value ? 'vibration_for_flags_is_enabled' : 'vibration_for_flags_is_disabled',
         );
     };
@@ -37,7 +37,7 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
         localStorage.setItem('settingsSwitchers', JSON.stringify({...settingsSwitchers, isFlagProtectsCellFromAccidentalClick: isFlagProtectsCellFromAccidentalClick.value}));
         sendActionIntoGoogleAnalytics(
             isFlagProtectsCellFromAccidentalClick.value ? 'cellProtectionByFlagIsEnabled' : 'cellProtectionByFlagIsDisabled',
-            'switch',
+            'switcher',
             isFlagProtectsCellFromAccidentalClick.value ? 'cell_protection_by_flag_is_enabled' : 'cell_protection_by_flag_is_disabled',
         );
     };
