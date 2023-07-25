@@ -24,7 +24,7 @@ const copyLink = (): void => {
 
 <template>
 <div class="copyWrapper" v-if="navigatorClipboard">
-    <button class="copyBtn" @click="copyLink">Поделиться ссылкой на приложение</button>
+    <button class="copyBtn" id="copyBtn" @click="copyLink">Поделиться ссылкой на приложение</button>
     <div class="copyTextContainer">
         <p class="copyText copySuccess" v-if="copySuccess">Ссылка скопирована в буфер обмена</p>
         <p class="copyText copyError" v-else-if="copyError">Ошибка копирования ссылки</p>

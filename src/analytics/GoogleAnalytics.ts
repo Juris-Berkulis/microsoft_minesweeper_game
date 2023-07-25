@@ -33,8 +33,9 @@ export default class GoogleAnalytics {
         'btnForAppInstallingAsPWA': () => this.listenerFunc('pressBtnForPWA', 'btn', 'press_btn_for_PWA'),
         'newGameBtn': () => this.listenerFunc('newGameByBtn', 'btn', 'new_game_by_btn'),
         'toggleFieldManager': () => this.listenerFunc('toggleFieldManager', 'switch', 'toggle_field_manager'),
-        'saveNewFieldSize_btnText': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),
+        'saveNewFieldSizeBtn': () => this.listenerFunc('saveNewFieldSize', 'btn', 'save_new_field_size'),
         'serviceWorkerMessageClosedBtn': () => this.listenerFunc('SWMessageCloseByBtn', 'btn', 'press_btn_for_service_worker_message_closing'),
+        'copyBtn': () => this.listenerFunc('pressCopyBtn', 'btn', 'press_copy_btn'),
     }
 
     constructor () {
