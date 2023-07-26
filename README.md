@@ -20,7 +20,7 @@ To use the Minesweeper game, simply go to any of the URLs:
 - **[Minesweeper](https://custom-minesweeper.vercel.app/)** on vercel;
 - **[Minesweeper](https://custom-minesweeper.surge.sh/)** on surge.
 
-<!-- Clicking on one of the URLs-above will open the web-version of the Minesweeper game, and if your browser supports game installation, you will be prompted to install the Minesweeper game on your device. Also, you can install the game at any time using the button or continue using it by the site. Game size: **<1 MB**. -->
+Clicking on one of the URLs-above will open the web-version of the "Minesweeper" game, and if your browser supports games installation, you will be prompted to install the "Minesweeper" game on your device. You can also install the game yourself at any time using the button located on the options panel, or simply continue using it by the site. Game size: **<1 MB**.
 
 ## APP FUNCTIONALITY:
 
