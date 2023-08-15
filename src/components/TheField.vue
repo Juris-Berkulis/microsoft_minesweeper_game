@@ -261,14 +261,12 @@ const toggleFlag = (clickedCell: Cell): void => {
   }
 };
 
-const openCell = (event: MouseEvent, cellIndex: number): void => {
+const openCell = (cellIndex: number): void => {
   if (gameResult.value === 'indefined') {
     const clickedCell: Cell = cellsList.value[cellIndex];
 
     if (!clickedCell.isOpen) {
-      if (event.altKey || event.ctrlKey) {
-        toggleFlag(clickedCell);
-      } else if (
+      if (
         !isFlagProtectsCellFromAccidentalClick.value 
         || 
         (isFlagProtectsCellFromAccidentalClick.value && !clickedCell.isFlag)
@@ -320,7 +318,20 @@ const styles: Styles = {
 
 <template>
 <div class="field" :style="styles.field">
-  <div class="cell" :style="styles.cellStyle" v-for="cell of cellsList" :key="cell.id" @click="(event) => openCell(event, cell.id)" @mousedown.right="() => toggleFlag(cell)" @contextmenu.prevent="" @touchstart="(event: TouchEvent) => toggleFlagByTouchScreen(event, cell)" @touchend="resetTimerForPressTouchScreen" @touchmove="resetTimerForPressTouchScreen">
+  <div 
+    class="cell" 
+    :style="styles.cellStyle" 
+    v-for="cell of cellsList" 
+    :key="cell.id" 
+    @click.exact="openCell(cell.id)" 
+    @mousedown.left.alt="toggleFlag(cell)" 
+    @mousedown.left.ctrl="toggleFlag(cell)" 
+    @mousedown.right="toggleFlag(cell)" 
+    @contextmenu.prevent
+    @touchstart="(event: TouchEvent) => toggleFlagByTouchScreen(event, cell)" 
+    @touchend="resetTimerForPressTouchScreen" 
+    @touchmove="resetTimerForPressTouchScreen"
+  >
     <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
       <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
       <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
