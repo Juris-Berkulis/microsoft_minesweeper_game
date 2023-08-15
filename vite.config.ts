@@ -47,6 +47,9 @@ const htmlPlugin = (): HtmlPlugin => { //* - https://vitejs.dev/guide/api-plugin
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 8018,
+  },
   plugins: [
     vue(),
     vueJsx(),
