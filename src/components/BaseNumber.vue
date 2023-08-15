@@ -34,7 +34,10 @@ const numberColor: NumberColor = {
 
 <template>
     <div class="number">
-        <IconNumber :numberOfMinesNearby="numberOfMinesNearby" :color="numberColor[numberOfMinesNearby as keyof NumberColor]"></IconNumber>
+        <IconNumber 
+            :numberOfMinesNearby="numberOfMinesNearby" 
+            :color="numberColor[numberOfMinesNearby as keyof NumberColor]"
+        ></IconNumber>
     </div>
 </template>
 

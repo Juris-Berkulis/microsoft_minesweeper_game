@@ -255,7 +255,11 @@ const toggleFlag = (clickedCell: Cell): void => {
       sendActionIntoGoogleAnalytics('deleteFlag', 'cell', 'delete_flag_from_cell');
     }
 
-    if (flagsCount.value === minesCountReal.value && minesCountReal.value + correctMovesCount.value === cellsCount.value) {
+    if (
+      flagsCount.value === minesCountReal.value 
+      && 
+      minesCountReal.value + correctMovesCount.value === cellsCount.value
+    ) {
       gameResult.value = 'won';
     }
   }
@@ -332,11 +336,25 @@ const styles: Styles = {
     @touchend="resetTimerForPressTouchScreen" 
     @touchmove="resetTimerForPressTouchScreen"
   >
-    <div class="cellIcon" :class="{cellIcon_clicked: cell.isClicked}" v-if="cell.isOpen || gameResult !== 'indefined'">
-      <BaseMine v-if="cell.isMine" :isMineExploded="cell.isMineExploded" :gameResult="gameResult"></BaseMine>
-      <BaseNumber v-if="!cell.isMine" :numberOfMinesNearby="cell.numberOfMinesNearby"></BaseNumber>
+    <div 
+      class="cellIcon" 
+      :class="{cellIcon_clicked: cell.isClicked}" 
+      v-if="cell.isOpen || gameResult !== 'indefined'"
+    >
+      <BaseMine 
+        v-if="cell.isMine" 
+        :isMineExploded="cell.isMineExploded" 
+        :gameResult="gameResult"
+      ></BaseMine>
+      <BaseNumber 
+        v-if="!cell.isMine" 
+        :numberOfMinesNearby="cell.numberOfMinesNearby"
+      ></BaseNumber>
     </div>
-    <BaseFlag v-if="cell.isFlag" :isWrongChoice="gameResult === 'lost' && cell.isFlag && !cell.isMine"></BaseFlag>
+    <BaseFlag 
+      v-if="cell.isFlag" 
+      :isWrongChoice="gameResult === 'lost' && cell.isFlag && !cell.isMine"
+    ></BaseFlag>
   </div>
 </div>
 </template>

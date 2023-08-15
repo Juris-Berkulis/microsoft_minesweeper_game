@@ -83,15 +83,45 @@ const saveSettings = (): void => {
 <form class="form" action="" @submit.prevent="saveSettings">
     <div class="inputWrapper">
         <label class="label" for="cellsCountInWidth">Количество клеток в ширину:</label>
-        <input class="input" type="number" :value="cellsCountInWidth" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'width')" name="cellsCountInWidth" :min="cellsCountInWidthMin" :max="cellsCountInWidthMax" step="1" required="true">
+        <input 
+            class="input" 
+            type="number" 
+            :value="cellsCountInWidth" 
+            @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'width')" 
+            name="cellsCountInWidth" 
+            :min="cellsCountInWidthMin" 
+            :max="cellsCountInWidthMax" 
+            step="1" 
+            required="true"
+        >
     </div>
     <div class="inputWrapper">
         <label class="label" for="cellsCountInHeight">Количество клеток в высоту:</label>
-        <input class="input" type="number" :value="cellsCountInHeight" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'height')" name="cellsCountInHeight" :min="cellsCountInHeightMin" :max="cellsCountInHeightMax" step="1" required="true">
+        <input 
+            class="input" 
+            type="number" 
+            :value="cellsCountInHeight" 
+            @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'height')" 
+            name="cellsCountInHeight" 
+            :min="cellsCountInHeightMin" 
+            :max="cellsCountInHeightMax" 
+            step="1" 
+            required="true"
+        >
     </div>
     <div class="inputWrapper">
         <label class="label" for="minesCountExpected">Вероятность появления мины в клетке (%):</label>
-        <input class="input" type="number" :value="minesSpawnPercentage" @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" name="minesCountExpected" :min="minesSpawnPercentageMin" :max="minesSpawnPercentageMax" step="1" required="true">
+        <input 
+            class="input" 
+            type="number" 
+            :value="minesSpawnPercentage" 
+            @change.lazy="(event: Event): string => (event.target as HTMLInputElement).value = setInput((event.target as HTMLInputElement).value, 'minePercent')" 
+            name="minesCountExpected" 
+            :min="minesSpawnPercentageMin" 
+            :max="minesSpawnPercentageMax" 
+            step="1" 
+            required="true"
+        >
     </div>
     <div class="btnWrapper">
         <button class="btn" id="saveNewFieldSizeBtn" type="submit">

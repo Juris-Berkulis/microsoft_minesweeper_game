@@ -10,7 +10,10 @@ defineProps<Props>();
 </script>
 
 <template>
-    <div class="mine" :class="[isMineExploded ? 'mine_exploded' : 'mine_notExploded', gameResult === 'won' ? 'mine_won' : '']">
+    <div 
+        class="mine" 
+        :class="[isMineExploded ? 'mine_exploded' : 'mine_notExploded', {mine_won: gameResult === 'won'}]"
+    >
         <div class="mineCircle"></div>
         <div class="mineLever mineLever_1"></div>
         <div class="mineLever mineLever_2"></div>

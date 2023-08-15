@@ -25,9 +25,19 @@ const newGame = ():void => {
     <div class="optionsWrapper">
         <h1 class="title">Minesweeper</h1>
         <div class="options">
-            <BaseDefaultButton id="settingsView" :to="'/settings'">Настройки</BaseDefaultButton>
-            <BaseDefaultButton id="newGameBtn" @click="newGame">Новая игра</BaseDefaultButton>
-            <BaseDefaultButton id="btnForAppInstallingAsPWA" v-if="isShowBtnForInstallPWA" @click="installTheAppAsPWA">Установить</BaseDefaultButton>
+            <BaseDefaultButton 
+                id="settingsView" 
+                :to="'/settings'"
+            >Настройки</BaseDefaultButton>
+            <BaseDefaultButton 
+                id="newGameBtn" 
+                @click="newGame"
+            >Новая игра</BaseDefaultButton>
+            <BaseDefaultButton 
+                id="btnForAppInstallingAsPWA" 
+                v-if="isShowBtnForInstallPWA" 
+                @click="installTheAppAsPWA"
+            >Установить</BaseDefaultButton>
         </div>
     </div>
 </div>

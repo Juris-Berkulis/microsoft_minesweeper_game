@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { messageFromServiceWorker, resetMessageFromServiceWorker } from '@/serviceWorker/registrationServiceWorker';
+import { 
+    messageFromServiceWorker, 
+    resetMessageFromServiceWorker 
+} from '@/serviceWorker/registrationServiceWorker';
 import BaseDefaultButton from './BaseDefaultButton.vue';
 </script>
 
@@ -9,7 +12,11 @@ import BaseDefaultButton from './BaseDefaultButton.vue';
         <h2 class="messageTitle">Уведомление</h2>
         <hr class="messageTitleLine">
         <p class="messageText">{{ messageFromServiceWorker }}</p>
-        <BaseDefaultButton class="messageBtn" id="serviceWorkerMessageClosedBtn" @click="resetMessageFromServiceWorker">Хорошо</BaseDefaultButton>
+        <BaseDefaultButton 
+            class="messageBtn" 
+            id="serviceWorkerMessageClosedBtn" 
+            @click="resetMessageFromServiceWorker"
+        >Хорошо</BaseDefaultButton>
     </div>
 </div>
 </template>
