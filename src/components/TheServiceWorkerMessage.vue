@@ -1,31 +1,26 @@
 <script setup lang="ts">
 import { 
-    messageFromServiceWorker, 
-    resetMessageFromServiceWorker 
+    keyForMessageFromServiceWorker, 
+    resetKeyForMessageFromServiceWorker 
 } from '@/serviceWorker/registrationServiceWorker';
 import BaseDefaultButton from './BaseDefaultButton.vue';
 import { useLanguageSelectionStore } from '@/stores/languageSelection';
-import { computed, type ComputedRef } from 'vue';
 
 const {
     getTranslation,
 } = useLanguageSelectionStore();
-
-const serviceWorkerMessage: ComputedRef<string> = computed(() => {
-    return getTranslation(messageFromServiceWorker.value)
-});
 </script>
 
 <template>
-<div class="messageField" v-if="serviceWorkerMessage">
+<div class="messageField" v-if="keyForMessageFromServiceWorker">
     <div class="messageWrapper">
         <h2 class="messageTitle">{{ getTranslation('theServiceWorkerMessage_notificationTitle') }}</h2>
         <hr class="messageTitleLine">
-        <p class="messageText">{{ serviceWorkerMessage }}</p>
+        <p class="messageText">{{ getTranslation(keyForMessageFromServiceWorker) }}</p>
         <BaseDefaultButton 
             class="messageBtn" 
             id="serviceWorkerMessageClosedBtn" 
-            @click="resetMessageFromServiceWorker"
+            @click="resetKeyForMessageFromServiceWorker"
         >{{ getTranslation('theServiceWorkerMessage_ok') }}</BaseDefaultButton>
     </div>
 </div>

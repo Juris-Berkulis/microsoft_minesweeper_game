@@ -16,7 +16,6 @@ export const en_US: KitOfTranslatedWords = {
     theFieldSize_save: 'Save',
     theServiceWorkerMessage_notificationTitle: 'Notification',
     theServiceWorkerMessage_ok: 'Ok',
-    theServiceWorkerMessage_emptedMessage: '',
     theServiceWorkerMessage_updatesInstalled: 'Updates installed! Close and reopen the app to apply the latest updates.',
     theServiceWorkerMessage_appSavedForOffline: 'The app has been automatically saved for offline use!',
     theServiceWorkerMessage_appSuccessfullyInstalled: 'Minesweeper has been successfully installed!',

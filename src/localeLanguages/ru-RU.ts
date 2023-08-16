@@ -16,7 +16,6 @@ export const ru_RU: KitOfTranslatedWords = {
     theFieldSize_save: 'Сохранить',
     theServiceWorkerMessage_notificationTitle: 'Уведомление',
     theServiceWorkerMessage_ok: 'Хорошо',
-    theServiceWorkerMessage_emptedMessage: '',
     theServiceWorkerMessage_updatesInstalled: 'Обновления установлены! Закройте и откройте приложение заново, чтобы применить последние обновления.',
     theServiceWorkerMessage_appSavedForOffline: 'Приложение было автоматически сохранено для использования в offline-режиме!',
     theServiceWorkerMessage_appSuccessfullyInstalled: 'Приложение "Minesweeper" было успешно установлено!',

@@ -7,10 +7,10 @@
 import type { KitOfTranslatedWords } from '@/types/localeLanguages';
 import { ref, type Ref } from 'vue';
 
-export const messageFromServiceWorker: Ref<keyof KitOfTranslatedWords> = ref('theServiceWorkerMessage_emptedMessage');
+export const keyForMessageFromServiceWorker: Ref<keyof KitOfTranslatedWords | null> = ref(null);
 
-export const resetMessageFromServiceWorker = (): void => {
-  messageFromServiceWorker.value = 'theServiceWorkerMessage_emptedMessage';
+export const resetKeyForMessageFromServiceWorker = (): void => {
+  keyForMessageFromServiceWorker.value = null;
 };
 
 const isLocalhost: boolean = Boolean(
@@ -39,7 +39,7 @@ const registerValidSW = (swUrl: any, config: any): void => {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
               console.log('New content is available and will be used when all tabs for this page are closed.');
-              messageFromServiceWorker.value = 'theServiceWorkerMessage_updatesInstalled';
+              keyForMessageFromServiceWorker.value = 'theServiceWorkerMessage_updatesInstalled';
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -50,7 +50,7 @@ const registerValidSW = (swUrl: any, config: any): void => {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-              messageFromServiceWorker.value = 'theServiceWorkerMessage_appSavedForOffline';
+              keyForMessageFromServiceWorker.value = 'theServiceWorkerMessage_appSavedForOffline';
 
               // Execute callback
               if (config && config.onSuccess) {
@@ -163,7 +163,7 @@ export const isRegisterServiceWorker = (): void => {
       setDeferredPromptForPWAAction(null);
       // Optionally, send analytics event to indicate successful install
       console.log('The application has been successfully installed.');
-      messageFromServiceWorker.value = 'theServiceWorkerMessage_appSuccessfullyInstalled';
+      keyForMessageFromServiceWorker.value = 'theServiceWorkerMessage_appSuccessfullyInstalled';
     };
 
     //* Подробнее на сайте: "https://web.dev/i18n/ru/customize-install/":

@@ -14,7 +14,6 @@ export interface KitOfTranslatedWords {
     theFieldSize_save: string,
     theServiceWorkerMessage_notificationTitle: string,
     theServiceWorkerMessage_ok: string,
-    theServiceWorkerMessage_emptedMessage: string,
     theServiceWorkerMessage_updatesInstalled: string,
     theServiceWorkerMessage_appSavedForOffline: string,
     theServiceWorkerMessage_appSuccessfullyInstalled: string,
