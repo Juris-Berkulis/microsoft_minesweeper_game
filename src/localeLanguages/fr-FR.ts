@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const fr_FR: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Retour au terrain`,
+    boseCopy_shareAppLink: `Partager le lien de l'application`,
+    boseCopy_linkCopiedToClipboard: `Lien copié dans le presse-papiers`,
+    boseCopy_linkCopyError: `Erreur lors de la copie du lien`,
+    theFieldManager_options: `Options`,
+    theFieldManager_title: `Démineur`,
+    theFieldManager_settings: `Paramètres`,
+    theFieldManager_newGame: `Nouveau jeu`,
+    theFieldManager_install: `Installer`,
+    theFieldSize_numberOfCellsInWidth: `Nombre de cellules en large`,
+    theFieldSize_numberOfCellsInHeight: `Nombre de cellules en hauteur`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Probabilité le mien dans une cellule`,
+    theFieldSize_save: `Sauvegarder`,
+    theLanguageSelection_language: `Langue`,
+    theLanguageSelection_changeTheLanguage: `Modifier`,
+    theLanguageSelection_cancel: `Annuler`,
+    theServiceWorkerMessage_notificationTitle: `Notification`,
+    theServiceWorkerMessage_ok: `Bien`,
+    theServiceWorkerMessage_updatesInstalled: `Mises à jour installées! Fermez et rouvrez l'application pour appliquer les dernières mises à jour.`,
+    theServiceWorkerMessage_appSavedForOffline: `L'application a été automatiquement enregistrée pour une utilisation hors ligne!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `L'application "Minesweeper" a été installée avec succès!`,
+    theSettingsSwitchers_vibrationForFlags: `Vibrer lors de l'ajout et de la suppression d'une case à cocher`,
+    theSettingsSwitchers_vibrationForFlags_message: `Fonctionne uniquement sur les appareils qui ont des vibrations (les vibrations doivent être activées dans les paramètres de l'appareil).`,
+    theSettingsSwitchers_theFlagProtects: `Flag protège la cellule d'une pression accidentelle`,
+};
