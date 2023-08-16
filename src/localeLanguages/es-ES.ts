@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const es_ES: KitOfTranslatedWords = {
+    settingsView_backInTheField: 'Volver al campo',
+    boseCopy_shareAppLink: 'Compartir enlace de la aplicación',
+    boseCopy_linkCopiedToClipboard: 'Enlace copiado al portapapeles',
+    boseCopy_linkCopyError: 'Error al copiar el enlace',
+    theFieldManager_options: 'Opciones',
+    theFieldManager_title: 'Buscaminas',
+    theFieldManager_settings: 'Configuración',
+    theFieldManager_newGame: 'Juego nuevo',
+    theFieldManager_install: 'Instalar',
+    theFieldSize_numberOfCellsInWidth: 'Número de celdas en ancho',
+    theFieldSize_numberOfCellsInHeight: 'Número de celdas en altura',
+    theFieldSize_probabilityOfMineAppearingInACell: 'Probabilidad de mina en una celda',
+    theFieldSize_save: 'Guardar',
+    theLanguageSelection_language: 'Idioma',
+    theLanguageSelection_changeTheLanguage: 'Cambiar',
+    theLanguageSelection_cancel: 'Cancelar',
+    theServiceWorkerMessage_notificationTitle: 'Aviso',
+    theServiceWorkerMessage_ok: 'Bueno',
+    theServiceWorkerMessage_updatesInstalled: '¡Actualizaciones instaladas! Cierre y vuelva a abrir la aplicación para aplicar las últimas actualizaciones.',
+    theServiceWorkerMessage_appSavedForOffline: '¡La aplicación se ha guardado automáticamente para su uso sin conexión!',
+    theServiceWorkerMessage_appSuccessfullyInstalled: '¡La aplicación "Buscaminas" se ha instalado correctamente!',
+    theSettingsSwitchers_vibrationForFlags: 'Vibración al configurar y quitar banderas',
+    theSettingsSwitchers_vibrationForFlags_message: 'Funciona solo en dispositivos que tienen vibración (la vibración debe estar activada en la configuración del dispositivo).',
+    theSettingsSwitchers_theFlagProtects: 'La bandera protege la celda de presiones accidentales',
+};

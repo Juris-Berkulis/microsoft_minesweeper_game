@@ -41,6 +41,7 @@ const checkingForAllValues = (locale: never): string => {
 const getLanguageForLocale = (locale: Locale): string => {
     switch (locale) {
         case 'en_US': return 'English'
+        case 'es_ES': return 'Español'
         case 'fr_FR': return 'Français'
         case 'ru_RU': return 'Русский'
         default: return checkingForAllValues(locale)
