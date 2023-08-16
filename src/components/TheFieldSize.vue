@@ -179,7 +179,6 @@ const saveSettings = (): void => {
     font-weight: 400;
     line-height: 1;
     color: #eeeeee;
-    /* border: 2px solid #449944; */
     border-radius: 30px;
     background-color: transparent;
     overflow: hidden;
@@ -198,6 +197,7 @@ const saveSettings = (): void => {
     height: 100%;
     width: calc(100% + 26px);
     transform: skewX(-45deg);
+    box-shadow: inset 0 0 0.5em 0.5em #286928;
     z-index: -1;
     pointer-events: none;
     transition: inherit;

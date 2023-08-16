@@ -24,6 +24,7 @@ defineProps<Props>();
     font-weight: 400;
     line-height: 1;
     color: #ffffff;
+    box-shadow: inset 0 0 0.5em 0.5em #286928;
 }
 
 .button:hover {

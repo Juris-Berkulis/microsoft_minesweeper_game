@@ -92,9 +92,10 @@ const appLanguagesListHeight = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
 }
 
 .languagesSelectionBtn {
-    padding: 0.5em 1em;
+    padding: 0.2em 0.5em;
     color: #ffffff;
     background-color: #449944;
+    box-shadow: inset 0 0 0.3em 0.2em #286928;
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
@@ -105,9 +106,9 @@ const appLanguagesListHeight = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
 }
 
 .languagesList {
-    height: min(calc(6em + 1px), calc(v-bind(appLanguagesListHeight) + 1px));
+    height: min(calc(6em + 3px), calc(v-bind(appLanguagesListHeight) + 3px));
     width: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
     transition: all 0.4s linear 0s;
 }
 
@@ -132,6 +133,7 @@ const appLanguagesListHeight = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
+    box-shadow: inset 0 0 0.5em 0.2em #385e8d;
 }
 
 .languageBtn:hover {

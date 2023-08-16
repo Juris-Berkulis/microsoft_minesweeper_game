@@ -50,6 +50,7 @@ const {
     padding: 8px 15px;
     text-align: center;
     background-color: #449944;
+    box-shadow: inset 0 0 0.3em 0.2em #286928;
     font-size: 1em;
     font-weight: 700;
     line-height: 1;
