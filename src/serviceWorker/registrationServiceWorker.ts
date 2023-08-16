@@ -4,12 +4,13 @@
 // existing tabs open on the page have been closed, since previously cached
 // resources are updated in the background.
 
+import type { KitOfTranslatedWords } from '@/types/localeLanguages';
 import { ref, type Ref } from 'vue';
 
-export const messageFromServiceWorker: Ref<string> = ref('');
+export const messageFromServiceWorker: Ref<keyof KitOfTranslatedWords> = ref('theServiceWorkerMessage_emptedMessage');
 
 export const resetMessageFromServiceWorker = (): void => {
-  messageFromServiceWorker.value = '';
+  messageFromServiceWorker.value = 'theServiceWorkerMessage_emptedMessage';
 };
 
 const isLocalhost: boolean = Boolean(
@@ -38,7 +39,7 @@ const registerValidSW = (swUrl: any, config: any): void => {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
               console.log('New content is available and will be used when all tabs for this page are closed.');
-              messageFromServiceWorker.value = 'Обновления установлены! Закройте и откройте приложение заново, чтобы применить последние обновления.';
+              messageFromServiceWorker.value = 'theServiceWorkerMessage_updatesInstalled';
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -49,7 +50,7 @@ const registerValidSW = (swUrl: any, config: any): void => {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-              messageFromServiceWorker.value = 'Приложение было автоматически сохранено для использования в offline-режиме!';
+              messageFromServiceWorker.value = 'theServiceWorkerMessage_appSavedForOffline';
 
               // Execute callback
               if (config && config.onSuccess) {
@@ -162,7 +163,7 @@ export const isRegisterServiceWorker = (): void => {
       setDeferredPromptForPWAAction(null);
       // Optionally, send analytics event to indicate successful install
       console.log('The application has been successfully installed.');
-      messageFromServiceWorker.value = 'Приложение "Minesweeper" было успешно установлено!';
+      messageFromServiceWorker.value = 'theServiceWorkerMessage_appSuccessfullyInstalled';
     };
 
     //* Подробнее на сайте: "https://web.dev/i18n/ru/customize-install/":
