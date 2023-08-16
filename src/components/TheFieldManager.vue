@@ -2,6 +2,11 @@
 import { ref, type Ref } from 'vue';
 import { isShowBtnForInstallPWA, installTheAppAsPWA } from '@/serviceWorker/registrationServiceWorker';
 import BaseDefaultButton from './BaseDefaultButton.vue';
+import { useLanguageSelectionStore } from '@/stores/languageSelection';
+
+const {
+    getTranslation,
+} = useLanguageSelectionStore();
 
 const isShow: Ref<boolean> = ref(false);
 
@@ -20,7 +25,7 @@ const newGame = ():void => {
 <template>
 <div class="fieldManager" :class="{fieldManager_closed: !isShow}">
     <div class="lever">
-        <button class="leverBtn" id="toggleFieldManager" @click="toggleOptions">Опции</button>
+        <button class="leverBtn" id="toggleFieldManager" @click="toggleOptions">{{ getTranslation('theFieldManager_options') }}</button>
     </div>
     <div class="optionsWrapper">
         <h1 class="title">Minesweeper</h1>

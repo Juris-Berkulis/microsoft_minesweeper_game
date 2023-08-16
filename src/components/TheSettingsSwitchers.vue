@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia';
 import BaseSettingsSwitcher from './BaseSettingsSwitcher.vue';
 import { useSettingsSwitchersStore } from '@/stores/settingsSwitchers';
+import { useLanguageSelectionStore } from '@/stores/languageSelection';
 
 const settingsSwitchersStore = useSettingsSwitchersStore();
 
@@ -14,6 +15,10 @@ const {
     isVibrationForFlags,
     isFlagProtectsCellFromAccidentalClick,
 } = storeToRefs(settingsSwitchersStore);
+
+const {
+    getTranslation,
+} = useLanguageSelectionStore();
 </script>
 
 <template>
@@ -27,7 +32,7 @@ const {
     <BaseSettingsSwitcher 
         :isPower="isFlagProtectsCellFromAccidentalClick" 
         :togglePower="setIsFlagProtectsCellFromAccidentalClick" 
-        :mainText="'Флаг защищает ячейку от случайного нажатия'" 
+        :mainText="getTranslation('theSettingsSwitchers_theFlagProtects')" 
     ></BaseSettingsSwitcher>
 </div>
 </template>

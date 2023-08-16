@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BaseCopy from '@/components/BaseCopy.vue';
 import TheFieldSize from '@/components/TheFieldSize.vue';
+import TheLanguageSelection from '@/components/TheLanguageSelection.vue';
 import TheSettingsSwitchers from '@/components/TheSettingsSwitchers.vue';
 </script>
 
@@ -8,6 +9,7 @@ import TheSettingsSwitchers from '@/components/TheSettingsSwitchers.vue';
     <div class="setting">
         <RouterLink class="link" id="homeView" to="/">Вернуться в поле</RouterLink>
         <BaseCopy />
+        <TheLanguageSelection />
         <TheFieldSize />
         <TheSettingsSwitchers />
     </div>
