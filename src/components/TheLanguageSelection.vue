@@ -3,10 +3,32 @@ import { allKitsOfTranslatedWords } from '@/localeLanguages';
 import type { AllKitsOfTranslatedWords, AppLanguage } from "@/types/localeLanguages";
 import type { Locale } from "@/types/localeLanguages";
 import { useLanguageSelectionStore } from '@/stores/languageSelection';
+import { storeToRefs } from 'pinia';
+import { ref, type Ref } from 'vue';
+
+const languageSelectionStore = useLanguageSelectionStore();
 
 const {
     setSelectedLanguage,
-} = useLanguageSelectionStore();
+    getTranslation,
+} = languageSelectionStore;
+
+const {
+    selectedLanguage,
+} = storeToRefs(languageSelectionStore);
+
+const isShowLanguageList: Ref<boolean> = ref(false);
+
+const toogleShowLanguageList = (isShow?: boolean): void => {
+    isShow !== undefined 
+    ? isShowLanguageList.value = isShow 
+    : isShowLanguageList.value = !isShowLanguageList.value
+};
+
+const selecteLanguage = (appLanguage: AppLanguage): void => {
+    setSelectedLanguage(appLanguage);
+    toogleShowLanguageList(false);
+};
 
 const checkingForAllValues = (locale: never): string => {
     return `${locale}`
@@ -22,7 +44,7 @@ const getLanguageForLocale = (locale: Locale): string => {
 
 const localesList: Array<keyof AllKitsOfTranslatedWords<Locale>> = (Object.keys(allKitsOfTranslatedWords)) as Array<keyof AllKitsOfTranslatedWords<Locale>>;
 
-const appLanguages: AppLanguage[] = localesList.map((locale: keyof AllKitsOfTranslatedWords<Locale>) => {
+const appLanguagesList: AppLanguage[] = localesList.map((locale: keyof AllKitsOfTranslatedWords<Locale>) => {
     const appLanguage: AppLanguage = {
         locale,
         language: getLanguageForLocale(locale),
@@ -30,15 +52,90 @@ const appLanguages: AppLanguage[] = localesList.map((locale: keyof AllKitsOfTran
 
     return appLanguage
 });
+
+const appLanguagesListHeight = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
 </script>
 
 <template>
-<div>
-    <ul>
-        <li v-for="appLanguage, index of appLanguages" :key="index" @click="setSelectedLanguage(appLanguage)">{{ appLanguage.language }}</li>
+<div class="languagesSelectionWrapper">
+    <div class="languagesSelectionHeader">
+        <p class="languagesSelectionTitle">{{ getTranslation('theLanguageSelection_language') }}: {{ selectedLanguage.language }}</p>
+        <button class="languagesSelectionBtn" @click="toogleShowLanguageList()">{{ isShowLanguageList ? getTranslation('theLanguageSelection_cancel') : getTranslation('theLanguageSelection_changeTheLanguage') }}</button>
+    </div>
+    <ul class="languagesList" :class="{hiden: !isShowLanguageList}">
+        <li class="languageItem" v-for="appLanguage, index of appLanguagesList" :key="index">
+            <button class="languageBtn" @click="selecteLanguage(appLanguage)">{{ appLanguage.language }}</button>
+        </li>
     </ul>
 </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
+.languagesSelectionWrapper {
+    width: 100%;
+    margin-bottom: 1.5em;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.languagesSelectionHeader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px 15px;
+    margin-bottom: 1em;
+}
+
+.languagesSelectionTitle {
+    font-weight: 700;
+}
+
+.languagesSelectionBtn {
+    padding: 0.5em 1em;
+    color: #ffffff;
+    background-color: #449944;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.languagesSelectionBtn:hover {
+    background-color: #227722;
+}
+
+.languagesList {
+    height: min(calc(6em + 1px), calc(v-bind(appLanguagesListHeight) + 1px));
+    width: 100%;
+    overflow-y: auto;
+    transition: all 0.4s linear 0s;
+}
+
+.languagesList.hiden {
+    height: 0;
+}
+
+.languageItem {
+    width: 100%;
+    border-bottom: 1px solid #999999;
+}
+
+.languageItem:last-child {
+    border: none;
+}
+
+.languageBtn {
+    width: 100%;
+    padding: 0.25em;
+    color: #dddddd;
+    background-color: #6497d4;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.languageBtn:hover {
+    color: #ffffff;
+    background-color: #4e88ce;
+}
 </style>
