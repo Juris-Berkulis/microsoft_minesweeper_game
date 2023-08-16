@@ -5,6 +5,7 @@ import type { Locale } from "@/types/localeLanguages";
 import { useLanguageSelectionStore } from '@/stores/languageSelection';
 import { storeToRefs } from 'pinia';
 import { ref, type Ref } from 'vue';
+import { sendActionIntoGoogleAnalytics } from '@/analytics/GoogleAnalytics';
 
 const languageSelectionStore = useLanguageSelectionStore();
 
@@ -19,15 +20,18 @@ const {
 
 const isShowLanguageList: Ref<boolean> = ref(false);
 
-const toogleShowLanguageList = (isShow?: boolean): void => {
+const toogleIsShowLanguageList = (isShow?: boolean): void => {
     isShow !== undefined 
     ? isShowLanguageList.value = isShow 
     : isShowLanguageList.value = !isShowLanguageList.value
+
+    sendActionIntoGoogleAnalytics('toogleIsShowLanguageList', 'btn', 'toogle_show_language_list');
 };
 
-const selecteLanguage = (appLanguage: AppLanguage): void => {
+const selectTheLanguage = (appLanguage: AppLanguage): void => {
     setSelectedLanguage(appLanguage);
-    toogleShowLanguageList(false);
+    toogleIsShowLanguageList(false);
+    sendActionIntoGoogleAnalytics('selectTheLanguage', 'btn', 'select_the_language');
 };
 
 const checkingForAllValues = (locale: never): string => {
@@ -53,18 +57,18 @@ const appLanguagesList: AppLanguage[] = localesList.map((locale: keyof AllKitsOf
     return appLanguage
 });
 
-const appLanguagesListHeight = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
+const appLanguagesListHeight: string = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
 </script>
 
 <template>
 <div class="languagesSelectionWrapper">
     <div class="languagesSelectionHeader">
         <p class="languagesSelectionTitle">{{ getTranslation('theLanguageSelection_language') }}: {{ selectedLanguage.language }}</p>
-        <button class="languagesSelectionBtn" @click="toogleShowLanguageList()">{{ isShowLanguageList ? getTranslation('theLanguageSelection_cancel') : getTranslation('theLanguageSelection_changeTheLanguage') }}</button>
+        <button class="languagesSelectionBtn" @click="toogleIsShowLanguageList()">{{ isShowLanguageList ? getTranslation('theLanguageSelection_cancel') : getTranslation('theLanguageSelection_changeTheLanguage') }}</button>
     </div>
     <ul class="languagesList" :class="{hiden: !isShowLanguageList}">
         <li class="languageItem" v-for="appLanguage, index of appLanguagesList" :key="index">
-            <button class="languageBtn" @click="selecteLanguage(appLanguage)">{{ appLanguage.language }}</button>
+            <button class="languageBtn" @click="selectTheLanguage(appLanguage)">{{ appLanguage.language }}</button>
         </li>
     </ul>
 </div>
