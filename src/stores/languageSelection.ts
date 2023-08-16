@@ -1,7 +1,7 @@
 import { allKitsOfTranslatedWords } from "@/localeLanguages";
 import type { AppLanguage, KitOfTranslatedWords } from "@/types/localeLanguages";
 import { defineStore } from "pinia";
-import { ref, type Ref } from 'vue';
+import { ref, type Ref, watchEffect } from 'vue';
 
 export const useLanguageSelectionStore = defineStore('languageSelection', () => {
     const selectedLanguage: Ref<AppLanguage> = ref(JSON.parse(localStorage.getItem('selectedLanguage')!) || <AppLanguage>{
@@ -17,6 +17,10 @@ export const useLanguageSelectionStore = defineStore('languageSelection', () => 
     const getTranslation = (phrase: keyof KitOfTranslatedWords): string => {
         return allKitsOfTranslatedWords[selectedLanguage.value.locale][phrase]
     };
+
+    watchEffect(() => {
+        document.querySelector('html')?.setAttribute('lang', selectedLanguage.value.locale.split('_')[0]);
+    });
 
     return {
         selectedLanguage,
