@@ -26,8 +26,8 @@ const {
     <BaseSettingsSwitcher 
         :isPower="isVibrationForFlags" 
         :togglePower="setIsVibrateForFlags" 
-        :mainText="'Вибриция при установке и удалении флагов'" 
-        :description="'Работает только на устройствах, имеющих вибрацию (вибрация должна быть активирована в настройках устройства).'"
+        :mainText="getTranslation('theSettingsSwitchers_vibrationForFlags')" 
+        :description="getTranslation('theSettingsSwitchers_vibrationForFlags_message')"
     ></BaseSettingsSwitcher>
     <BaseSettingsSwitcher 
         :isPower="isFlagProtectsCellFromAccidentalClick" 

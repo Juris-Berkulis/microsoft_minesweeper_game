@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue';
+import { useLanguageSelectionStore } from '@/stores/languageSelection';
+
+const {
+    getTranslation,
+} = useLanguageSelectionStore();
 
 const copySuccess: Ref<boolean> = ref(false);
 const copyError: Ref<boolean> = ref(false);
@@ -24,10 +29,10 @@ const copyLink = (): void => {
 
 <template>
 <div class="copyWrapper" v-if="navigatorClipboard">
-    <button class="copyBtn" id="copyBtn" @click="copyLink">Поделиться ссылкой на приложение</button>
+    <button class="copyBtn" id="copyBtn" @click="copyLink">{{ getTranslation('boseCopy_shareAppLink') }}</button>
     <div class="copyTextContainer">
-        <p class="copyText copySuccess" v-if="copySuccess">Ссылка скопирована в буфер обмена</p>
-        <p class="copyText copyError" v-else-if="copyError">Ошибка копирования ссылки</p>
+        <p class="copyText copySuccess" v-if="copySuccess">{{ getTranslation('boseCopy_linkCopiedToClipboard') }}</p>
+        <p class="copyText copyError" v-else-if="copyError">{{ getTranslation('boseCopy_linkCopyError') }}</p>
     </div>
 </div>
 </template>

@@ -2,6 +2,11 @@
 import { ref, type Ref } from 'vue';
 import { type FieldSettings } from '../types/index';
 import { useFieldSizeStore } from '@/stores/fieldSize';
+import { useLanguageSelectionStore } from '@/stores/languageSelection';
+
+const {
+    getTranslation,
+} = useLanguageSelectionStore();
 
 const {
     cellsCountInHeightDefault,
@@ -82,7 +87,7 @@ const saveSettings = (): void => {
 <template>
 <form class="form" action="" @submit.prevent="saveSettings">
     <div class="inputWrapper">
-        <label class="label" for="cellsCountInWidth">Количество клеток в ширину:</label>
+        <label class="label" for="cellsCountInWidth">{{ getTranslation('theFieldSize_numberOfCellsInWidth') }}:</label>
         <input 
             class="input" 
             type="number" 
@@ -96,7 +101,7 @@ const saveSettings = (): void => {
         >
     </div>
     <div class="inputWrapper">
-        <label class="label" for="cellsCountInHeight">Количество клеток в высоту:</label>
+        <label class="label" for="cellsCountInHeight">{{ getTranslation('theFieldSize_numberOfCellsInHeight') }}:</label>
         <input 
             class="input" 
             type="number" 
@@ -110,7 +115,7 @@ const saveSettings = (): void => {
         >
     </div>
     <div class="inputWrapper">
-        <label class="label" for="minesCountExpected">Вероятность появления мины в клетке (%):</label>
+        <label class="label" for="minesCountExpected">{{ getTranslation('theFieldSize_probabilityOfMineAppearingInACell') }} (%):</label>
         <input 
             class="input" 
             type="number" 
@@ -127,7 +132,7 @@ const saveSettings = (): void => {
         <button class="btn" id="saveNewFieldSizeBtn" type="submit">
             <span class="btnCurtain btnCurtain_1"></span>
             <span class="btnCurtain btnCurtain_2"></span>
-            <span class="btnText">Сохранить</span>
+            <span class="btnText">{{ getTranslation('theFieldSize_save') }}</span>
         </button>
     </div>
 </form>

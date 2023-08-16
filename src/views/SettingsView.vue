@@ -3,11 +3,16 @@ import BaseCopy from '@/components/BaseCopy.vue';
 import TheFieldSize from '@/components/TheFieldSize.vue';
 import TheLanguageSelection from '@/components/TheLanguageSelection.vue';
 import TheSettingsSwitchers from '@/components/TheSettingsSwitchers.vue';
+import { useLanguageSelectionStore } from '@/stores/languageSelection';
+
+const {
+    getTranslation,
+} = useLanguageSelectionStore();
 </script>
 
 <template>
     <div class="setting">
-        <RouterLink class="link" id="homeView" to="/">Вернуться в поле</RouterLink>
+        <RouterLink class="link" id="homeView" to="/">{{ getTranslation('settingsView_backInTheField') }}</RouterLink>
         <BaseCopy />
         <TheLanguageSelection />
         <TheFieldSize />

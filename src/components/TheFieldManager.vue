@@ -28,21 +28,21 @@ const newGame = ():void => {
         <button class="leverBtn" id="toggleFieldManager" @click="toggleOptions">{{ getTranslation('theFieldManager_options') }}</button>
     </div>
     <div class="optionsWrapper">
-        <h1 class="title">Minesweeper</h1>
+        <h1 class="title">{{ getTranslation('theFieldManager_title') }}</h1>
         <div class="options">
             <BaseDefaultButton 
                 id="settingsView" 
                 :to="'/settings'"
-            >Настройки</BaseDefaultButton>
+            >{{ getTranslation('theFieldManager_settings') }}</BaseDefaultButton>
             <BaseDefaultButton 
                 id="newGameBtn" 
                 @click="newGame"
-            >Новая игра</BaseDefaultButton>
+            >{{ getTranslation('theFieldManager_newGame') }}</BaseDefaultButton>
             <BaseDefaultButton 
                 id="btnForAppInstallingAsPWA" 
                 v-if="isShowBtnForInstallPWA" 
                 @click="installTheAppAsPWA"
-            >Установить</BaseDefaultButton>
+            >{{ getTranslation('theFieldManager_install') }}</BaseDefaultButton>
         </div>
     </div>
 </div>
