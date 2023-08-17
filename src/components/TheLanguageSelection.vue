@@ -43,7 +43,11 @@ const getLanguageForLocale = (locale: Locale): string => {
         case 'en_GB': return 'English'
         case 'es_ES': return 'Español'
         case 'fr_FR': return 'Français'
+        case 'hi_IN': return 'हिंदी'
+        case 'it_IT': return 'Italiana'
         case 'ru_RU': return 'Русский'
+        case 'tr_TR': return 'Türkçe'
+        case 'zh_Hans_CN': return '汉语'
         default: return checkingForAllValues(locale)
     }
 };

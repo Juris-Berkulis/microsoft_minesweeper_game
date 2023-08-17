@@ -25,7 +25,7 @@ export interface KitOfTranslatedWords {
     theSettingsSwitchers_theFlagProtects: string,
 };
 
-export type Locale = 'en_GB' | 'es_ES' | 'fr_FR' | 'ru_RU';
+export type Locale = 'en_GB' | 'es_ES' | 'fr_FR' | 'hi_IN' | 'it_IT' | 'ru_RU' | 'tr_TR' |'zh_Hans_CN';
 
 export type AllKitsOfTranslatedWords<K extends string> = {
     [key in K]: KitOfTranslatedWords

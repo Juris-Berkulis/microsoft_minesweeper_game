@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const it_IT: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Torna in campo`,
+    boseCopy_shareAppLink: `Condividi un collegamento all'applicazione`,
+    boseCopy_linkCopiedToClipboard: `Collegamento copiato negli appunti`,
+    boseCopy_linkCopyError: `Errore durante la copia del collegamento`,
+    theFieldManager_options: `Opzioni`,
+    theFieldManager_title: `Campo minato`,
+    theFieldManager_settings: `Impostazioni`,
+    theFieldManager_newGame: `Nuovo gioco`,
+    theFieldManager_install: `Installa`,
+    theFieldSize_numberOfCellsInWidth: `Numero di celle in ampiezza`,
+    theFieldSize_numberOfCellsInHeight: `Numero di celle in altezza`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Probabilità che compaiano bomba in una cella`,
+    theFieldSize_save: `Salva`,
+    theLanguageSelection_language: `Lingua`,
+    theLanguageSelection_changeTheLanguage: `Modifica`,
+    theLanguageSelection_cancel: `Annulla`,
+    theServiceWorkerMessage_notificationTitle: `Notifica`,
+    theServiceWorkerMessage_ok: `Bene`,
+    theServiceWorkerMessage_updatesInstalled: `Aggiornamenti installati! Chiudi e riapri l'app per applicare gli ultimi aggiornamenti.`,
+    theServiceWorkerMessage_appSavedForOffline: `L'applicazione è stata salvata automaticamente per l'utilizzo offline!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `L'applicazione "Campo minato" è stata installata con successo!`,
+    theSettingsSwitchers_vibrationForFlags: `Vibrazione durante l'impostazione e la rimozione dei flag`,
+    theSettingsSwitchers_vibrationForFlags_message: `Funziona solo su dispositivi dotati di vibrazione (la vibrazione deve essere attivata nelle impostazioni del dispositivo).`,
+    theSettingsSwitchers_theFlagProtects: `La bandiera protegge la cella da pressioni accidentali`,
+};

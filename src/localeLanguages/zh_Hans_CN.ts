@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const zh_Hans_CN: KitOfTranslatedWords = {
+    settingsView_backInTheField: `回到田野`,
+    boseCopy_shareAppLink: `分享应用程序链接`,
+    boseCopy_linkCopiedToClipboard: `链接已复制到剪贴板`,
+    boseCopy_linkCopyError: `链接复制错误`,
+    theFieldManager_options: `选项`,
+    theFieldManager_title: `掃雷`,
+    theFieldManager_settings: `设置`,
+    theFieldManager_newGame: `一个新游戏`,
+    theFieldManager_install: `安装`,
+    theFieldSize_numberOfCellsInWidth: `宽度中的单元格数量`,
+    theFieldSize_numberOfCellsInHeight: `高度的单元格数量`,
+    theFieldSize_probabilityOfMineAppearingInACell: `单元格中每个地雷出现的概率`,
+    theFieldSize_save: `节省`,
+    theLanguageSelection_language: `语言`,
+    theLanguageSelection_changeTheLanguage: `改变`,
+    theLanguageSelection_cancel: `取消`,
+    theServiceWorkerMessage_notificationTitle: `通知`,
+    theServiceWorkerMessage_ok: `罚金`,
+    theServiceWorkerMessage_updatesInstalled: `已安装更新！ 关闭并重新打开应用程序以应用最新更新。`,
+    theServiceWorkerMessage_appSavedForOffline: `该应用程序已自动保存以供离线使用！`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `掃雷应用程序已成功安装！`,
+    theSettingsSwitchers_vibrationForFlags: `设置和移除标志时振动`,
+    theSettingsSwitchers_vibrationForFlags_message: `仅适用于有振动的设备（必须在设备设置中激活振动）。`,
+    theSettingsSwitchers_theFlagProtects: `标志能够保护单元格免受意外按压`,
+};

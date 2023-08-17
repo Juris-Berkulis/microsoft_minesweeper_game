@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const hi_IN: KitOfTranslatedWords = {
+    settingsView_backInTheField: `वापस मैदान में`,
+    boseCopy_shareAppLink: `ऐप लिंक साझा करें`,
+    boseCopy_linkCopiedToClipboard: `लिंक को क्लिपबोर्ड पर कॉपी किया गया`,
+    boseCopy_linkCopyError: `लिंक प्रतिलिपि त्रुटि`,
+    theFieldManager_options: `सेटिंग`,
+    theFieldManager_title: `सैपर`,
+    theFieldManager_settings: `सेटिंग्स`,
+    theFieldManager_newGame: `एक नया खेल`,
+    theFieldManager_install: `स्थापित करना`,
+    theFieldSize_numberOfCellsInWidth: `चौड़ाई में कोशिकाओं की संख्या`,
+    theFieldSize_numberOfCellsInHeight: `ऊंचाई के अनुसार कोशिकाओं की संख्या`,
+    theFieldSize_probabilityOfMineAppearingInACell: `सेल में प्रत्येक खदान के प्रकट होने की संभावना`,
+    theFieldSize_save: `बचाना`,
+    theLanguageSelection_language: `भाषा`,
+    theLanguageSelection_changeTheLanguage: `परिवर्तन`,
+    theLanguageSelection_cancel: `रद्द करना`,
+    theServiceWorkerMessage_notificationTitle: `अधिसूचना`,
+    theServiceWorkerMessage_ok: `जुर्माना`,
+    theServiceWorkerMessage_updatesInstalled: `अद्यतन स्थापित! नवीनतम अपडेट लागू करने के लिए ऐप को बंद करें और फिर से खोलें।`,
+    theServiceWorkerMessage_appSavedForOffline: `ऐप ऑफ़लाइन उपयोग के लिए स्वचालित रूप से सहेजा गया है!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `सैपर एप्लिकेशन सफलतापूर्वक इंस्टॉल हो गया है!`,
+    theSettingsSwitchers_vibrationForFlags: `झंडे लगाते और हटाते समय कंपन`,
+    theSettingsSwitchers_vibrationForFlags_message: `केवल उन उपकरणों पर काम करता है जिनमें कंपन होता है (डिवाइस सेटिंग्स में कंपन सक्रिय होना चाहिए)।`,
+    theSettingsSwitchers_theFlagProtects: `ध्वज सेल को आकस्मिक क्लिक से बचाता है`,
+};

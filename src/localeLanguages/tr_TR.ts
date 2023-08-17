@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const tr_TR: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Alana dön`,
+    boseCopy_shareAppLink: `Uygulamaya bir bağlantı paylaşın`,
+    boseCopy_linkCopiedToClipboard: `Bağlantı panoya kopyalandı`,
+    boseCopy_linkCopyError: `Bağlantı kopyalanırken hata oluştu`,
+    theFieldManager_options: `Seçenekler`,
+    theFieldManager_title: `Mayın Tarlası`,
+    theFieldManager_settings: `Ayarlar`,
+    theFieldManager_newGame: `Yeni oyun`,
+    theFieldManager_install: `Yükle`,
+    theFieldSize_numberOfCellsInWidth: `Genişliğe göre hücre sayısı`,
+    theFieldSize_numberOfCellsInHeight: `Yüksekliğe göre hücre sayısı`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Bir hücrede mayın görünme olasılığı`,
+    theFieldSize_save: `Kaydet`,
+    theLanguageSelection_language: `Dil`,
+    theLanguageSelection_changeTheLanguage: `Değiştir`,
+    theLanguageSelection_cancel: `İptal`,
+    theServiceWorkerMessage_notificationTitle: `Bildirim`,
+    theServiceWorkerMessage_ok: `İyi`,
+    theServiceWorkerMessage_updatesInstalled: `Güncellemeleri yüklendi! En son güncellemeleri uygulamak için uygulamayı kapatın ve yeniden açın.`,
+    theServiceWorkerMessage_appSavedForOffline: `Uygulama, çevrimdışı kullanım için otomatik olarak kaydedildi!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `"Mayın Tarlası" uygulaması başarıyla kuruldu!`,
+    theSettingsSwitchers_vibrationForFlags: `Bayrakları ayarlarken ve kaldırırken titreşim`,
+    theSettingsSwitchers_vibrationForFlags_message: `Yalnızca titreşime sahip cihazlarda çalışır (cihaz ayarlarında titreşim etkinleştirilmelidir).`,
+    theSettingsSwitchers_theFlagProtects: `Bayrak, hücreyi yanlışlıkla basmaya karşı korur`,
+};
