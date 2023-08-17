@@ -4,11 +4,13 @@ import { defineStore } from "pinia";
 import { ref, type Ref, watchEffect } from 'vue';
 
 export const useLanguageSelectionStore = defineStore('languageSelection', () => {
-    const selectedLanguage: Ref<AppLanguage> = ref(JSON.parse(localStorage.getItem('selectedLanguage')!) || <AppLanguage>{
+    const defaultAppLanguage: AppLanguage = {
         locale: 'en_GB',
         language: 'English',
         localeLanguage: 'English',
-    });
+    };
+
+    const selectedLanguage: Ref<AppLanguage> = ref(JSON.parse(localStorage.getItem('selectedLanguage')!) || defaultAppLanguage);
 
     const setSelectedLanguage = (newSelectedLanguage: AppLanguage): void => {
         selectedLanguage.value = newSelectedLanguage;
