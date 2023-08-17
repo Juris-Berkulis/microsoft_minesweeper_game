@@ -5,7 +5,7 @@ import { ref, type Ref, watchEffect } from 'vue';
 
 export const useLanguageSelectionStore = defineStore('languageSelection', () => {
     const selectedLanguage: Ref<AppLanguage> = ref(JSON.parse(localStorage.getItem('selectedLanguage')!) || <AppLanguage>{
-        locale: 'en_US',
+        locale: 'en_GB',
         language: 'English',
     });
 

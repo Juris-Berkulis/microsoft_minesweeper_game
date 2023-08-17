@@ -1,6 +1,6 @@
 import type { KitOfTranslatedWords } from "@/types/localeLanguages";
 
-export const en_US: KitOfTranslatedWords = {
+export const en_GB: KitOfTranslatedWords = {
     settingsView_backInTheField: 'Back in the field',
     boseCopy_shareAppLink: 'Share app link',
     boseCopy_linkCopiedToClipboard: 'Link copied to clipboard',
