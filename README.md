@@ -6,6 +6,7 @@
 - [USAGE](#usage)
 - [APP FUNCTIONALITY](#app-functionality)
 - [PERMISSIONS](#permissions)
+- [SUPPORT FOR MULTIPLE LANGUAGES](#Support-for-multiple-languages)
 - [FREE SERVICE](#free-service)
 
 ## DESCRIPTION:
@@ -30,6 +31,17 @@ Clicking on one of the URLs-above will open the web-version of the "Minesweeper"
 - customizable field size (from 5x5 to 100x100) - default: width - 10, height - 10;
 - customizable probability of mines appearing in each cell (from 15% to 85%) - default: probability - 20%;
 - vibration response when setting and removing the flag.
+
+## SUPPORT FOR MULTIPLE LANGUAGES:
+
+- English, United Kingdom
+- Spanish, Spain
+- French, France
+- Hindi, India
+- Italian, Italy
+- Russian, Russia
+- Turkish, Turkey
+- Chinese (simplified), China
 
 ## FREE SERVICE:
 
