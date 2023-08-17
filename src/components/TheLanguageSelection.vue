@@ -4,7 +4,7 @@ import type { AllKitsOfTranslatedWords, AppLanguage } from "@/types/localeLangua
 import type { Locale } from "@/types/localeLanguages";
 import { useLanguageSelectionStore } from '@/stores/languageSelection';
 import { storeToRefs } from 'pinia';
-import { ref, type Ref } from 'vue';
+import { ref, type Ref, computed, type ComputedRef } from 'vue';
 import { sendActionIntoGoogleAnalytics } from '@/analytics/GoogleAnalytics';
 
 const languageSelectionStore = useLanguageSelectionStore();
@@ -17,6 +17,10 @@ const {
 const {
     selectedLanguage,
 } = storeToRefs(languageSelectionStore);
+
+const selectedLocaleLanguages: ComputedRef<string> = computed(() => {
+    return selectedLanguage.value.language.split(' - ')[1]
+});
 
 const isShowLanguageList: Ref<boolean> = ref(false);
 
@@ -40,33 +44,39 @@ const checkingForAllValues = (locale: never): string => {
 
 const getLanguageForLocale = (locale: Locale): string => {
     switch (locale) {
-        case 'be_BY': return 'Беларускі'
-        case 'el_GR': return 'Ελληνικά'
-        case 'en_GB': return 'English'
-        case 'es_ES': return 'Español'
-        case 'fr_FR': return 'Français'
-        case 'hi_IN': return 'हिंदी'
-        case 'hu_HU': return 'Magyar'
-        case 'it_IT': return 'Italiana'
-        case 'kk_KZ': return 'Kazakh'
-        case 'ru_RU': return 'Русский'
-        case 'sr_RS': return 'Српски'
-        case 'tr_TR': return 'Türkçe'
-        case 'zh_Hans_CN': return '汉语'
+        case 'be_BY': return 'Belarusian - Беларускі'
+        case 'el_GR': return 'Greek - Ελληνικά'
+        case 'en_GB': return 'English - English'
+        case 'es_ES': return 'Spanish - Español'
+        case 'fr_FR': return 'French - Français'
+        case 'hi_IN': return 'Hindi - हिंदी'
+        case 'hu_HU': return 'Hungarian - Magyar'
+        case 'it_IT': return 'Italian - Italiana'
+        case 'kk_KZ': return 'Kazakh - Қазақ'
+        case 'ru_RU': return 'Russian - Русский'
+        case 'sr_RS': return 'Serbian - Српски'
+        case 'tr_TR': return 'Turkish - Türkçe'
+        case 'zh_Hans_CN': return 'Chinese (simpl.) - 汉语'
         default: return checkingForAllValues(locale)
     }
 };
 
+const sortByField = (fieldName: keyof AppLanguage) => {
+    return (a: AppLanguage, b: AppLanguage): 1 | -1 => a[fieldName] > b[fieldName] ? 1 : -1
+};
+
 const localesList: Array<keyof AllKitsOfTranslatedWords<Locale>> = (Object.keys(allKitsOfTranslatedWords)) as Array<keyof AllKitsOfTranslatedWords<Locale>>;
 
-const appLanguagesList: AppLanguage[] = localesList.map((locale: keyof AllKitsOfTranslatedWords<Locale>) => {
-    const appLanguage: AppLanguage = {
-        locale,
-        language: getLanguageForLocale(locale),
-    };
+const appLanguagesList: AppLanguage[] = localesList
+    .map((locale: keyof AllKitsOfTranslatedWords<Locale>) => {
+        const appLanguage: AppLanguage = {
+            locale,
+            language: getLanguageForLocale(locale),
+        };
 
-    return appLanguage
-});
+        return appLanguage
+    })
+    .sort(sortByField('language'));
 
 const appLanguagesListHeight: string = `${appLanguagesList.length * (1 + 0.25 * 2)}em`
 </script>
@@ -74,7 +84,7 @@ const appLanguagesListHeight: string = `${appLanguagesList.length * (1 + 0.25 * 
 <template>
 <div class="languagesSelectionWrapper">
     <div class="languagesSelectionHeader">
-        <p class="languagesSelectionTitle">{{ getTranslation('theLanguageSelection_language') }}: {{ selectedLanguage.language }}</p>
+        <p class="languagesSelectionTitle">{{ getTranslation('theLanguageSelection_language') }}: {{ selectedLocaleLanguages }}</p>
         <button class="languagesSelectionBtn" @click="toogleIsShowLanguageList()">{{ isShowLanguageList ? getTranslation('theLanguageSelection_cancel') : getTranslation('theLanguageSelection_changeTheLanguage') }}</button>
     </div>
     <ul class="languagesList" :class="{hiden: !isShowLanguageList}">
