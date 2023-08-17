@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const kk_KZ: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Қайта алаңға`,
+    boseCopy_shareAppLink: `Қолданба сілтемесін бөлісіңіз`,
+    boseCopy_linkCopiedToClipboard: `Сілтеме алмасу буферіне көшірілді`,
+    boseCopy_linkCopyError: `Сілтемені көшіру қатесі`,
+    theFieldManager_options: `Опциялар`,
+    theFieldManager_title: `Сапёр`,
+    theFieldManager_settings: `Параметрлер`,
+    theFieldManager_newGame: `Жаңа ойын`,
+    theFieldManager_install: `Орнату`,
+    theFieldSize_numberOfCellsInWidth: `Ені бойынша ұяшықтар саны`,
+    theFieldSize_numberOfCellsInHeight: `Биіктігі бойынша ұяшықтар саны`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Ұяшықтағы әрбір шахтаның ықтималдығы`,
+    theFieldSize_save: `Сақтау`,
+    theLanguageSelection_language: `Тіл`,
+    theLanguageSelection_changeTheLanguage: `Өзгерту`,
+    theLanguageSelection_cancel: `Болдырмау`,
+    theServiceWorkerMessage_notificationTitle: `Хабарландыру`,
+    theServiceWorkerMessage_ok: `Жақсы`,
+    theServiceWorkerMessage_updatesInstalled: `Жаңартулар орнатылды! Соңғы жаңартуларды қолдану үшін қолданбаны жауып, қайта ашыңыз.`,
+    theServiceWorkerMessage_appSavedForOffline: `Қолданба офлайн режимде пайдалану үшін автоматты түрде сақталды!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `Қолданбасы "Сапёр" сәтті орнатылды!`,
+    theSettingsSwitchers_vibrationForFlags: `Жалаушаларды орнату және жою кезіндегі діріл`,
+    theSettingsSwitchers_vibrationForFlags_message: `Тек дірілі бар құрылғыларда жұмыс істейді (діріл құрылғы параметрлерінде белсендірілуі керек).`,
+    theSettingsSwitchers_theFlagProtects: `Жалау ұяшықты кездейсоқ басудан қорғайды`,
+};

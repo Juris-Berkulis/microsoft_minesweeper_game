@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const hu_HU: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Vissza a mezőre`,
+    boseCopy_shareAppLink: `Alkalmazáslink megosztása`,
+    boseCopy_linkCopiedToClipboard: `Link a vágólapra másolva`,
+    boseCopy_linkCopyError: `Hivatkozás másolási hiba`,
+    theFieldManager_options: `Lehetőségek`,
+    theFieldManager_title: `Minesweeper`,
+    theFieldManager_settings: `Beállítások`,
+    theFieldManager_newGame: `Egy új játék`,
+    theFieldManager_install: `Telepítés`,
+    theFieldSize_numberOfCellsInWidth: `A cellák száma szélességben`,
+    theFieldSize_numberOfCellsInHeight: `A cellák száma magasság szerint`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Aknák megjelenésének valószínűsége a cellában`,
+    theFieldSize_save: `Megment`,
+    theLanguageSelection_language: `Nyelv`,
+    theLanguageSelection_changeTheLanguage: `Változás`,
+    theLanguageSelection_cancel: `Mégse`,
+    theServiceWorkerMessage_notificationTitle: `Értesítés`,
+    theServiceWorkerMessage_ok: `Bírság`,
+    theServiceWorkerMessage_updatesInstalled: `Frissítések telepítve! A legújabb frissítések alkalmazásához zárja be, majd nyissa meg újra az alkalmazást.`,
+    theServiceWorkerMessage_appSavedForOffline: `Az alkalmazás automatikusan mentésre került offline használatra!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `A Minesweeper alkalmazás sikeresen telepítve!`,
+    theSettingsSwitchers_vibrationForFlags: `Rezgés zászlók beállításakor és eltávolításakor`,
+    theSettingsSwitchers_vibrationForFlags_message: `Csak rezgéses eszközökön működik (a rezgést aktiválni kell az eszköz beállításaiban).`,
+    theSettingsSwitchers_theFlagProtects: `A zászló megvédi a cellát a véletlen kattintástól`,
+};

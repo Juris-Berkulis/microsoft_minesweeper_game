@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const be_BY: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Вярнуцца ў поле`,
+    boseCopy_shareAppLink: `Падзяліцца спасылкай на дадатак`,
+    boseCopy_linkCopiedToClipboard: `Спасылка скапіявана ў буфер абмену`,
+    boseCopy_linkCopyError: `Памылка капіравання спасылкі`,
+    theFieldManager_options: `Опцыі`,
+    theFieldManager_title: `Сапер`,
+    theFieldManager_settings: `Налады`,
+    theFieldManager_newGame: `Новая гульня`,
+    theFieldManager_install: `Усталяваць`,
+    theFieldSize_numberOfCellsInWidth: `Колькасць клетак па шырыні`,
+    theFieldSize_numberOfCellsInHeight: `Колькасць клетак па вышыні`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Верагоднасць з'яўлення мін у вочку`,
+    theFieldSize_save: `Захаваць`,
+    theLanguageSelection_language: `Мова`,
+    theLanguageSelection_changeTheLanguage: `Змяніць`,
+    theLanguageSelection_cancel: `Адмена`,
+    theServiceWorkerMessage_notificationTitle: `Апавяшчэнне`,
+    theServiceWorkerMessage_ok: `Добра`,
+    theServiceWorkerMessage_updatesInstalled: `Абнаўленні ўстаноўлены! Закрыйце і адкрыйце прыкладанне нанова, каб прымяніць апошнія абнаўленні.`,
+    theServiceWorkerMessage_appSavedForOffline: `Прыкладанне было аўтаматычна захавана для выкарыстання ў offline-рэжыме!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `Дадатак "Сапёр" быў паспяхова ўстаноўлены!`,
+    theSettingsSwitchers_vibrationForFlags: `Вібрацыя пры ўстаноўцы і выдаленні сцягоў`,
+    theSettingsSwitchers_vibrationForFlags_message: `Працуе толькі на прыладах, якія маюць вібрацыю (вібрацыя павінна быць актываваная ў наладах прылады).`,
+    theSettingsSwitchers_theFlagProtects: `Сцяг абараняе вочка ад выпадковага націску`,
+};

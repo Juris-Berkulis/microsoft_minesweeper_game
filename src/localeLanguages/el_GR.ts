@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const el_GR: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Πίσω στο γήπεδο`,
+    boseCopy_shareAppLink: `Κοινή χρήση συνδέσμου εφαρμογής`,
+    boseCopy_linkCopiedToClipboard: `Ο σύνδεσμος αντιγράφηκε στο πρόχειρο`,
+    boseCopy_linkCopyError: `Σφάλμα αντιγραφής συνδέσμου`,
+    theFieldManager_options: `Επιλογές`,
+    theFieldManager_title: `Ναρκοσυλλέκτης`,
+    theFieldManager_settings: `Ρυθμίσεις`,
+    theFieldManager_newGame: `Ένα νέο παιχνίδι`,
+    theFieldManager_install: `Εγκαθιδρύω`,
+    theFieldSize_numberOfCellsInWidth: `Αριθμός κελιών σε πλάτος`,
+    theFieldSize_numberOfCellsInHeight: `Αριθμός κελιών κατά ύψος`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Η πιθανότητα εμφάνισης κάθε ορυχείου στο κελί`,
+    theFieldSize_save: `Αποθηκεύσετε`,
+    theLanguageSelection_language: `Γλώσσα`,
+    theLanguageSelection_changeTheLanguage: `Αλλαγή`,
+    theLanguageSelection_cancel: `Ματαίωση`,
+    theServiceWorkerMessage_notificationTitle: `Γνωστοποίηση`,
+    theServiceWorkerMessage_ok: `Πρόστιμο`,
+    theServiceWorkerMessage_updatesInstalled: `Εγκαταστάθηκαν ενημερώσεις! Κλείστε και ανοίξτε ξανά την εφαρμογή για να εφαρμόσετε τις πιο πρόσφατες ενημερώσεις.`,
+    theServiceWorkerMessage_appSavedForOffline: `Η εφαρμογή έχει αποθηκευτεί αυτόματα για χρήση εκτός σύνδεσης!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `Η εφαρμογή Ναρκοσυλλέκτης εγκαταστάθηκε με επιτυχία!`,
+    theSettingsSwitchers_vibrationForFlags: `Δόνηση κατά τη ρύθμιση και αφαίρεση σημαιών`,
+    theSettingsSwitchers_vibrationForFlags_message: `Λειτουργεί μόνο σε συσκευές που έχουν δόνηση (η δόνηση πρέπει να είναι ενεργοποιημένη στις ρυθμίσεις της συσκευής).`,
+    theSettingsSwitchers_theFlagProtects: `Η σημαία προστατεύει το κελί από τυχαίο κλικ`,
+};

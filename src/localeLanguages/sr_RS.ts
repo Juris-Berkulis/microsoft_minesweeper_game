@@ -1,0 +1,28 @@
+import type { KitOfTranslatedWords } from "@/types/localeLanguages";
+
+export const sr_RS: KitOfTranslatedWords = {
+    settingsView_backInTheField: `Назад у поље`,
+    boseCopy_shareAppLink: `Делите везу апликације`,
+    boseCopy_linkCopiedToClipboard: `Веза је копирана у међуспремник`,
+    boseCopy_linkCopyError: `Грешка при копирању везе`,
+    theFieldManager_options: `Опције`,
+    theFieldManager_title: `Сапер`,
+    theFieldManager_settings: `Подешавања`,
+    theFieldManager_newGame: `Нова игра`,
+    theFieldManager_install: `Инсталирај`,
+    theFieldSize_numberOfCellsInWidth: `Број ћелија у ширини`,
+    theFieldSize_numberOfCellsInHeight: `Број ћелија у висини`,
+    theFieldSize_probabilityOfMineAppearingInACell: `Вероватноћа појаве мина у ћелији`,
+    theFieldSize_save: `Сачувати`,
+    theLanguageSelection_language: `Језик`,
+    theLanguageSelection_changeTheLanguage: `Промена`,
+    theLanguageSelection_cancel: `Отказати`,
+    theServiceWorkerMessage_notificationTitle: `Нотифицатион`,
+    theServiceWorkerMessage_ok: `Фине`,
+    theServiceWorkerMessage_updatesInstalled: `Инсталирана ажурирања! Затворите и поново отворите апликацију да бисте применили најновија ажурирања.`,
+    theServiceWorkerMessage_appSavedForOffline: `Апликација је аутоматски сачувана за употребу ван мреже!`,
+    theServiceWorkerMessage_appSuccessfullyInstalled: `Апликација "Сапер" је успешно инсталирана!`,
+    theSettingsSwitchers_vibrationForFlags: `Вибрације при постављању и уклањању заставица`,
+    theSettingsSwitchers_vibrationForFlags_message: `Ради само на уређајима који имају вибрацију (вибрација мора бити активирана у подешавањима уређаја).`,
+    theSettingsSwitchers_theFlagProtects: `Застава штити ћелију од случајног кликања`,
+};

@@ -34,14 +34,19 @@ Clicking on one of the URLs-above will open the web-version of the "Minesweeper"
 
 ## SUPPORT FOR MULTIPLE LANGUAGES:
 
-- English, United Kingdom
-- Spanish, Spain
-- French, France
-- Hindi, India
-- Italian, Italy
-- Russian, Russia
-- Turkish, Turkey
+- Belarusian, Belarus
 - Chinese (simplified), China
+- English, United Kingdom
+- French, France
+- Greek, Greece
+- Hindi, India
+- Hungarian, Hungary
+- Italian, Italy
+- Kazakh, Kazakhstan
+- Russian, Russia
+- Serbian, Serbia
+- Spanish, Spain
+- Turkish, Turkey
 
 ## FREE SERVICE:
 
