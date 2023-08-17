@@ -34,4 +34,5 @@ export type AllKitsOfTranslatedWords<K extends string> = {
 export interface AppLanguage {
     locale: Locale,
     language: string,
+    localeLanguage: string,
 };

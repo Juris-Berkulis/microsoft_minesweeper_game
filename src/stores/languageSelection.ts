@@ -7,6 +7,7 @@ export const useLanguageSelectionStore = defineStore('languageSelection', () => 
     const selectedLanguage: Ref<AppLanguage> = ref(JSON.parse(localStorage.getItem('selectedLanguage')!) || <AppLanguage>{
         locale: 'en_GB',
         language: 'English',
+        localeLanguage: 'English',
     });
 
     const setSelectedLanguage = (newSelectedLanguage: AppLanguage): void => {
