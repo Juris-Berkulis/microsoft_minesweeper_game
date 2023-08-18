@@ -38,6 +38,7 @@ const {
     align-items: center;
     padding: 15px;
     font-size: 1rem;
+    z-index: 90;
     user-select: none;
 }
 
