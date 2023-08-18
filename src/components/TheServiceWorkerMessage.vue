@@ -55,8 +55,8 @@ const {
     padding: 1em;
     overflow: auto;
     border-radius: 1em;
-    border: 3px solid #6688aa;
     background-color: #aaccee;
+    box-shadow: 0 0 1em 0 #000000, inset 0 0 1em 0 #b5d5ee;
 }
 
 .messageTitle {

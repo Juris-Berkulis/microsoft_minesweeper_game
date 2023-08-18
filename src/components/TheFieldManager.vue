@@ -59,18 +59,18 @@ const newGame = ():void => {
     justify-content: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border: 3px solid #6688aa;
-    border-bottom: none;
     background-color: #aaccee;
+    box-shadow: 0 0 15px 0 #000000, inset 0 7.5px 15px 0 #b5d5ee;
     transform: translateY(0);
     transition: all 0.4s ease-in-out 0s;
 }
 
-@media ((max-width: 450px) and (max-height: 300px)) {
+@media (((max-width: 450px) and (max-height: 300px)) or (max-width: 250px)) {
     .fieldManager {
         padding: 5px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+        box-shadow: 0 0 5px 0 #000000, inset 0 2.5px 5px 0 #b5d5ee;
     }
 }
 
@@ -80,17 +80,23 @@ const newGame = ():void => {
 
 .lever {
     position: absolute;
-    right: 3vw;
+    right: 15px;
     bottom: 100%;
     pointer-events: none;
+}
+
+@media (((max-width: 450px) and (max-height: 300px)) or (max-width: 250px)) {
+    .lever {
+        right: 5px;
+    }
 }
 
 .leverBtn {
     padding: 5px 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border: 3px solid #6688aa;
     background-color: #aaccee;
+    box-shadow: 0 -7.5px 15px -7.5px #000000, inset 0 0 15px 0 #b5d5ee;
     font-size: 1rem;
     font-weight: 700;
     line-height: 1;
@@ -98,11 +104,12 @@ const newGame = ():void => {
     pointer-events: fill;
 }
 
-@media ((max-width: 450px) and (max-height: 300px)) {
+@media (((max-width: 450px) and (max-height: 300px)) or (max-width: 250px)) {
     .leverBtn {
         padding: 2px 5px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+        box-shadow: 0 -2.5px 5px -2.5px #000000, inset 0 0 5px 0 #b5d5ee;
         font-size: 0.5rem;
     }
 }
@@ -124,7 +131,7 @@ const newGame = ():void => {
     color: #000000;
 }
 
-@media (max-width: 250px) {
+@media (((max-width: 450px) and (max-height: 300px)) or (max-width: 250px)) {
     .title {
         font-size: 1rem;
     }
@@ -137,5 +144,12 @@ const newGame = ():void => {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    font-size: 1em;
+}
+
+@media (((max-width: 450px) and (max-height: 300px)) or (max-width: 250px)) {
+    .options {
+        font-size: 0.5em;
+    }
 }
 </style>
