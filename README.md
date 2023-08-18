@@ -5,8 +5,7 @@
 - [DESCRIPTION](#description)
 - [USAGE](#usage)
 - [APP FUNCTIONALITY](#app-functionality)
-- [PERMISSIONS](#permissions)
-- [SUPPORT FOR MULTIPLE LANGUAGES](#Support-for-multiple-languages)
+- [SUPPORT FOR MULTIPLE LANGUAGES](#support-for-multiple-languages)
 - [FREE SERVICE](#free-service)
 
 ## DESCRIPTION:
