@@ -9,11 +9,17 @@ const settingsSwitchersStore = useSettingsSwitchersStore();
 const {
     setIsVibrateForFlags,
     setIsFlagProtectsCellFromAccidentalClick,
+    setIsSoundPowerForExplosion,
+    setIsSoundPowerForOpenCell,
+    setIsSoundPowerForToggleFlag,
 } = useSettingsSwitchersStore();
 
 const {
     isVibrationForFlags,
     isFlagProtectsCellFromAccidentalClick,
+    isSoundPowerForExplosion,
+    isSoundPowerForOpenCell,
+    isSoundPowerForToggleFlag,
 } = storeToRefs(settingsSwitchersStore);
 
 const {
@@ -33,6 +39,21 @@ const {
         :isPower="isFlagProtectsCellFromAccidentalClick" 
         :togglePower="setIsFlagProtectsCellFromAccidentalClick" 
         :mainText="getTranslation('theSettingsSwitchers_theFlagProtects')" 
+    ></BaseSettingsSwitcher>
+    <BaseSettingsSwitcher 
+        :isPower="isSoundPowerForExplosion" 
+        :togglePower="setIsSoundPowerForExplosion" 
+        :mainText="getTranslation('theSettingsSwitchers_soundsForExplosion')" 
+    ></BaseSettingsSwitcher>
+    <BaseSettingsSwitcher 
+        :isPower="isSoundPowerForOpenCell" 
+        :togglePower="setIsSoundPowerForOpenCell" 
+        :mainText="getTranslation('theSettingsSwitchers_soundsForOpenCell')" 
+    ></BaseSettingsSwitcher>
+    <BaseSettingsSwitcher 
+        :isPower="isSoundPowerForToggleFlag" 
+        :togglePower="setIsSoundPowerForToggleFlag" 
+        :mainText="getTranslation('theSettingsSwitchers_soundsForToggleFlag')" 
     ></BaseSettingsSwitcher>
 </div>
 </template>

@@ -25,4 +25,7 @@ export const hi_IN: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `झंडे लगाते और हटाते समय कंपन`,
     theSettingsSwitchers_vibrationForFlags_message: `केवल उन उपकरणों पर काम करता है जिनमें कंपन होता है (डिवाइस सेटिंग्स में कंपन सक्रिय होना चाहिए)।`,
     theSettingsSwitchers_theFlagProtects: `ध्वज सेल को आकस्मिक क्लिक से बचाता है`,
+    theSettingsSwitchers_soundsForExplosion: `धमाके की आवाज`,
+    theSettingsSwitchers_soundsForOpenCell: `सेल खोलते समय ध्वनि`,
+    theSettingsSwitchers_soundsForToggleFlag: `ध्वज स्विच करते समय ध्वनि`,
 };

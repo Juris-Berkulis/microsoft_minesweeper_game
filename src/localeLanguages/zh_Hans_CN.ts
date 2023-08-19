@@ -25,4 +25,7 @@ export const zh_Hans_CN: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `设置和移除标志时振动`,
     theSettingsSwitchers_vibrationForFlags_message: `仅适用于有振动的设备（必须在设备设置中激活振动）。`,
     theSettingsSwitchers_theFlagProtects: `标志能够保护单元格免受意外按压`,
+    theSettingsSwitchers_soundsForExplosion: `爆炸声`,
+    theSettingsSwitchers_soundsForOpenCell: `打开单元格时声音`,
+    theSettingsSwitchers_soundsForToggleFlag: `切换旗帜时的声音`,
 };

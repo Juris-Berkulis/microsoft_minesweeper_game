@@ -25,4 +25,7 @@ export const hu_HU: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Rezgés zászlók beállításakor és eltávolításakor`,
     theSettingsSwitchers_vibrationForFlags_message: `Csak rezgéses eszközökön működik (a rezgést aktiválni kell az eszköz beállításaiban).`,
     theSettingsSwitchers_theFlagProtects: `A zászló megvédi a cellát a véletlen kattintástól`,
+    theSettingsSwitchers_soundsForExplosion: `Robbanás hangja`,
+    theSettingsSwitchers_soundsForOpenCell: `Hang a cella nyitásakor`,
+    theSettingsSwitchers_soundsForToggleFlag: `Hang a jelölőnégyzet megváltoztatásakor`,
 };

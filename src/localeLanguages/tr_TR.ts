@@ -25,4 +25,7 @@ export const tr_TR: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Bayrakları ayarlarken ve kaldırırken titreşim`,
     theSettingsSwitchers_vibrationForFlags_message: `Yalnızca titreşime sahip cihazlarda çalışır (cihaz ayarlarında titreşim etkinleştirilmelidir).`,
     theSettingsSwitchers_theFlagProtects: `Bayrak, hücreyi yanlışlıkla basmaya karşı korur`,
+    theSettingsSwitchers_soundsForExplosion: `Patlama sırasında ses`,
+    theSettingsSwitchers_soundsForOpenCell: `Bir hücreyi açarken ses`,
+    theSettingsSwitchers_soundsForToggleFlag: `Bayrak değiştirirken ses`,
 };

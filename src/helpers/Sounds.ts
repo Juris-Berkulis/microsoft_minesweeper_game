@@ -15,8 +15,8 @@ const actionObj: ActionObj<Action> = {
 };
 
 export class Sound {
-    static play (action: Action, power: boolean): void {
-        if (power) {
+    static play (action: Action, isPower: boolean): void {
+        if (isPower) {
             const audio: HTMLAudioElement = new Audio(actionObj[action]);
             audio.play();
         }

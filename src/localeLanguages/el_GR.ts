@@ -25,4 +25,7 @@ export const el_GR: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Δόνηση κατά τη ρύθμιση και αφαίρεση σημαιών`,
     theSettingsSwitchers_vibrationForFlags_message: `Λειτουργεί μόνο σε συσκευές που έχουν δόνηση (η δόνηση πρέπει να είναι ενεργοποιημένη στις ρυθμίσεις της συσκευής).`,
     theSettingsSwitchers_theFlagProtects: `Η σημαία προστατεύει το κελί από τυχαίο κλικ`,
+    theSettingsSwitchers_soundsForExplosion: `Ήχος έκρηξης`,
+    theSettingsSwitchers_soundsForOpenCell: `Ήχος κατά το άνοιγμα μιας κυψέλης`,
+    theSettingsSwitchers_soundsForToggleFlag: `Ήχος κατά την εναλλαγή σημαίας`,
 };

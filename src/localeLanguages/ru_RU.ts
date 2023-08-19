@@ -25,4 +25,7 @@ export const ru_RU: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: 'Вибрация при установке и удалении флагов',
     theSettingsSwitchers_vibrationForFlags_message: 'Работает только на устройствах, имеющих вибрацию (вибрация должна быть активирована в настройках устройства).',
     theSettingsSwitchers_theFlagProtects: 'Флаг защищает ячейку от случайного нажатия',
+    theSettingsSwitchers_soundsForExplosion: 'Звук при взрыве',
+    theSettingsSwitchers_soundsForOpenCell: 'Звук при открытии ячейки',
+    theSettingsSwitchers_soundsForToggleFlag: 'Звук при переключении флага',
 };

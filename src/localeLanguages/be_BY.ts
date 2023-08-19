@@ -25,4 +25,7 @@ export const be_BY: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Вібрацыя пры ўстаноўцы і выдаленні сцягоў`,
     theSettingsSwitchers_vibrationForFlags_message: `Працуе толькі на прыладах, якія маюць вібрацыю (вібрацыя павінна быць актываваная ў наладах прылады).`,
     theSettingsSwitchers_theFlagProtects: `Сцяг абараняе вочка ад выпадковага націску`,
+    theSettingsSwitchers_soundsForExplosion: `Гук пры выбуху`,
+    theSettingsSwitchers_soundsForOpenCell: `Гук пры адкрыцці ячэйкі`,
+    theSettingsSwitchers_soundsForToggleFlag: `Гук пры пераключэнні сцяга`,
 };

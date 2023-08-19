@@ -25,4 +25,7 @@ export const kk_KZ: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Жалаушаларды орнату және жою кезіндегі діріл`,
     theSettingsSwitchers_vibrationForFlags_message: `Тек дірілі бар құрылғыларда жұмыс істейді (діріл құрылғы параметрлерінде белсендірілуі керек).`,
     theSettingsSwitchers_theFlagProtects: `Жалау ұяшықты кездейсоқ басудан қорғайды`,
+    theSettingsSwitchers_soundsForExplosion: `Жарылыс дыбысы`,
+    theSettingsSwitchers_soundsForOpenCell: `Ұяшықты ашқандағы дыбыс`,
+    theSettingsSwitchers_soundsForToggleFlag: `Жалаушаны ауыстырған кезде дыбыс`,
 };

@@ -25,4 +25,7 @@ export const fr_FR: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Vibrer lors de l'ajout et de la suppression d'une case à cocher`,
     theSettingsSwitchers_vibrationForFlags_message: `Fonctionne uniquement sur les appareils qui ont des vibrations (les vibrations doivent être activées dans les paramètres de l'appareil).`,
     theSettingsSwitchers_theFlagProtects: `Flag protège la cellule d'une pression accidentelle`,
+    theSettingsSwitchers_soundsForExplosion: `Bruit d'explosion`,
+    theSettingsSwitchers_soundsForOpenCell: `Son lors de l'ouverture d'une cellule`,
+    theSettingsSwitchers_soundsForToggleFlag: `Son lors du changement de drapeau`,
 };

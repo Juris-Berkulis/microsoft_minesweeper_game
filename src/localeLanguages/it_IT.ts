@@ -25,4 +25,7 @@ export const it_IT: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Vibrazione durante l'impostazione e la rimozione dei flag`,
     theSettingsSwitchers_vibrationForFlags_message: `Funziona solo su dispositivi dotati di vibrazione (la vibrazione deve essere attivata nelle impostazioni del dispositivo).`,
     theSettingsSwitchers_theFlagProtects: `La bandiera protegge la cella da pressioni accidentali`,
+    theSettingsSwitchers_soundsForExplosion: `Suono di esplosione`,
+    theSettingsSwitchers_soundsForOpenCell: `Suono all'apertura di una cella`,
+    theSettingsSwitchers_soundsForToggleFlag: `Suono quando si cambia flag`,
 };

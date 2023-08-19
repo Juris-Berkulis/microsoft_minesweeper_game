@@ -25,4 +25,7 @@ export const es_ES: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: 'Vibración al configurar y quitar banderas',
     theSettingsSwitchers_vibrationForFlags_message: 'Funciona solo en dispositivos que tienen vibración (la vibración debe estar activada en la configuración del dispositivo).',
     theSettingsSwitchers_theFlagProtects: 'La bandera protege la celda de presiones accidentales',
+    theSettingsSwitchers_soundsForExplosion: `Sonido de explosión`,
+    theSettingsSwitchers_soundsForOpenCell: `Sonido al abrir una celda`,
+    theSettingsSwitchers_soundsForToggleFlag: `Sonido al cambiar de bandera`,
 };

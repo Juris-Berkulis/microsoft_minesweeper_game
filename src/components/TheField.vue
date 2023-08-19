@@ -26,6 +26,9 @@ const settingsSwitchersStore = useSettingsSwitchersStore();
 const {
   isVibrationForFlags,
   isFlagProtectsCellFromAccidentalClick,
+  isSoundPowerForExplosion,
+  isSoundPowerForOpenCell,
+  isSoundPowerForToggleFlag,
 } = storeToRefs(settingsSwitchersStore);
 
 const cellsCount: ComputedRef<number> = computed(() => {
@@ -240,7 +243,7 @@ defineExpose({
 
 const toggleFlag = (clickedCell: Cell): void => {
   if (!clickedCell.isOpen && gameResult.value === 'indefined') {
-    Sound.play('flag', false);
+    Sound.play('flag', isSoundPowerForToggleFlag.value);
     clickedCell.isFlag = !clickedCell.isFlag;
 
     if (clickedCell.isFlag) {
@@ -277,20 +280,20 @@ const openCell = (cellIndex: number): void => {
         || 
         (isFlagProtectsCellFromAccidentalClick.value && !clickedCell.isFlag)
       ) {
-        Sound.play('cell', false);
         clickedCell.isFlag = false;
         clickedCell.isOpen = true;
         clickedCell.isClicked = true;
         sendActionIntoGoogleAnalytics('openCell', 'cell', 'open-cell');
 
         if (!clickedCell.isMine) {
+          Sound.play('cell', isSoundPowerForOpenCell.value);
           correctMovesCount.value++;
 
           if (cellsCount.value - correctMovesCount.value === minesCountReal.value) {
             gameResult.value = 'won';
           }
         } else {
-          Sound.play('bomb', true);
+          Sound.play('bomb', isSoundPowerForExplosion.value);
           clickedCell.isMineExploded = true;
           gameResult.value = 'lost';
         }

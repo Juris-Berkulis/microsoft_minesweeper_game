@@ -23,6 +23,9 @@ export interface KitOfTranslatedWords {
     theSettingsSwitchers_vibrationForFlags: string,
     theSettingsSwitchers_vibrationForFlags_message: string,
     theSettingsSwitchers_theFlagProtects: string,
+    theSettingsSwitchers_soundsForExplosion: string,
+    theSettingsSwitchers_soundsForOpenCell: string,
+    theSettingsSwitchers_soundsForToggleFlag: string,
 };
 
 export type Locale = 'be_BY' | 'el_GR' | 'en_GB' | 'es_ES' | 'fr_FR' | 'hi_IN' | 'hu_HU' | 'it_IT' | 'kk_KZ' | 'ru_RU' | 'sr_RS' | 'tr_TR' |'zh_Hans_CN';

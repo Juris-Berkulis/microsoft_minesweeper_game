@@ -25,4 +25,7 @@ export const sr_RS: KitOfTranslatedWords = {
     theSettingsSwitchers_vibrationForFlags: `Вибрације при постављању и уклањању заставица`,
     theSettingsSwitchers_vibrationForFlags_message: `Ради само на уређајима који имају вибрацију (вибрација мора бити активирана у подешавањима уређаја).`,
     theSettingsSwitchers_theFlagProtects: `Застава штити ћелију од случајног кликања`,
+    theSettingsSwitchers_soundsForExplosion: `Звук експлозије`,
+    theSettingsSwitchers_soundsForOpenCell: `Звук при отварању ћелије`,
+    theSettingsSwitchers_soundsForToggleFlag: `Звук при промени заставице`,
 };
