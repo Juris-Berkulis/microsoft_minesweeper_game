@@ -1,6 +1,6 @@
 import { sendActionIntoGoogleAnalytics } from "@/analytics/GoogleAnalytics";
 import { defineStore } from "pinia";
-import { reactive, ref, toRef, type Ref } from 'vue';
+import { reactive, toRef, type Ref } from 'vue';
 
 interface SettingsSwitchers {
     isVibrationForFlags: boolean,
@@ -23,7 +23,8 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
     const settingsSwitchers: SettingsSwitchers = reactive(JSON.parse(localStorage.getItem('settingsSwitchers') || '{}'));
 
     //* Вибрация при установке и удалении флагов:
-    const isVibrationForFlags: Ref<boolean> = settingsSwitchers.isVibrationForFlags !== undefined ? toRef(settingsSwitchers, 'isVibrationForFlags') : ref(settingsSwitchersDefault.isVibrationForFlags);
+    const isVibrationForFlags: Ref<boolean> = toRef(settingsSwitchers, 'isVibrationForFlags');
+    if (isVibrationForFlags.value === undefined) isVibrationForFlags.value = settingsSwitchersDefault.isVibrationForFlags;
 
     const setIsVibrateForFlags = (): void => {
         isVibrationForFlags.value = !isVibrationForFlags.value;
@@ -36,7 +37,8 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
     };
 
     //* Флаг защищает ячейку от случайного нажатия:
-    const isFlagProtectsCellFromAccidentalClick: Ref<boolean> = settingsSwitchers.isFlagProtectsCellFromAccidentalClick !== undefined ? toRef(settingsSwitchers, 'isFlagProtectsCellFromAccidentalClick') : ref(settingsSwitchersDefault.isFlagProtectsCellFromAccidentalClick);
+    const isFlagProtectsCellFromAccidentalClick: Ref<boolean> = toRef(settingsSwitchers, 'isFlagProtectsCellFromAccidentalClick');
+    if (isFlagProtectsCellFromAccidentalClick.value === undefined) isFlagProtectsCellFromAccidentalClick.value = settingsSwitchersDefault.isFlagProtectsCellFromAccidentalClick;
 
     const setIsFlagProtectsCellFromAccidentalClick = (): void => {
         isFlagProtectsCellFromAccidentalClick.value = !isFlagProtectsCellFromAccidentalClick.value;
@@ -49,7 +51,8 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
     };
 
     //* Звук при взрыве:
-    const isSoundPowerForExplosion: Ref<boolean> = settingsSwitchers.isSoundPowerForExplosion !== undefined ? toRef(settingsSwitchers, 'isSoundPowerForExplosion') : ref(settingsSwitchersDefault.isSoundPowerForExplosion);
+    const isSoundPowerForExplosion: Ref<boolean> = toRef(settingsSwitchers, 'isSoundPowerForExplosion');
+    if (isSoundPowerForExplosion.value === undefined) isSoundPowerForExplosion.value = settingsSwitchersDefault.isSoundPowerForExplosion;
 
     const setIsSoundPowerForExplosion = (): void => {
         isSoundPowerForExplosion.value = !isSoundPowerForExplosion.value;
@@ -62,7 +65,8 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
     };
 
     //* Звук при открытии ячейки:
-    const isSoundPowerForOpenCell: Ref<boolean> = settingsSwitchers.isSoundPowerForOpenCell !== undefined ? toRef(settingsSwitchers, 'isSoundPowerForOpenCell') : ref(settingsSwitchersDefault.isSoundPowerForOpenCell);
+    const isSoundPowerForOpenCell: Ref<boolean> = toRef(settingsSwitchers, 'isSoundPowerForOpenCell');
+    if (isSoundPowerForOpenCell.value === undefined) isSoundPowerForOpenCell.value = settingsSwitchersDefault.isSoundPowerForOpenCell;
 
     const setIsSoundPowerForOpenCell = (): void => {
         isSoundPowerForOpenCell.value = !isSoundPowerForOpenCell.value;
@@ -75,7 +79,8 @@ export const useSettingsSwitchersStore = defineStore('settingsSwitchers', () => 
     };
 
     //* Звук при переключении флага:
-    const isSoundPowerForToggleFlag: Ref<boolean> = settingsSwitchers.isSoundPowerForToggleFlag !== undefined ? toRef(settingsSwitchers, 'isSoundPowerForToggleFlag') : ref(settingsSwitchersDefault.isSoundPowerForToggleFlag);
+    const isSoundPowerForToggleFlag: Ref<boolean> = toRef(settingsSwitchers, 'isSoundPowerForToggleFlag');
+    if (isSoundPowerForToggleFlag.value === undefined) isSoundPowerForToggleFlag.value = settingsSwitchersDefault.isSoundPowerForToggleFlag;
 
     const setIsSoundPowerForToggleFlag = (): void => {
         isSoundPowerForToggleFlag.value = !isSoundPowerForToggleFlag.value;
