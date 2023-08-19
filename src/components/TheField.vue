@@ -9,6 +9,7 @@ import { sendActionIntoGoogleAnalytics } from '@/analytics/GoogleAnalytics';
 import { useFieldSizeStore } from '@/stores/fieldSize';
 import { useSettingsSwitchersStore } from '@/stores/settingsSwitchers';
 import { storeToRefs } from 'pinia';
+import { Sound } from '@/helpers/Sounds';
 
 const pressTouchScreenId: Ref<number> = ref(0);
 const wasFirstClick: Ref<boolean> = ref(false);
@@ -239,6 +240,7 @@ defineExpose({
 
 const toggleFlag = (clickedCell: Cell): void => {
   if (!clickedCell.isOpen && gameResult.value === 'indefined') {
+    Sound.play('flag', false);
     clickedCell.isFlag = !clickedCell.isFlag;
 
     if (clickedCell.isFlag) {
@@ -275,6 +277,7 @@ const openCell = (cellIndex: number): void => {
         || 
         (isFlagProtectsCellFromAccidentalClick.value && !clickedCell.isFlag)
       ) {
+        Sound.play('cell', false);
         clickedCell.isFlag = false;
         clickedCell.isOpen = true;
         clickedCell.isClicked = true;
@@ -287,6 +290,7 @@ const openCell = (cellIndex: number): void => {
             gameResult.value = 'won';
           }
         } else {
+          Sound.play('bomb', true);
           clickedCell.isMineExploded = true;
           gameResult.value = 'lost';
         }
