@@ -1,15 +1,15 @@
-import bomb from '@/assets/sounds/bomb.mp3';
+import explosion from '@/assets/sounds/explosion.mp3';
 import cell from '@/assets/sounds/cell.mp3';
 import flag from '@/assets/sounds/flag.mp3';
 
-type Action = 'bomb' | 'cell' | 'flag';
+type Action = 'explosion' | 'cell' | 'flag';
 
 type ActionObj<K extends string> = {
     [key in K]: string;
 };
 
 const actionObj: ActionObj<Action> = {
-    bomb,
+    explosion,
     cell,
     flag,
 };

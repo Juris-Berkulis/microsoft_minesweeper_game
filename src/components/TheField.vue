@@ -293,7 +293,7 @@ const openCell = (cellIndex: number): void => {
             gameResult.value = 'won';
           }
         } else {
-          Sound.play('bomb', isSoundPowerForExplosion.value);
+          Sound.play('explosion', isSoundPowerForExplosion.value);
           clickedCell.isMineExploded = true;
           gameResult.value = 'lost';
         }
