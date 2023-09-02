@@ -14,6 +14,7 @@ export const hu_HU: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `A cellák száma magasság szerint`,
     theFieldSize_probabilityOfMineAppearingInACell: `Aknák megjelenésének valószínűsége a cellában`,
     theFieldSize_save: `Megment`,
+    theFieldSize_btnResultInfo: `A terepi beállítások el lettek mentve`,
     theLanguageSelection_language: `Nyelv`,
     theLanguageSelection_changeTheLanguage: `Változás`,
     theLanguageSelection_cancel: `Mégse`,

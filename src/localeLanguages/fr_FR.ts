@@ -14,6 +14,7 @@ export const fr_FR: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Nombre de cellules en hauteur`,
     theFieldSize_probabilityOfMineAppearingInACell: `Probabilité le mien dans une cellule`,
     theFieldSize_save: `Sauvegarder`,
+    theFieldSize_btnResultInfo: `Les paramètres du champ ont été enregistrés`,
     theLanguageSelection_language: `Langue`,
     theLanguageSelection_changeTheLanguage: `Modifier`,
     theLanguageSelection_cancel: `Annuler`,

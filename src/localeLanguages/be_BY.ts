@@ -14,6 +14,7 @@ export const be_BY: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Колькасць клетак па вышыні`,
     theFieldSize_probabilityOfMineAppearingInACell: `Верагоднасць з'яўлення мін у вочку`,
     theFieldSize_save: `Захаваць`,
+    theFieldSize_btnResultInfo: `Параметры поля былі захаваны`,
     theLanguageSelection_language: `Мова`,
     theLanguageSelection_changeTheLanguage: `Змяніць`,
     theLanguageSelection_cancel: `Адмена`,

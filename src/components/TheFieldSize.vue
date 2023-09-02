@@ -27,6 +27,8 @@ const cellsCountInHeight: Ref<number> = ref(cellsCountInHeightDefault);
 const cellsCountInWidth: Ref<number> = ref(cellsCountInWidthDefault);
 const minesSpawnPercentage: Ref<number> = ref(minesSpawnPercentageDefault);
 
+const isFieldSettingsSaved: Ref<boolean> = ref(false);
+
 type InputTypes = 'height' | 'width' | 'minePercent';
 
 interface ValidResult {
@@ -48,6 +50,7 @@ const validateInputValue = (inputValue: string, inputType: InputTypes): ValidRes
             case 'height': result.isValid = cellsCountInHeightMin <= inputValueNumber && inputValueNumber <= cellsCountInHeightMax; break;
             case 'width': result.isValid = cellsCountInWidthMin <= inputValueNumber && inputValueNumber <= cellsCountInWidthMax; break;
             case 'minePercent': result.isValid = minesSpawnPercentageMin <= inputValueNumber && inputValueNumber <= minesSpawnPercentageMax; break;
+            default: const _: never = <ReturnType<typeof inputType>>inputType;
         }
     }
 
@@ -62,13 +65,17 @@ const setInput = (inputValue: string, inputType: InputTypes): string => {
             case 'height': cellsCountInHeight.value = value as number; break;
             case 'width': cellsCountInWidth.value = value as number; break;
             case 'minePercent': minesSpawnPercentage.value = value as number; break;
+            default: const _: never = <ReturnType<typeof inputType>>inputType;
         }
+
+        isFieldSettingsSaved.value = false;
     }
 
     switch (inputType) {
         case 'height': return cellsCountInHeight.value.toString()
         case 'width': return cellsCountInWidth.value.toString()
         case 'minePercent': return minesSpawnPercentage.value.toString()
+        default: const _: never = <ReturnType<typeof inputType>>inputType; return ''
     }
 };
 
@@ -80,6 +87,7 @@ const saveSettings = (): void => {
     };
 
     setFieldSettings(fieldSettings);
+    isFieldSettingsSaved.value = true;
 };
 
 </script>
@@ -134,6 +142,9 @@ const saveSettings = (): void => {
             <span class="btnCurtain btnCurtain_2"></span>
             <span class="btnText">{{ getTranslation('theFieldSize_save') }}</span>
         </button>
+        <div class="btnResultInfoContainer">
+            <p class="btnResultInfo" v-if="isFieldSettingsSaved">{{ getTranslation('theFieldSize_btnResultInfo') }}</p>
+        </div>
     </div>
 </form>
 </template>
@@ -167,13 +178,14 @@ const saveSettings = (): void => {
 }
 
 .btnWrapper {
+    margin: 10px 0 calc(15px + 1em);;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btn {
     position: relative;
-    margin: 10px 0;
     padding: 7px 17px;
     font-size: 1em;
     font-weight: 400;
@@ -226,5 +238,22 @@ const saveSettings = (): void => {
 .btnText {
     color: currentColor;
     pointer-events: none;
+}
+
+.btnResultInfoContainer {
+    position: relative;
+    width: 100%;
+}
+
+.btnResultInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    color: #008000;
 }
 </style>

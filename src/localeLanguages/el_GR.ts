@@ -14,6 +14,7 @@ export const el_GR: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Αριθμός κελιών κατά ύψος`,
     theFieldSize_probabilityOfMineAppearingInACell: `Η πιθανότητα εμφάνισης κάθε ορυχείου στο κελί`,
     theFieldSize_save: `Αποθηκεύσετε`,
+    theFieldSize_btnResultInfo: `Οι ρυθμίσεις πεδίου έχουν αποθηκευτεί`,
     theLanguageSelection_language: `Γλώσσα`,
     theLanguageSelection_changeTheLanguage: `Αλλαγή`,
     theLanguageSelection_cancel: `Ματαίωση`,

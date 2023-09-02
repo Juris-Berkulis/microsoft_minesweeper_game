@@ -14,6 +14,7 @@ export const zh_Hans_CN: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `高度的单元格数量`,
     theFieldSize_probabilityOfMineAppearingInACell: `单元格中每个地雷出现的概率`,
     theFieldSize_save: `节省`,
+    theFieldSize_btnResultInfo: `字段设置已保存`,
     theLanguageSelection_language: `语言`,
     theLanguageSelection_changeTheLanguage: `改变`,
     theLanguageSelection_cancel: `取消`,

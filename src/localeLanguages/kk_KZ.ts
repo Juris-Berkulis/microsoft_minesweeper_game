@@ -14,6 +14,7 @@ export const kk_KZ: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Биіктігі бойынша ұяшықтар саны`,
     theFieldSize_probabilityOfMineAppearingInACell: `Ұяшықтағы әрбір шахтаның ықтималдығы`,
     theFieldSize_save: `Сақтау`,
+    theFieldSize_btnResultInfo: `Өріс параметрлері сақталды`,
     theLanguageSelection_language: `Тіл`,
     theLanguageSelection_changeTheLanguage: `Өзгерту`,
     theLanguageSelection_cancel: `Болдырмау`,

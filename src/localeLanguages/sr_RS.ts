@@ -14,6 +14,7 @@ export const sr_RS: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Број ћелија у висини`,
     theFieldSize_probabilityOfMineAppearingInACell: `Вероватноћа појаве мина у ћелији`,
     theFieldSize_save: `Сачувати`,
+    theFieldSize_btnResultInfo: `Подешавања поља су сачувана`,
     theLanguageSelection_language: `Језик`,
     theLanguageSelection_changeTheLanguage: `Промена`,
     theLanguageSelection_cancel: `Отказати`,

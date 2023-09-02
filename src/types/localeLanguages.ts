@@ -12,6 +12,7 @@ export interface KitOfTranslatedWords {
     theFieldSize_numberOfCellsInHeight: string,
     theFieldSize_probabilityOfMineAppearingInACell: string,
     theFieldSize_save: string,
+    theFieldSize_btnResultInfo: string,
     theLanguageSelection_language: string,
     theLanguageSelection_changeTheLanguage: string,
     theLanguageSelection_cancel: string,

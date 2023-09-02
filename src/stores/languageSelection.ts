@@ -18,7 +18,8 @@ export const useLanguageSelectionStore = defineStore('languageSelection', () => 
     };
 
     const getTranslation = (phrase: keyof KitOfTranslatedWords): string => {
-        return allKitsOfTranslatedWords[selectedLanguage.value.locale][phrase]
+        return allKitsOfTranslatedWords[selectedLanguage.value.locale][phrase] 
+            || allKitsOfTranslatedWords['en_GB'][phrase]
     };
 
     watchEffect(() => {

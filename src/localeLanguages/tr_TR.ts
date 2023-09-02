@@ -14,6 +14,7 @@ export const tr_TR: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Yüksekliğe göre hücre sayısı`,
     theFieldSize_probabilityOfMineAppearingInACell: `Bir hücrede mayın görünme olasılığı`,
     theFieldSize_save: `Kaydet`,
+    theFieldSize_btnResultInfo: `Saha ayarları kaydedildi`,
     theLanguageSelection_language: `Dil`,
     theLanguageSelection_changeTheLanguage: `Değiştir`,
     theLanguageSelection_cancel: `İptal`,

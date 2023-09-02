@@ -14,6 +14,7 @@ export const hi_IN: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `ऊंचाई के अनुसार कोशिकाओं की संख्या`,
     theFieldSize_probabilityOfMineAppearingInACell: `सेल में प्रत्येक खदान के प्रकट होने की संभावना`,
     theFieldSize_save: `बचाना`,
+    theFieldSize_btnResultInfo: `फील्ड सेटिंग सहेज ली गई है`,
     theLanguageSelection_language: `भाषा`,
     theLanguageSelection_changeTheLanguage: `परिवर्तन`,
     theLanguageSelection_cancel: `रद्द करना`,

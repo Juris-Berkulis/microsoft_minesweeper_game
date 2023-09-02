@@ -14,6 +14,7 @@ export const ru_RU: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: `Количество клеток в высоту`,
     theFieldSize_probabilityOfMineAppearingInACell: `Вероятность появления мин в ячейке`,
     theFieldSize_save: `Сохранить`,
+    theFieldSize_btnResultInfo: `Параметры поля сохранены`,
     theLanguageSelection_language: `Язык`,
     theLanguageSelection_changeTheLanguage: `Изменить`,
     theLanguageSelection_cancel: `Отмена`,

@@ -14,6 +14,7 @@ export const es_ES: KitOfTranslatedWords = {
     theFieldSize_numberOfCellsInHeight: 'Número de celdas en altura',
     theFieldSize_probabilityOfMineAppearingInACell: 'Probabilidad de mina en una celda',
     theFieldSize_save: 'Guardar',
+    theFieldSize_btnResultInfo: `La configuración del campo se ha guardado`,
     theLanguageSelection_language: 'Idioma',
     theLanguageSelection_changeTheLanguage: 'Cambiar',
     theLanguageSelection_cancel: 'Cancelar',
