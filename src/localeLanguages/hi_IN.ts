@@ -21,7 +21,7 @@ export const hi_IN: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `अधिसूचना`,
     theServiceWorkerMessage_ok: `जुर्माना`,
     theServiceWorkerMessage_updatesInstalled: `अद्यतन स्थापित! नवीनतम अपडेट लागू करने के लिए ऐप को बंद करें और फिर से खोलें।`,
-    theServiceWorkerMessage_appSavedForOffline: `ऐप ऑफ़लाइन उपयोग के लिए स्वचालित रूप से सहेजा गया है!`,
+    theServiceWorkerMessage_appSavedForOffline: `सैपर गेम इंटरनेट के बिना काम कर सकता है!`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `सैपर एप्लिकेशन सफलतापूर्वक इंस्टॉल हो गया है!`,
     theSettingsSwitchers_vibrationForFlags: `झंडे लगाते और हटाते समय कंपन`,
     theSettingsSwitchers_vibrationForFlags_message: `केवल उन उपकरणों पर काम करता है जिनमें कंपन होता है (डिवाइस सेटिंग्स में कंपन सक्रिय होना चाहिए)।`,

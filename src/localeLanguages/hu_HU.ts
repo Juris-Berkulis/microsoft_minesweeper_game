@@ -21,7 +21,7 @@ export const hu_HU: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `Értesítés`,
     theServiceWorkerMessage_ok: `Bírság`,
     theServiceWorkerMessage_updatesInstalled: `Frissítések telepítve! A legújabb frissítések alkalmazásához zárja be, majd nyissa meg újra az alkalmazást.`,
-    theServiceWorkerMessage_appSavedForOffline: `Az alkalmazás automatikusan mentésre került offline használatra!`,
+    theServiceWorkerMessage_appSavedForOffline: `Az Minesweeper játék működhet internet nélkül is!`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `A Minesweeper alkalmazás sikeresen telepítve!`,
     theSettingsSwitchers_vibrationForFlags: `Rezgés zászlók beállításakor és eltávolításakor`,
     theSettingsSwitchers_vibrationForFlags_message: `Csak rezgéses eszközökön működik (a rezgést aktiválni kell az eszköz beállításaiban).`,

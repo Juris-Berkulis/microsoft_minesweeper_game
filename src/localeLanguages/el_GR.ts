@@ -21,7 +21,7 @@ export const el_GR: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `Γνωστοποίηση`,
     theServiceWorkerMessage_ok: `Πρόστιμο`,
     theServiceWorkerMessage_updatesInstalled: `Εγκαταστάθηκαν ενημερώσεις! Κλείστε και ανοίξτε ξανά την εφαρμογή για να εφαρμόσετε τις πιο πρόσφατες ενημερώσεις.`,
-    theServiceWorkerMessage_appSavedForOffline: `Η εφαρμογή έχει αποθηκευτεί αυτόματα για χρήση εκτός σύνδεσης!`,
+    theServiceWorkerMessage_appSavedForOffline: `Το παιχνίδι Ναρκοσυλλέκτης μπορεί να λειτουργήσει χωρίς το Διαδίκτυο!`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `Η εφαρμογή Ναρκοσυλλέκτης εγκαταστάθηκε με επιτυχία!`,
     theSettingsSwitchers_vibrationForFlags: `Δόνηση κατά τη ρύθμιση και αφαίρεση σημαιών`,
     theSettingsSwitchers_vibrationForFlags_message: `Λειτουργεί μόνο σε συσκευές που έχουν δόνηση (η δόνηση πρέπει να είναι ενεργοποιημένη στις ρυθμίσεις της συσκευής).`,

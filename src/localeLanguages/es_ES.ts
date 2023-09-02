@@ -21,7 +21,7 @@ export const es_ES: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: 'Aviso',
     theServiceWorkerMessage_ok: 'Bueno',
     theServiceWorkerMessage_updatesInstalled: '¡Actualizaciones instaladas! Cierre y vuelva a abrir la aplicación para aplicar las últimas actualizaciones.',
-    theServiceWorkerMessage_appSavedForOffline: '¡La aplicación se ha guardado automáticamente para su uso sin conexión!',
+    theServiceWorkerMessage_appSavedForOffline: '¡El juego "Buscaminas" puede funcionar sin Internet!',
     theServiceWorkerMessage_appSuccessfullyInstalled: '¡La aplicación "Buscaminas" se ha instalado correctamente!',
     theSettingsSwitchers_vibrationForFlags: 'Vibración al configurar y quitar banderas',
     theSettingsSwitchers_vibrationForFlags_message: 'Funciona solo en dispositivos que tienen vibración (la vibración debe estar activada en la configuración del dispositivo).',

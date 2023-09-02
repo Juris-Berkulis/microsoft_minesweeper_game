@@ -21,7 +21,7 @@ export const it_IT: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `Notifica`,
     theServiceWorkerMessage_ok: `Bene`,
     theServiceWorkerMessage_updatesInstalled: `Aggiornamenti installati! Chiudi e riapri l'app per applicare gli ultimi aggiornamenti.`,
-    theServiceWorkerMessage_appSavedForOffline: `L'applicazione è stata salvata automaticamente per l'utilizzo offline!`,
+    theServiceWorkerMessage_appSavedForOffline: `Il gioco "Campo minato" può funzionare senza Internet!`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `L'applicazione "Campo minato" è stata installata con successo!`,
     theSettingsSwitchers_vibrationForFlags: `Vibrazione durante l'impostazione e la rimozione dei flag`,
     theSettingsSwitchers_vibrationForFlags_message: `Funziona solo su dispositivi dotati di vibrazione (la vibrazione deve essere attivata nelle impostazioni del dispositivo).`,

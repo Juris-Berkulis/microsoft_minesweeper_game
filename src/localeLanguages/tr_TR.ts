@@ -21,7 +21,7 @@ export const tr_TR: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `Bildirim`,
     theServiceWorkerMessage_ok: `İyi`,
     theServiceWorkerMessage_updatesInstalled: `Güncellemeleri yüklendi! En son güncellemeleri uygulamak için uygulamayı kapatın ve yeniden açın.`,
-    theServiceWorkerMessage_appSavedForOffline: `Uygulama, çevrimdışı kullanım için otomatik olarak kaydedildi!`,
+    theServiceWorkerMessage_appSavedForOffline: `"Mayın Tarlası" oyunu internet olmadan da çalışabilir!`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `"Mayın Tarlası" uygulaması başarıyla kuruldu!`,
     theSettingsSwitchers_vibrationForFlags: `Bayrakları ayarlarken ve kaldırırken titreşim`,
     theSettingsSwitchers_vibrationForFlags_message: `Yalnızca titreşime sahip cihazlarda çalışır (cihaz ayarlarında titreşim etkinleştirilmelidir).`,

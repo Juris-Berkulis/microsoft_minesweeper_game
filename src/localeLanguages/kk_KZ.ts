@@ -21,7 +21,7 @@ export const kk_KZ: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `Хабарландыру`,
     theServiceWorkerMessage_ok: `Жақсы`,
     theServiceWorkerMessage_updatesInstalled: `Жаңартулар орнатылды! Соңғы жаңартуларды қолдану үшін қолданбаны жауып, қайта ашыңыз.`,
-    theServiceWorkerMessage_appSavedForOffline: `Қолданба офлайн режимде пайдалану үшін автоматты түрде сақталды!`,
+    theServiceWorkerMessage_appSavedForOffline: `Oйыны "Сапёр" Интернетсіз жұмыс істей алады!`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `Қолданбасы "Сапёр" сәтті орнатылды!`,
     theSettingsSwitchers_vibrationForFlags: `Жалаушаларды орнату және жою кезіндегі діріл`,
     theSettingsSwitchers_vibrationForFlags_message: `Тек дірілі бар құрылғыларда жұмыс істейді (діріл құрылғы параметрлерінде белсендірілуі керек).`,

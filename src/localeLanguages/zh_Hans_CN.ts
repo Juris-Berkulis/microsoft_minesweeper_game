@@ -21,7 +21,7 @@ export const zh_Hans_CN: KitOfTranslatedWords = {
     theServiceWorkerMessage_notificationTitle: `通知`,
     theServiceWorkerMessage_ok: `罚金`,
     theServiceWorkerMessage_updatesInstalled: `已安装更新！ 关闭并重新打开应用程序以应用最新更新。`,
-    theServiceWorkerMessage_appSavedForOffline: `该应用程序已自动保存以供离线使用！`,
+    theServiceWorkerMessage_appSavedForOffline: `掃雷游戏可以在没有互联网的情况下运行！`,
     theServiceWorkerMessage_appSuccessfullyInstalled: `掃雷应用程序已成功安装！`,
     theSettingsSwitchers_vibrationForFlags: `设置和移除标志时振动`,
     theSettingsSwitchers_vibrationForFlags_message: `仅适用于有振动的设备（必须在设备设置中激活振动）。`,
