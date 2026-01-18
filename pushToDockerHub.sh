@@ -56,24 +56,24 @@ docker build -t $APP_NAME .
 
 # 4. Тегирование несколькими способами
 echo "Тегирование Docker-образа..."
-docker tag $APP_NAME $IMAGE_NAME:$VERSION
 
 # Если есть git hash, тегируем и его
 if [ -n "$GIT_HASH" ]; then
     docker tag $APP_NAME $IMAGE_NAME:$VERSION-$GIT_HASH
 fi
 
+docker tag $APP_NAME $IMAGE_NAME:$VERSION
 docker tag $APP_NAME $IMAGE_NAME:latest
 
 # 5. Пуш
 echo "Загрузка на Docker Hub..."
-docker push $IMAGE_NAME:$VERSION
 
 # Если есть git hash, пушим и его
 if [ -n "$GIT_HASH" ]; then
     docker push $IMAGE_NAME:$VERSION-$GIT_HASH
 fi
 
+docker push $IMAGE_NAME:$VERSION
 docker push $IMAGE_NAME:latest
 
 # 6. Очистка старых образов (без вывода ошибок)
@@ -112,10 +112,12 @@ docker images | grep -E "($APP_NAME|$IMAGE_NAME)" | head -10
 
 echo ""
 echo "📦 Образы доступны на Docker Hub:"
-echo "   docker pull $IMAGE_NAME:$VERSION"
+
 if [ -n "$GIT_HASH" ]; then
     echo "   docker pull $IMAGE_NAME:$VERSION-$GIT_HASH"
 fi
+
+echo "   docker pull $IMAGE_NAME:$VERSION"
 echo "   docker pull $IMAGE_NAME:latest"
 
 # 9. Сохранение информации о деплое в файл
