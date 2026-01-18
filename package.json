@@ -10,10 +10,11 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "get_date": "node src\\helpers\\getDate.js",
     "copy_index_as_200": "copy dist\\index.html dist\\200.html",
+    "push_to_dockerhub": "bash pushToDockerHub.sh",
     "deploy_to_netlify": "netlify deploy --dir=dist --prod && netlify sites:list && netlify status",
     "deploy_to_vercel": "vercel --prod && vercel list",
     "deploy_to_surge": "npm run copy_index_as_200 && surge --project ./dist --domain https://custom-minesweeper.surge.sh && surge list",
-    "deploy": "npm run build && npm run deploy_to_netlify && npm run deploy_to_vercel && npm run deploy_to_surge && npm run get_date",
+    "deploy": "npm run build && npm run deploy_to_netlify && npm run deploy_to_vercel && npm run deploy_to_surge && npm run get_date && push_to_dockerhub",
     "deploy_preview": "npm run build && npm run deploy_to_surge",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
